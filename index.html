@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CommandMC Recruiting Pipeline</title>
+<style>
+  :root {
+    /* Command MC palette — sampled from the live UI */
+    --cmd-navy:    #1F2C3E;  /* top nav, dark chrome */
+    --cmd-navy-dk: #15212F;
+    --cmd-teal:    #00B5B0;  /* primary accent: tab underlines, buttons, links */
+    --cmd-teal-dk: #008F8B;
+    --cmd-teal-soft: #E0F5F4;
+    --kw-red:      #CE011F;  /* KW brand mark — used sparingly */
+    --kw-red-soft: #FDECEE;
+
+    --ink:    #2D2D2D;
+    --muted:  #5B6670;
+    --hint:   #828282;
+    --line:   #E5E7EA;
+    --line-soft: #F0F2F4;
+    --paper:  #FFFFFF;
+    --bg:     #F5F6F7;
+
+    /* legacy aliases — keep working without rewriting every rule */
+    --navy:    var(--cmd-navy);
+    --navy-dk: var(--cmd-navy-dk);
+
+    /* Phase tint palette — neutral grays with the Committed phase taking
+       the teal accent (matches how Command MC uses teal to denote action
+       and progress in the live board). */
+    --active-fill: #F0F3F6;  --active-head: #A8B5C2;  --active-text: #1F2C3E;
+    --appt-fill:   #E5EAEF;  --appt-head:   #7A8898;  --appt-text:   #1F2C3E;
+    --cult-fill:   #D6DDE3;  --cult-head:   #4F5B69;  --cult-text:   #15212F;
+    --comm-fill:   #E0F5F4;  --comm-head:   #00B5B0;  --comm-text:   #006D6A;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 1180px; margin: 0 auto; padding: 0 28px 80px; }
+
+  header {
+    background: var(--cmd-navy);
+    color: #fff;
+    padding: 38px 0 34px;
+    margin-bottom: 34px;
+    border-bottom: 3px solid var(--cmd-teal);
+    position: relative;
+  }
+  header::before {
+    /* small KW red accent strip on the left — echoes the red KW logo block in Command MC */
+    content: "";
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 6px; background: var(--kw-red);
+  }
+  .head-inner { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+  .eyebrow {
+    font-size: 11.5px; letter-spacing: 2.4px; text-transform: uppercase;
+    color: var(--cmd-teal); font-weight: 700; margin-bottom: 10px;
+  }
+  header h1 { font-size: 30px; font-weight: 700; letter-spacing: -0.4px; }
+  header .sub {
+    font-size: 14.5px; color: #c8d0d8; margin-top: 8px; max-width: 720px;
+  }
+
+  .strip {
+    display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 34px;
+  }
+  .strip .stat {
+    flex: 1; min-width: 150px; background: var(--paper);
+    border: 1px solid var(--line); border-left: 3px solid var(--cmd-teal);
+    border-radius: 6px;
+    padding: 16px 18px;
+  }
+  .strip .num { font-size: 26px; font-weight: 700; color: var(--cmd-navy); letter-spacing: -0.3px; }
+  .strip .lbl { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  .section-intro {
+    background: var(--paper); border: 1px solid var(--line); border-radius: 10px;
+    padding: 18px 22px; margin-bottom: 26px;
+  }
+  .section-intro h3 {
+    font-size: 14px; color: var(--navy); margin-bottom: 6px; font-weight: 700;
+  }
+  .section-intro p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .section-intro code {
+    font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+    font-size: 11.5px; background: var(--bg); color: var(--navy);
+    padding: 1px 6px; border-radius: 4px; font-weight: 600;
+  }
+
+  .toolbar {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 14px; margin-bottom: 18px;
+  }
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; }
+  .legend span { display: flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--muted); }
+  .sw { width: 13px; height: 13px; border-radius: 3px; }
+  .controls { display: flex; gap: 8px; }
+  .btn {
+    font: inherit; font-size: 12.5px; font-weight: 600;
+    border: 1px solid var(--line); background: var(--paper); color: var(--cmd-teal);
+    padding: 7px 14px; border-radius: 7px; cursor: pointer;
+    transition: all .15s;
+  }
+  .btn:hover { border-color: var(--cmd-teal); background: var(--cmd-teal-soft); }
+
+  .board { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  @media (max-width: 900px) { .board { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .board { grid-template-columns: 1fr; } }
+
+  .phase-head {
+    border-radius: 9px; padding: 11px 14px; margin-bottom: 10px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .phase-name { font-size: 14.5px; font-weight: 700; }
+  .phase-count {
+    font-size: 12.5px; font-weight: 700; padding: 2px 11px;
+    border-radius: 11px; background: rgba(255,255,255,0.6);
+  }
+  .phase-kicker {
+    font-size: 11px; color: var(--hint); text-transform: uppercase;
+    letter-spacing: 1px; font-weight: 700; margin: 0 2px 6px;
+  }
+
+  .stage {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: 9px; margin-bottom: 9px; overflow: hidden;
+  }
+  .stage-bar {
+    display: flex; align-items: center; gap: 8px;
+    padding: 11px 12px; cursor: pointer; user-select: none;
+  }
+  .stage-bar:hover { background: var(--line-soft); }
+  .stage-accent { width: 3px; align-self: stretch; border-radius: 2px; flex-shrink: 0; }
+  .stage-main { flex: 1; min-width: 0; }
+  .stage-name { font-size: 13px; font-weight: 700; color: var(--ink); }
+  .stage-tag {
+    display: inline-block; font-size: 10px; font-weight: 700;
+    padding: 1px 7px; border-radius: 4px; margin-top: 3px;
+    background: var(--bg); color: var(--muted);
+  }
+  .chev {
+    font-size: 16px; color: var(--hint); flex-shrink: 0;
+    transition: transform .18s ease;
+  }
+  .stage.open .chev { transform: rotate(90deg); }
+
+  .body { display: none; padding: 4px 12px 13px 18px; }
+  .stage.open .body { display: block; }
+  .clabel {
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.8px;
+    text-transform: uppercase; color: var(--hint); margin: 6px 0 5px;
+  }
+  .citem { display: flex; gap: 8px; padding: 3px 0; align-items: flex-start; }
+  .cbox {
+    width: 13px; height: 13px; border: 1.4px solid var(--muted);
+    border-radius: 3px; flex-shrink: 0; margin-top: 2px;
+  }
+  .ctext { font-size: 12px; line-height: 1.45; color: var(--muted); }
+  .exit {
+    margin-top: 9px; padding-top: 8px; border-top: 1px solid var(--line-soft);
+    font-size: 11px; color: var(--hint);
+  }
+  .exit b { color: var(--muted); font-weight: 700; }
+
+  .rules {
+    margin-top: 40px; background: var(--paper);
+    border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px;
+  }
+  .rules h2 {
+    font-size: 16px; color: var(--navy); margin-bottom: 4px;
+  }
+  .rules .rsub { font-size: 12.5px; color: var(--muted); margin-bottom: 16px; }
+  .rule-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px 26px;
+  }
+  @media (max-width: 640px) { .rule-grid { grid-template-columns: 1fr; } }
+  .rule { display: flex; gap: 10px; align-items: flex-start; }
+  .rule .pin {
+    font-size: 10.5px; font-weight: 700; color: #fff; background: var(--navy);
+    border-radius: 5px; padding: 2px 7px; flex-shrink: 0; margin-top: 1px;
+  }
+  .rule .rtext { font-size: 12.5px; color: var(--ink); }
+  .rule .rtext b { color: var(--cmd-navy); }
+
+  footer {
+    margin-top: 30px; text-align: center;
+    font-size: 11.5px; color: var(--hint);
+  }
+
+  @media print {
+    body { background: #fff; }
+    .controls { display: none; }
+    .stage .body { display: block !important; }
+    .chev { display: none; }
+    .stage, .rules, .strip .stat, .section-intro { break-inside: avoid; }
+    header { padding: 24px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="head-inner">
+    <div class="eyebrow">KW Command &middot; Market Center View</div>
+    <h1>Recruiting Pipeline &mdash; Stages &amp; Checklists</h1>
+    <div class="sub">A clean, four-phase recruiting pipeline for Command Market Center. Twelve stages, each with a defined checklist and exit criteria &mdash; built to keep the pipeline simple, every recruit moving, and the structure consistent across the Market Center and the Business Centers it powers.</div>
+  </div>
+</header>
+
+<div class="page">
+
+  <div class="strip">
+    <div class="stat"><div class="num">4</div><div class="lbl">Fixed phases</div></div>
+    <div class="stat"><div class="num">12</div><div class="lbl">Stages total</div></div>
+    <div class="stat"><div class="num">1 &rarr; 7</div><div class="lbl">Checklist items per stage</div></div>
+    <div class="stat"><div class="num">10</div><div class="lbl">Laws governing the pipeline</div></div>
+  </div>
+
+  <div class="section-intro">
+    <h3>Office segmentation &mdash; one pipeline, multiple markets</h3>
+    <p>Each Market Center powers one or more Business Centers (for example, MC Waco powers BC Temple). Command provides one pipeline interface per Market Center, so segmentation happens through <b>mandatory office tags</b> applied at the Recruit Lead stage &mdash; not through duplicate stages. Tags name the office directly: <code>MC - Waco</code>, <code>BC - Temple</code>, and so on. The Office tag drives SmartViews; the Assignee field identifies the recruiter. One clean pipeline structure across all offices, with side-by-side reporting via SmartViews.</p>
+  </div>
+
+  <div class="toolbar">
+    <div class="legend">
+      <span><span class="sw" style="background:var(--active-head)"></span>Active Recruit</span>
+      <span><span class="sw" style="background:var(--appt-head)"></span>Appointment</span>
+      <span><span class="sw" style="background:var(--cult-head)"></span>Cultivate</span>
+      <span><span class="sw" style="background:var(--comm-head)"></span>Committed</span>
+    </div>
+    <div class="controls">
+      <button class="btn" onclick="setAll(true)">Expand all</button>
+      <button class="btn" onclick="setAll(false)">Collapse all</button>
+      <button class="btn" onclick="window.print()">Print</button>
+    </div>
+  </div>
+
+  <div class="board" id="board">
+<div class="phase-col">
+<div class="phase-kicker">Heat Seeker / MLS / events / SOI</div>
+<div class="phase-head" style="background:var(--active-fill)"><span class="phase-name" style="color:var(--active-text)">Active Recruit</span><span class="phase-count" style="color:var(--active-text)">Phase 1</span></div>
+<div class="stage open" id="s0_0"><div class="stage-bar" onclick="toggle('s0_0')"><div class="stage-accent" style="background:var(--active-head)"></div><div class="stage-main"><div class="stage-name">1.1 Recruit Lead</div><span class="stage-tag">Unworked</span></div><div class="chev">&#8250;</div></div><div class="body"><div class="clabel">Checklist</div><div class="citem"><div class="cbox"></div><div class="ctext">Office tag applied (MC or BC with office name)</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Production data pulled (12-month units + volume)</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Current brokerage identified</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Source tagged (Heat Seeker / MLS / referral / event / SOI)</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Phone, email, and one social channel captured</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Assignee set</div></div><div class="citem"><div class="cbox"></div><div class="ctext">First task scheduled</div></div><div class="exit"><b>Exit:</b> First live contact attempted &rarr; 1.2</div></div></div>
+<div class="stage open" id="s0_1"><div class="stage-bar" onclick="toggle('s0_1')"><div class="stage-accent" style="background:var(--active-head)"></div><div class="stage-main"><div class="stage-name">1.2 Contacted / Working</div><span class="stage-tag">Active</span></div><div class="chev">&#8250;</div></div><div class="body"><div class="clabel">Checklist</div><div class="citem"><div class="cbox"></div><div class="ctext">First contact logged (call / text / video / in-person)</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Discovery question asked</div></div><div class="citem"><div class="cbox"></div><div class="ctext">At least one Item of Value delivered</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Motivation and current situation captured in notes</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Objections documented in notes</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Next task set (weekly cadence)</div></div><div class="exit"><b>Exit:</b> Warm but not ready &rarr; 1.3 &nbsp;|&nbsp; Date confirmed &rarr; Phase 2</div></div></div>
+<div class="stage open" id="s0_2"><div class="stage-bar" onclick="toggle('s0_2')"><div class="stage-accent" style="background:var(--active-head)"></div><div class="stage-main"><div class="stage-name">1.3 Nurture</div><span class="stage-tag">Long-game</span></div><div class="chev">&#8250;</div></div><div class="body"><div class="clabel">Checklist</div><div class="citem"><div class="cbox"></div><div class="ctext">Reason for &lsquo;not now&rsquo; documented in notes</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Re-engagement window noted (30 / 60 / 90 days)</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Added to long-form value campaign</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Next task set</div></div><div class="exit"><b>Exit:</b> Re-engages &rarr; 1.2 &nbsp;|&nbsp; Agrees to meet &rarr; Phase 2</div></div></div>
+<div class="stage open" id="s0_3"><div class="stage-bar" onclick="toggle('s0_3')"><div class="stage-accent" style="background:var(--active-head)"></div><div class="stage-main"><div class="stage-name">1.4 Attended Career Night</div><span class="stage-tag">Event</span></div><div class="chev">&#8250;</div></div><div class="body"><div class="clabel">Checklist</div><div class="citem"><div class="cbox"></div><div class="ctext">Event and date logged</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Personal follow-up within 24 hours (call or text)</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Specific takeaway referenced in follow-up</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Appointment offered within 7 days</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Next task set</div></div><div class="exit"><b>Exit:</b> 7-day max &rarr; Phase 2 or back to 1.3</div></div></div>
+<div class="stage open" id="s0_4"><div class="stage-bar" onclick="toggle('s0_4')"><div class="stage-accent" style="background:var(--active-head)"></div><div class="stage-main"><div class="stage-name">1.5 Recruit Unlicensed</div><span class="stage-tag">Optional</span></div><div class="chev">&#8250;</div></div><div class="body"><div class="clabel">Checklist</div><div class="citem"><div class="cbox"></div><div class="ctext">License timeline captured</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Expected exam or start date noted</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Career Night + KW Career Launch info sent</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Mentor / KSCORE contact assigned</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Next task tied to a license milestone</div></div><div class="exit"><b>Exit:</b> License obtained &rarr; Phase 2</div></div></div>
+</div>
+<div class="phase-col">
+<div class="phase-kicker">Closer-led</div>
+<div class="phase-head" style="background:var(--appt-fill)"><span class="phase-name" style="color:var(--appt-text)">Appointment</span><span class="phase-count" style="color:var(--appt-text)">Phase 2</span></div>
+<div class="stage open" id="s1_0"><div class="stage-bar" onclick="toggle('s1_0')"><div class="stage-accent" style="background:var(--appt-head)"></div><div class="stage-main"><div class="stage-name">2.1 Appointment Set</div><span class="stage-tag">Booked</span></div><div class="chev">&#8250;</div></div><div class="body"><div class="clabel">Checklist</div><div class="citem"><div class="cbox"></div><div class="ctext">Calendar invite sent and accepted</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Confirmation touch sent before the appointment</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Production data pulled and prepared</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Personalized recruiting presentation prepared</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Hypothesis written: what does this agent need?</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Pre-appointment Item of Value sent</div></div><div class="exit"><b>Exit:</b> Shows &rarr; 2.2 &nbsp;|&nbsp; No-show &rarr; 1.2 (tagged)</div></div></div>
+<div class="stage open" id="s1_1"><div class="stage-bar" onclick="toggle('s1_1')"><div class="stage-accent" style="background:var(--appt-head)"></div><div class="stage-main"><div class="stage-name">2.2 Appointment Held</div><span class="stage-tag">7-day max</span></div><div class="chev">&#8250;</div></div><div class="body"><div class="clabel">Checklist</div><div class="citem"><div class="cbox"></div><div class="ctext">Appointment notes logged (motivation, situation, objections)</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Value proposition walked through line by line</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Direct close attempted</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Homework given (spouse / partner review)</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Projected Join date discussed and entered</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Next concrete step on calendar before they leave</div></div><div class="exit"><b>Exit:</b> Yes-in-principle &rarr; Cultivate &nbsp;|&nbsp; Yes &rarr; Committed</div></div></div>
+</div>
+<div class="phase-col">
+<div class="phase-kicker">Objection handling</div>
+<div class="phase-head" style="background:var(--cult-fill)"><span class="phase-name" style="color:var(--cult-text)">Cultivate</span><span class="phase-count" style="color:var(--cult-text)">Phase 3</span></div>
+<div class="stage open" id="s2_0"><div class="stage-bar" onclick="toggle('s2_0')"><div class="stage-accent" style="background:var(--cult-head)"></div><div class="stage-main"><div class="stage-name">3.1 Working the Plan</div><span class="stage-tag">30-day touch</span></div><div class="chev">&#8250;</div></div><div class="body"><div class="clabel">Checklist</div><div class="citem"><div class="cbox"></div><div class="ctext">Specific objection(s) documented in notes</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Objection handler approach noted on card</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Move date selected, worked backwards</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Counter-offer scenario prepped</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Projected Join date entered</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Logged interaction within 30 days</div></div><div class="exit"><b>Exit:</b> Paperwork moving &rarr; 3.2 &nbsp;|&nbsp; Backs out &rarr; 1.3</div></div></div>
+<div class="stage open" id="s2_1"><div class="stage-bar" onclick="toggle('s2_1')"><div class="stage-accent" style="background:var(--cult-head)"></div><div class="stage-main"><div class="stage-name">3.2 Paperwork in Motion</div><span class="stage-tag">Signing soon</span></div><div class="chev">&#8250;</div></div><div class="body"><div class="clabel">Checklist</div><div class="citem"><div class="cbox"></div><div class="ctext">ICA / transfer paperwork sent</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Board / MLS transfer initiated</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Start date locked</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Welcome plan and onboarding owner assigned</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Announcement plan drafted</div></div><div class="exit"><b>Exit:</b> Paperwork signed &rarr; Phase 4</div></div></div>
+</div>
+<div class="phase-col">
+<div class="phase-kicker">Retention starts day 1</div>
+<div class="phase-head" style="background:var(--comm-fill)"><span class="phase-name" style="color:var(--comm-text)">Committed</span><span class="phase-count" style="color:var(--comm-text)">Phase 4</span></div>
+<div class="stage open" id="s3_0"><div class="stage-bar" onclick="toggle('s3_0')"><div class="stage-accent" style="background:var(--comm-head)"></div><div class="stage-main"><div class="stage-name">4.1 Signed / Pre-Start</div><span class="stage-tag">Onboarding</span></div><div class="chev">&#8250;</div></div><div class="body"><div class="clabel">Checklist</div><div class="citem"><div class="cbox"></div><div class="ctext">ICA, W-9, and license transfer filed</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Board / MLS / Supra eKEY applications submitted</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Command access and KW email created</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Headshot and bio collected</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Office tour scheduled</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Day-1 calendar built</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Announcement scheduled</div></div><div class="exit"><b>Exit:</b> Start date arrives &rarr; 4.2</div></div></div>
+<div class="stage open" id="s3_1"><div class="stage-bar" onclick="toggle('s3_1')"><div class="stage-accent" style="background:var(--comm-head)"></div><div class="stage-main"><div class="stage-name">4.2 Onboarding (Days 1-30)</div><span class="stage-tag">Retention</span></div><div class="chev">&#8250;</div></div><div class="body"><div class="clabel">Checklist</div><div class="citem"><div class="cbox"></div><div class="ctext">Day 1: tour, staff intros, ICA review</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Tech setup complete (Command, MLS, eKEY)</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Mentor assigned and first 1:1 booked within 7 days</div></div><div class="citem"><div class="cbox"></div><div class="ctext">First training plotted on the calendar (Ignite or equivalent)</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Database upload to Command initiated</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Personal welcome from TL (coffee or meal)</div></div><div class="citem"><div class="cbox"></div><div class="ctext">30-day check-in on TL calendar</div></div><div class="exit"><b>Exit:</b> 30 clean days &rarr; 4.3</div></div></div>
+<div class="stage open" id="s3_2"><div class="stage-bar" onclick="toggle('s3_2')"><div class="stage-accent" style="background:var(--comm-head)"></div><div class="stage-main"><div class="stage-name">4.3 Productive / Active Associate</div><span class="stage-tag">Graduated</span></div><div class="chev">&#8250;</div></div><div class="body"><div class="clabel">Checklist</div><div class="citem"><div class="cbox"></div><div class="ctext">First lead-gen activity logged</div></div><div class="citem"><div class="cbox"></div><div class="ctext">First listing or buyer agreement (or 30 days of script training)</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Plugged into a coaching rhythm</div></div><div class="citem"><div class="cbox"></div><div class="ctext">Moved to the Associate view</div></div><div class="exit"><b>Exit:</b> Exits pipeline &rarr; active MC associate</div></div></div>
+</div>
+</div>
+
+  <div class="rules">
+    <h2>Pipeline guardrails</h2>
+    <div class="rsub">Drawn from the Command Market Center Laws of the Pipeline and Full Audit Procedure.</div>
+    <div class="rule-grid">
+      <div class="rule"><span class="pin">Law 2</span><span class="rtext"><b>Every interaction logged in detail.</b> Notes, appointments, calls, and texts logged in Command by every leadership team member.</span></div>
+      <div class="rule"><span class="pin">Law 4</span><span class="rtext"><b>Every recruit has a next task.</b> No recruit sits without a scheduled action.</span></div>
+      <div class="rule"><span class="pin">Law 5</span><span class="rtext"><b>Active Phase updated weekly.</b> A new interaction or next step logged every week.</span></div>
+      <div class="rule"><span class="pin">Law 6</span><span class="rtext"><b>Leads Never Contacted = 0.</b> The widget stays empty at all times.</span></div>
+      <div class="rule"><span class="pin">Law 7</span><span class="rtext"><b>Date confirmed = Appointment Set.</b> Move the recruit the moment a date and time are booked.</span></div>
+      <div class="rule"><span class="pin">Law 8</span><span class="rtext"><b>Cultivate touched every 30 days.</b> A logged interaction within the month at minimum.</span></div>
+      <div class="rule"><span class="pin">Law 9</span><span class="rtext"><b>No past Projected Join dates.</b> If the date slips, reset it &mdash; never leave it stale.</span></div>
+      <div class="rule"><span class="pin">Law 10</span><span class="rtext"><b>No stagnant recruits.</b> Anyone not moving gets advanced, re-tasked, or archived.</span></div>
+      <div class="rule"><span class="pin">Audit</span><span class="rtext"><b>Appointment Held &le; 7 days.</b> A held appointment with no decision must move within a week.</span></div>
+      <div class="rule"><span class="pin">Tag</span><span class="rtext"><b>Office tag at creation.</b> Every recruit tagged with the Market Center or Business Center they belong to, as the first checklist item.</span></div>
+    </div>
+  </div>
+
+  <footer>Command Market Center Recruiting Pipeline &middot; Tap any stage to view its checklist and exit criteria.</footer>
+</div>
+
+<script>
+function toggle(id) {
+  document.getElementById(id).classList.toggle("open");
+}
+function setAll(open) {
+  document.querySelectorAll(".stage").forEach(s => s.classList.toggle("open", open));
+}
+</script>
+
+</body>
+</html>
