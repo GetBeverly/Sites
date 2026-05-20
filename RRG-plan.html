@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Al Rincon — Marketing Plan Options</title>
+<style>
+  :root {
+    --kw-red: #c8102e;
+    --kw-red-dark: #9d0c24;
+    --ink: #1a1f2e;
+    --ink-soft: #3a4256;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --bg: #f7f7f5;
+    --card: #ffffff;
+    --gain: #0f7c4e;
+    --gain-fill: #e8f5ee;
+    --gap: #b45309;
+    --gap-fill: #fdf3e1;
+    --accent: #1f3a5f;
+    --accent-fill: #eaf0f7;
+    --opta: #0c4a6e;
+    --opta-fill: #e0f2fe;
+    --optb: #5b21b6;
+    --optb-fill: #ede9fe;
+    --optc: #166534;
+    --optc-fill: #dcfce7;
+    --proof: #6b21a8;
+    --proof-fill: #f5edfb;
+    --role-al: #c8102e;
+    --role-al-fill: #fef2f2;
+    --role-you: #1f3a5f;
+    --role-you-fill: #eaf0f7;
+    --role-sponsor: #7c2d12;
+    --role-sponsor-fill: #fef7ed;
+    --money: #047857;
+    --money-fill: #d1fae5;
+    --shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 32px 24px 80px;
+  }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--kw-red);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-bottom: 10px;
+  }
+  h1 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 34px;
+    line-height: 1.15;
+    color: var(--ink);
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+  .tagline {
+    font-style: italic;
+    color: var(--kw-red);
+    font-size: 17px;
+    margin: 0 0 6px;
+    font-family: Georgia, serif;
+  }
+  .sub {
+    font-size: 16px;
+    color: var(--ink-soft);
+    margin: 0 0 24px;
+  }
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 18px 0 30px;
+    padding: 14px 16px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    align-items: center;
+  }
+  .controls button {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 9px 16px;
+    background: var(--kw-red);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background .15s;
+  }
+  .controls button:hover { background: var(--kw-red-dark); }
+  .controls button.secondary {
+    background: #fff;
+    color: var(--ink);
+    border: 1px solid var(--line);
+  }
+  .controls button.secondary:hover { background: #f0f0ee; }
+
+  /* Framing banner */
+  .framing {
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    border: 1px solid #fde68a;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+  }
+  .framing .label {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #78350f;
+    margin-bottom: 8px;
+  }
+  .framing .q {
+    font-size: 19px;
+    font-weight: 700;
+    color: #78350f;
+    margin: 0 0 12px;
+    line-height: 1.35;
+    font-family: Georgia, serif;
+  }
+  .framing p { margin: 0 0 8px; color: #92400e; font-size: 14px; }
+  .framing p:last-child { margin-bottom: 0; }
+
+  /* MREA self-funding banner */
+  .mrea-banner {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border: 2px solid var(--money);
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+  }
+  .mrea-banner .label {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--money);
+    margin-bottom: 8px;
+  }
+  .mrea-banner h2 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 19px;
+    color: #064e3b;
+    margin: 0 0 12px;
+    letter-spacing: -0.005em;
+    line-height: 1.3;
+  }
+  .mrea-banner p { color: #065f46; font-size: 14px; margin: 0 0 10px; }
+  .mrea-stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 14px;
+  }
+  .mrea-stat {
+    background: #fff;
+    border: 1px solid var(--money);
+    border-radius: 6px;
+    padding: 12px 14px;
+  }
+  .mrea-stat-label {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--money);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .mrea-stat-value {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #064e3b;
+  }
+  .mrea-stat-sub { font-size: 12px; color: #065f46; }
+
+  /* Sections */
+  .section {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .section.opt-a { border-left: 5px solid var(--opta); }
+  .section.opt-b { border-left: 5px solid var(--optb); }
+  .section.opt-c { border-left: 5px solid var(--optc); border-width: 1px 1px 1px 5px; background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 18%); }
+  .section.pay-section { border-left: 5px solid var(--money); }
+  .section.results-section { border-left: 5px solid var(--accent); }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 22px;
+    cursor: pointer;
+    user-select: none;
+    transition: background .15s;
+  }
+  .section-head:hover { background: #fafaf9; }
+  .section.opt-a .section-head:hover { background: #ecf6fc; }
+  .section.opt-b .section-head:hover { background: #ece7f8; }
+  .section.opt-c .section-head:hover { background: #d8f5e1; }
+  .section.pay-section .section-head:hover { background: #d8f5e1; }
+  .section.results-section .section-head:hover { background: #e0e9f3; }
+  .section.open .section-head { border-bottom: 1px solid var(--line); }
+  .section-title { flex: 1; }
+  .section-num {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .section.opt-a .section-num { color: var(--opta); }
+  .section.opt-b .section-num { color: var(--optb); }
+  .section.opt-c .section-num { color: var(--optc); }
+  .section.pay-section .section-num { color: var(--money); }
+  .section.results-section .section-num { color: var(--accent); }
+  .section-name {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .section-meta {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .chevron {
+    width: 22px; height: 22px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--muted);
+    transition: transform .2s;
+    font-size: 14px;
+  }
+  .section.open .chevron { transform: rotate(180deg); }
+  .section-body { display: none; padding: 4px 22px 26px; }
+  .section.open .section-body { display: block; }
+
+  /* Quick compare */
+  .compare {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+  }
+  .compare h2 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0 0 16px;
+  }
+  .compare-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .col {
+    border: 2px solid;
+    border-radius: 8px;
+    padding: 16px 18px;
+    background: #fff;
+    position: relative;
+  }
+  .col.a { border-color: var(--opta); background: linear-gradient(180deg, var(--opta-fill) 0%, #fff 30%); }
+  .col.b { border-color: var(--optb); background: linear-gradient(180deg, var(--optb-fill) 0%, #fff 30%); }
+  .col.c { border-color: var(--optc); background: linear-gradient(180deg, var(--optc-fill) 0%, #fff 30%); }
+  .col-tag {
+    display: inline-block;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+  }
+  .col.a .col-tag { background: var(--opta); color: #fff; }
+  .col.b .col-tag { background: var(--optb); color: #fff; }
+  .col.c .col-tag { background: var(--optc); color: #fff; }
+  .col h3 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    margin: 0 0 6px;
+    border: none;
+    padding: 0;
+    display: block;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  .col .one-liner {
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin-bottom: 12px;
+    min-height: 36px;
+  }
+  .col .price {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 6px 0 2px;
+  }
+  .col .price-sub {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .col .break-even {
+    background: var(--money-fill);
+    border: 1px solid var(--money);
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: 12px;
+    color: #064e3b;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .col .recommend-badge {
+    position: absolute;
+    top: -10px; right: 12px;
+    background: var(--optc);
+    color: #fff;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 3px;
+  }
+  .col ul { margin: 8px 0 0; padding-left: 18px; font-size: 14px; }
+  .col li { margin-bottom: 4px; }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 18px;
+    font-size: 14px;
+    background: #fff;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  th {
+    background: #f8f8f6;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+    font-weight: 700;
+  }
+  td.num { font-variant-numeric: tabular-nums; font-weight: 600; }
+  tr.total td {
+    background: #fafaf9;
+    font-weight: 700;
+    border-top: 2px solid var(--ink);
+  }
+  tr.tick-row td:first-child { font-weight: 600; }
+  .tick { color: var(--gain); font-weight: 700; }
+  .cross { color: var(--muted); }
+  .partial { color: var(--gap); font-weight: 700; }
+
+  /* Role pills */
+  .role-pill {
+    display: inline-block;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .role-al { background: var(--role-al-fill); color: var(--role-al); border: 1px solid #fecaca; }
+  .role-you { background: var(--role-you-fill); color: var(--role-you); border: 1px solid #c7d8ed; }
+  .role-sponsor { background: var(--role-sponsor-fill); color: var(--role-sponsor); border: 1px solid #fed7aa; }
+  .roles-legend {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 8px 0 14px;
+    font-size: 13px;
+    align-items: center;
+  }
+  .roles-legend > span { display: inline-flex; align-items: center; gap: 6px; }
+
+  /* Proof blocks */
+  .pill {
+    display: inline-block;
+    background: var(--proof-fill);
+    color: var(--proof);
+    border: 1px solid #d8c2eb;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 2px;
+    white-space: nowrap;
+  }
+  .proof-block {
+    background: var(--proof-fill);
+    border-left: 3px solid var(--proof);
+    padding: 12px 14px;
+    margin: 10px 0;
+    font-size: 14px;
+    border-radius: 0 6px 6px 0;
+  }
+  .proof-block strong {
+    color: var(--proof);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .proof-block .quote {
+    display: block;
+    margin-top: 6px;
+    font-style: italic;
+    color: var(--ink-soft);
+  }
+
+  /* Gap / Gain */
+  .gg-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 14px 0 18px;
+  }
+  .gg { padding: 14px 16px; border-radius: 8px; border: 1px solid; }
+  .gg.gap { background: var(--gap-fill); border-color: #f1c98a; }
+  .gg.gain { background: var(--gain-fill); border-color: #a7d8bb; }
+  .gg-label {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .gg.gap .gg-label { color: var(--gap); }
+  .gg.gain .gg-label { color: var(--gain); }
+  .gg ul { margin: 4px 0 0; padding-left: 18px; }
+  .gg li { margin-bottom: 4px; }
+
+  h3 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    margin: 22px 0 10px;
+    border-bottom: 2px solid var(--kw-red);
+    padding-bottom: 6px;
+    display: inline-block;
+  }
+  h4 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin: 14px 0 8px;
+  }
+  p { margin: 0 0 12px; }
+  ul, ol { margin: 8px 0 14px; }
+  li { margin-bottom: 4px; }
+
+  /* Self-funding ladder visual */
+  .ladder {
+    background: linear-gradient(90deg, #f0fdf4 0%, #ecfdf5 50%, #d1fae5 100%);
+    border: 1px solid var(--money);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin: 16px 0;
+  }
+  .ladder-row {
+    display: grid;
+    grid-template-columns: 140px 1fr 180px;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid #a7d8bb;
+    align-items: center;
+  }
+  .ladder-row:last-child { border-bottom: none; }
+  .ladder-trigger {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--money);
+    font-weight: 800;
+  }
+  .ladder-unlocks { font-size: 14px; color: var(--ink); }
+  .ladder-funded {
+    background: #fff;
+    border: 1px solid var(--money);
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 12px;
+    color: #064e3b;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  /* Pay-for-itself visual bar */
+  .pay-visual {
+    background: #fff;
+    border: 1px solid var(--money);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin: 14px 0;
+  }
+  .pay-bar-row {
+    display: grid;
+    grid-template-columns: 110px 1fr 120px;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .pay-bar-label {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    font-weight: 700;
+  }
+  .pay-bar-track {
+    background: #f3f4f6;
+    height: 28px;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+  .pay-bar-fill {
+    background: linear-gradient(90deg, var(--money) 0%, #34d399 100%);
+    height: 100%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    color: #fff;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .pay-bar-cost {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+    text-align: right;
+  }
+
+  /* Decision section */
+  .decision {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border: 2px solid var(--optc);
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin: 28px 0 0;
+    box-shadow: var(--shadow);
+  }
+  .decision h2 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--optc);
+    margin: 0 0 14px;
+  }
+  .decision-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .dec-opt {
+    background: #fff;
+    border: 1px solid var(--optc);
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+  .dec-opt strong { display: block; margin-bottom: 4px; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--optc); }
+
+  /* Communities callout */
+  .communities-callout {
+    background: var(--accent-fill);
+    border: 1px solid #c7d8ed;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin: 12px 0;
+    font-size: 13px;
+  }
+  .communities-callout strong {
+    color: var(--accent);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .controls { display: none; }
+    .section { box-shadow: none; page-break-inside: avoid; }
+    .section-body { display: block !important; }
+    .chevron { display: none; }
+    .section-head { cursor: default; }
+  }
+  @media (max-width: 720px) {
+    .wrap { padding: 18px 12px 60px; }
+    h1 { font-size: 24px; }
+    .compare-grid, .decision-options, .mrea-stat-row { grid-template-columns: 1fr; }
+    .gg-grid { grid-template-columns: 1fr; }
+    .ladder-row { grid-template-columns: 1fr; gap: 6px; }
+    .pay-bar-row { grid-template-columns: 1fr; gap: 6px; }
+    table { font-size: 13px; }
+    th, td { padding: 8px 8px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">Rincon Realty Group &nbsp;·&nbsp; Keller Williams Advantage</div>
+  <h1>Marketing Plan — Three Options for Al</h1>
+  <p class="tagline">"It's a Great Market for Smart People."</p>
+  <p class="sub">You asked for marketing collateral, a Sienna listings plan, and a monthly past-client email. Here's the literal answer, the bigger system, and the recommended middle path — pick one.</p>
+
+  <div class="controls">
+    <button onclick="expandAll()">Expand all</button>
+    <button class="secondary" onclick="collapseAll()">Collapse all</button>
+    <button class="secondary" onclick="window.print()">Print / Save PDF</button>
+    <span style="margin-left:auto; font-family:'Helvetica Neue',sans-serif; font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:0.06em;">
+      <span class="pill">Proven Result</span> = documented outcome by another agent
+    </span>
+  </div>
+
+  <!-- Framing -->
+  <div class="framing">
+    <p style="font-size: 15px; color: #78350f; margin: 0;">Below are three options. <strong>Option A</strong> is the literal answer to: <em>"I only need 12 emails to my prior clients requesting referrals, some marketing content that can be posted everywhere, and execute a plan for me to gain listings within 6 miles of my home."</em> <strong>Option B</strong> is the full system designed around the <em>result</em>. <strong>Option C</strong> is the simplicity-first middle path we recommend — does the literal work AND the few extra things that actually move referrals and listings, without the bloat.</p>
+  </div>
+
+  <!-- MREA self-funding banner -->
+  <div class="mrea-banner">
+    <div class="label">The Money Question — Answered First</div>
+    <h2>This plan is funded by closings, not out-of-pocket. Per MREA, you should already have $1,500+/mo earmarked for lead generation.</h2>
+    <p><strong>The MREA Budget Model</strong> (Gary Keller, MREA p.157) — the documented standard for real estate businesses — says <strong>10% of every GCI dollar should be reinvested into lead generation.</strong> Per MREA: <em>"Lead with revenue. Spend only money the business has generated."</em> At your current ~18 closes/yr × ~$10K avg GCI = ~$180K GCI, that's <strong>$1,500/mo</strong> that should already be flowing into marketing.</p>
+    <p>Every option below is <strong>self-funding</strong> from existing closings + new transactions the plan generates. You're not writing checks — you're allocating capital that the MREA model says is already yours to deploy.</p>
+    <div class="mrea-stat-row">
+      <div class="mrea-stat">
+        <div class="mrea-stat-label">MREA Lead Gen Standard</div>
+        <div class="mrea-stat-value">10% of GCI</div>
+        <div class="mrea-stat-sub">Big Two: Salaries + Lead Gen = 72% of expenses</div>
+      </div>
+      <div class="mrea-stat">
+        <div class="mrea-stat-label">Your Current Marketing Pool</div>
+        <div class="mrea-stat-value">~$1,500/mo</div>
+        <div class="mrea-stat-sub">At ~18 closes × $10K GCI × 10%</div>
+      </div>
+      <div class="mrea-stat">
+        <div class="mrea-stat-label">Year 2 Marketing Pool</div>
+        <div class="mrea-stat-value">~$2,100/mo</div>
+        <div class="mrea-stat-sub">At ~25 projected closes × $10K × 10%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick compare -->
+  <div class="compare">
+    <h2>At-a-glance</h2>
+    <div class="compare-grid">
+
+      <div class="col a">
+        <span class="col-tag">Option A</span>
+        <h3>What You Literally Asked For</h3>
+        <div class="one-liner">12 monthly emails + 7-piece marketing graphic library posted everywhere + a basic Sienna outline.</div>
+        <div class="price">$1,400 one-time</div>
+        <div class="price-sub">+ ~$200/mo ongoing</div>
+        <div class="break-even">Pays for itself in <strong>1 close</strong></div>
+        <ul>
+          <li>12 emails designed &amp; scheduled</li>
+          <li>7 graphic templates (transaction + market update + new inventory + price reduction + open house + testimonial)</li>
+          <li>Sienna idea list (no execution)</li>
+          <li>Done in ~2 weeks</li>
+        </ul>
+      </div>
+
+      <div class="col b">
+        <span class="col-tag">Option B · Pilot Available</span>
+        <h3>The Full Result-Driven System</h3>
+        <div class="one-liner">Everything in C, plus 3 posts/week, monthly video, 750-home farm, full referral mechanics, new construction + YouTube engine.</div>
+        <div class="price">$3,600 build · ~$995/mo</div>
+        <div class="price-sub">$1,500 pilot → balance + ongoing</div>
+        <div class="break-even">Pays for itself in <strong>3-4 closes</strong></div>
+        <ul>
+          <li>Everything in C, plus:</li>
+          <li>3-post/week social cadence + monthly market video</li>
+          <li>750-home Sienna farm (6 drops/yr)</li>
+          <li>Full new construction + YouTube engine</li>
+          <li>Quarterly call scripts + auto-triggers</li>
+        </ul>
+      </div>
+
+      <div class="col c">
+        <span class="recommend-badge">Recommended</span>
+        <span class="col-tag">Option C · Pilot Available</span>
+        <h3>Simplicity-First Middle Path</h3>
+        <div class="one-liner">A's deliverables, plus the 4 highest-ROI parts of B. Built for repeatability.</div>
+        <div class="price">$1,500 build · ~$465/mo</div>
+        <div class="price-sub">$650 pilot → balance + ongoing</div>
+        <div class="break-even">Pays for itself in <strong>1-2 closes</strong></div>
+        <ul>
+          <li>12 emails with built-in referral asks</li>
+          <li>7-piece graphic library posted everywhere</li>
+          <li>250-home mini-farm split across 3 communities</li>
+          <li>NARRPR-based valuation workflow</li>
+          <li>KW Command Monthly Neighborhood Nurture</li>
+          <li>MGA appreciation event (Al hosts &amp; recruits; we design + launch)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- The Smaller Communities -->
+  <div class="communities-callout">
+    <strong>The Sienna-Adjacent Map (Where We Farm)</strong>
+    Sienna proper is master-planned (~4,500 homes, competitive). Around it sit smaller, more farmable pockets — and several have heavy new construction activity worth their own listing strategy:
+    <ul style="margin: 6px 0 0; font-size: 13px;">
+      <li><strong>Sienna</strong> (master-planned, ~4,500 homes) — Al's home base</li>
+      <li><strong>Riverstone</strong> (master-planned, ~3,000 homes) — adjacent</li>
+      <li><strong>Glendale Lakes</strong> — small, heavy new construction</li>
+      <li><strong>Stonebrook Estates</strong> — small, farmable</li>
+      <li><strong>Sienna Steep Bank</strong> — small village</li>
+      <li><strong>Fresno proper</strong> — mixed resale + new construction</li>
+    </ul>
+  </div>
+
+  <!-- OPTION A -->
+  <div class="section opt-a">
+    <div class="section-head" onclick="toggle(this)">
+      <div class="section-title">
+        <div class="section-num">Option A · The Literal Answer</div>
+        <div class="section-name">12 Past-Client Emails + 7-Piece Marketing Graphic Library + Sienna Outline</div>
+        <div class="section-meta">$1,400 one-time, ~$200/mo ongoing. 2 weeks to live. No frills, no system — just the pieces.</div>
+      </div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="section-body">
+
+      <h3>What You Get</h3>
+
+      <h4>Initiative 1 — Marketing Graphics "Posted Everywhere"</h4>
+      <p>A 7-piece reusable graphic template library in your existing brand. Each plugs new data in and gets posted across all your channels:</p>
+      <ul>
+        <li><strong>Just Listed</strong> — fires when you list anything</li>
+        <li><strong>Just Sold</strong> — fires when you close anything</li>
+        <li><strong>Under Contract</strong> — fires when a listing goes pending</li>
+        <li><strong>Sienna Market Update</strong> — posted monthly (data sourced via KW Command Neighborhood Nurture or HAR consumer-side)</li>
+        <li><strong>New Inventory This Week</strong> — posted weekly or bi-weekly (featured Sienna-area homes hitting the market)</li>
+        <li><strong>Price Reduction / Open House</strong> — event-driven</li>
+        <li><strong>Testimonial / Recent Review</strong> — fires when a new review comes in</li>
+      </ul>
+      <p><strong>Posted to:</strong> Facebook (Rincon Realty Group page), Instagram, LinkedIn, Google Business Profile, KW Command. Each post drafted with caption + hashtags. You hand off the data, posts go live within 24 hours.</p>
+
+      <h4>Initiative 2 — Sienna Listings Plan (Outline Only)</h4>
+      <ul>
+        <li>Written plan document: "Here's what you could do in Sienna" — farming, mailers, MGA play, valuation funnel</li>
+        <li><strong>No execution included.</strong> Plan is yours to run yourself, hire elsewhere, or revisit later</li>
+        <li>Includes recommended vendor list (mailer printer, list pull source, design tools)</li>
+      </ul>
+
+      <h4>Initiative 3 — Monthly Past-Client Emails</h4>
+      <ul>
+        <li><strong>12 emails written, designed, and scheduled in KW Command</strong></li>
+        <li>Each email follows your "quarterly review of our success" format: Just Listed / Just Sold / Under Contract recap + a short personal note + a soft referral ask</li>
+        <li>Editorial calendar with seasonal themes</li>
+        <li>Sent monthly from your existing Command list</li>
+        <li>Open rate + reply tracking</li>
+      </ul>
+
+      <h3>Cost</h3>
+      <table>
+        <thead><tr><th>Item</th><th>Cost</th></tr></thead>
+        <tbody>
+          <tr><td>One-time: 7 graphic templates + 12 emails + Sienna outline + Command setup</td><td class="num">$1,400</td></tr>
+          <tr><td>Ongoing: graphic production + multi-channel posting + monthly market update + weekly new inventory</td><td class="num">~$200/mo</td></tr>
+          <tr><td>Mailers, ads, events, Sienna farming</td><td class="num">$0 (not included)</td></tr>
+          <tr class="total"><td>Year 1 total</td><td class="num">~$3,800</td></tr>
+        </tbody>
+      </table>
+
+      <p><em>This is the right option if: you want the marketing pieces to exist for parity, you'll execute Sienna yourself when ready, and you trust that the past-client email alone will surface referrals.</em></p>
+
+    </div>
+  </div>
+
+  <!-- OPTION B -->
+  <div class="section opt-b">
+    <div class="section-head" onclick="toggle(this)">
+      <div class="section-title">
+        <div class="section-num">Option B · The Full Result-Driven System</div>
+        <div class="section-name">Everything in C + Cadence + Full Farm + MGA Event + New Construction/YouTube Engine</div>
+        <div class="section-meta">$3,600 build ($1,500 pilot), ~$995/mo. 90-day ramp. Built for 8-14 Sienna sides Yr 1, $40-90K incremental GCI.</div>
+      </div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="section-body">
+
+      <div class="gg-grid">
+        <div class="gg gap">
+          <div class="gg-label">The Gap</div>
+          <ul>
+            <li>~18 sides last 365 days — only 2-3 in Sienna/Fort Bend</li>
+            <li>Zero local Sienna brand presence</li>
+            <li>&lt;100 past clients with no systematic touch plan</li>
+            <li>Zero builder relationships in Glendale Lakes / Stonebrook / Fresno new construction</li>
+          </ul>
+        </div>
+        <div class="gg gain">
+          <div class="gg-label">The Gain</div>
+          <ul>
+            <li>8-14 Sienna-area transactions Yr 1, 16-25 Yr 2</li>
+            <li>15-25% of business from referrals by Yr 1 end</li>
+            <li>30-60 warm seller leads in valuation pipeline</li>
+            <li>$40-90K incremental GCI Yr 1, $90-180K Yr 2</li>
+            <li>Becomes "the new construction guy" in Glendale Lakes &amp; surrounding</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>What You Get</h3>
+
+      <h4>Initiative 1 — Full Collateral System</h4>
+      <ul>
+        <li>7-piece graphic library (same as A &amp; C)</li>
+        <li>9 print templates (flyer, JL/JS postcards, valuation mailer, market report, buyer/seller guides, pre-listing, closing card)</li>
+        <li>12 social templates + Reel template (faceless, Sienna-focused)</li>
+        <li>6-section newsletter template (E3 Realty framework)</li>
+        <li>Google Business Profile + weekly post templates</li>
+        <li>12-month content calendar locked</li>
+        <li><strong>3 social posts/week cadence</strong> (Mon stat / Wed feature / Fri listing)</li>
+        <li><strong>1 monthly Sienna market video</strong> (faceless, sourced footage + AI voiceover)</li>
+      </ul>
+
+      <h4>Initiative 2 — 750-Home Sienna Farm + MGA Event</h4>
+      <ul>
+        <li>750-home farm list pulled from Fort Bend Appraisal District</li>
+        <li>6 mailer drops/year ($280/mo blended)</li>
+        <li>Just-Listed/Just-Sold geographic mailers (200 surrounding homes per event)</li>
+        <li>Annual MGA appreciation event (Al hosts + recruits sponsors; we design + launch)</li>
+        <li>NARRPR-based valuation workflow with branded email template</li>
+        <li>KW Command Monthly Neighborhood Nurture across 6 neighborhoods</li>
+      </ul>
+
+      <h4>Initiative 3 — 30-Touch Referral System</h4>
+      <ul>
+        <li>Monthly newsletter with rotating monthly ask</li>
+        <li>Quarterly call scripts (~8 calls/week)</li>
+        <li>Birthday + closing-anniversary auto-triggers</li>
+        <li>Referral capture form in every email</li>
+        <li>Annual past-client appreciation event (sponsor-funded)</li>
+      </ul>
+
+      <h4>Initiative 4 — New Construction + YouTube Engine ⚡</h4>
+      <p><strong>This is the differentiator that justifies Option B over C.</strong> Glendale Lakes, Stonebrook, and Fresno have heavy new construction with limited "expert" Realtor positioning. Building a YouTube channel + builder relationships now captures that market before someone else does.</p>
+      <ul>
+        <li><strong>YouTube channel setup</strong> — Al-branded, faceless content, optimized for "new homes in [community]" search</li>
+        <li><strong>2-4 videos/month</strong> — new home walkthroughs (faceless b-roll + voiceover), community spotlights, builder features, "new construction vs resale" educational</li>
+        <li><strong>Builder outreach playbook</strong> — which builders matter, which on-site agents to know, what value Al brings (referrals to their sales, co-marketing, buyer pipeline)</li>
+        <li><strong>Thumbnail + SEO templates</strong> — built to rank on YouTube search</li>
+        <li><strong>Cross-posted</strong> to social + embedded in monthly newsletter</li>
+      </ul>
+
+      <h3>What's Behind The Projections</h3>
+      <div class="proof-block">
+        <strong>Proven Result — Erica Sizemore (NC)</strong>
+        <span class="quote">Sub-100-style database. &gt;90% of business from referrals using a 30-touch system anchored by monthly newsletter + bi-monthly mailers + quarterly calls.</span>
+      </div>
+      <div class="proof-block">
+        <strong>Proven Result — Dilara Wentz (VA)</strong>
+        <span class="quote">1,800-home master-planned farm. First mailing → listing in 30 days. 6 closings on the same cadence.</span>
+      </div>
+      <div class="proof-block">
+        <strong>Proven Result — Team Tackney (CA)</strong>
+        <span class="quote">6,000-home farm. 60% of business from farm by year 7. 22% market share. 7.78× ROI. Doubled farm-driven sides every year since 2015.</span>
+      </div>
+
+      <h3>The B Pilot — $1,500 for 30 Days</h3>
+      <p>Same de-risking model as Option C, scaled up for B's larger build. Pilot includes:</p>
+      <ul>
+        <li>Everything in Option C's pilot</li>
+        <li>Plus: first month of 3-post/week social cadence (12 posts)</li>
+        <li>Plus: first monthly Sienna market video produced + posted</li>
+        <li>Plus: 750-home farm list pulled + verified (no mailers dropped yet)</li>
+        <li>Plus: YouTube channel set up + first video published</li>
+        <li>Plus: builder outreach list compiled</li>
+      </ul>
+      <p><strong>Day 30 decision:</strong> commit $2,100 balance + $995/mo OR walk away with assets built.</p>
+
+      <h3>Cost</h3>
+      <table>
+        <thead><tr><th>Item</th><th>Cost</th></tr></thead>
+        <tbody>
+          <tr><td>30-day pilot (upfront)</td><td class="num">$1,500</td></tr>
+          <tr><td>Balance of build (post-pilot if continuing)</td><td class="num">$2,100</td></tr>
+          <tr><td>Mailers (6 drops/yr × 750 homes blended)</td><td class="num">$280/mo</td></tr>
+          <tr><td>Monthly retainer (full system + YouTube production)</td><td class="num">$700/mo</td></tr>
+          <tr><td>Social scheduler</td><td class="num">$15/mo</td></tr>
+          <tr><td>Episodic mailers + closing gifts + builder swag</td><td class="num">~$500-1,500/yr</td></tr>
+          <tr class="total"><td>Year 1 total</td><td class="num">~$15,500</td></tr>
+        </tbody>
+      </table>
+
+      <p><em>This is the right option if: you want to systematically build Sienna + new construction into a dominant pillar over 12-24 months, you trust the case studies, and the MREA marketing pool already justifies the spend.</em></p>
+
+    </div>
+  </div>
+
+  <!-- OPTION C — RECOMMENDED -->
+  <div class="section opt-c open">
+    <div class="section-head" onclick="toggle(this)">
+      <div class="section-title">
+        <div class="section-num">Option C · Recommended — Simplicity-First Middle Path</div>
+        <div class="section-name">A's Literal Work + The 4 Things From B That Actually Move The Needle</div>
+        <div class="section-meta">$1,500 build · ~$465/mo · $650 pilot first · Year 1 total ~$6,600. Built for repeatability.</div>
+      </div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="section-body">
+
+      <p>You said you want simplicity that's repeatable. Option C does the literal work you asked for, plus only the few additional things that have a real shot at generating Sienna listings and referrals — and skips everything else. <strong>Fewer moving parts. Lower spend. Same direction.</strong></p>
+
+      <h3>What's IN (and why)</h3>
+      <table>
+        <thead><tr><th>Element</th><th>From</th><th>Why it's in</th></tr></thead>
+        <tbody>
+          <tr><td><strong>12 monthly past-client emails</strong> with built-in rotating referral asks</td><td>A + B</td><td>Highest-ROI element. ~100 past clients × consistent monthly touch + ask = the referral engine. Sizemore's database proves the model.</td></tr>
+          <tr><td><strong>7-piece marketing graphic library</strong> posted to FB, IG, LinkedIn, GBP, Command</td><td>A</td><td>Literally what you asked for. Monthly Sienna Market Update + weekly New Inventory build farm credibility at $0 extra.</td></tr>
+          <tr><td><strong>Google Business Profile optimization</strong> + monthly post</td><td>B</td><td>Free local SEO. Ranks you for "Sienna real estate agent."</td></tr>
+          <tr><td><strong>250-home mini-farm split across 3 communities</strong> (4 mailers/year)</td><td>B (scaled down)</td><td>150 Sienna + 50 Glendale Lakes + 50 Stonebrook. Mini-farms get bigger mind-share than big farms.</td></tr>
+          <tr><td><strong>NARRPR-based valuation workflow</strong> + Al-branded email template</td><td>B (rethought)</td><td>You/TC generate a Property Value Range Report from NARRPR, we send it via branded template. No fake automation.</td></tr>
+          <tr><td><strong>KW Command Monthly Neighborhood Nurture</strong> for 6 communities</td><td>B (efficiency)</td><td>Command auto-generates a monthly market-update email per community. No custom email production. Set up once, runs forever.</td></tr>
+          <tr><td><strong>MGA annual appreciation event</strong> (Al hosts + recruits sponsors; we design + launch)</td><td>B</td><td>Converts ambient awareness into referral default. Roles spelled out below.</td></tr>
+          <tr><td><strong>30-day pilot at $650</strong> with weekly Friday scorecards</td><td>New</td><td>De-risks the spend. See the signal before committing the rest.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>What's Reserved For Phase 2 (and why)</h3>
+      <p>The following are real opportunities — but they require the pilot to prove the foundation first. If pilot signals are strong by month 4-6, these unlock as Phase 2 add-ons:</p>
+      <table>
+        <thead><tr><th>Reserved item</th><th>Why it's not in Phase 1</th></tr></thead>
+        <tbody>
+          <tr><td><strong>New construction / YouTube channel</strong></td><td>Real opportunity in Glendale Lakes + Stonebrook + Fresno. But requires a separate skill set (builder relationships, YouTube production, SEO research) and is a multi-month build. Fully featured in Option B if Al wants to commit upfront.</td></tr>
+          <tr><td>3 social posts/week + monthly market video</td><td>Heavy lift. The 7-piece graphic library covers regular posting cadence. Add this if pilot shows demand.</td></tr>
+          <tr><td>Full 750-home farm + 6 mailers/year</td><td>Start with 250. Scale only if response justifies it.</td></tr>
+          <tr><td>Quarterly call scripts + auto-triggers</td><td>You're a 20-year broker. You don't need scripts. The email surfaces the conversation; you take it from there.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>The MGA Event — Who Does What</h3>
+      <p>Roles clear, no ambiguity. <strong>Al's network, Al's asks. Our design, our launch.</strong></p>
+      <div class="roles-legend">
+        <span><span class="role-pill role-al">Al</span> his work</span>
+        <span><span class="role-pill role-you">Marketing (Us)</span> our work</span>
+        <span><span class="role-pill role-sponsor">Sponsors</span> they fund it</span>
+      </div>
+      <table>
+        <thead><tr><th>Task</th><th>Owner</th></tr></thead>
+        <tbody>
+          <tr><td>Decide to do the event + pick the date</td><td><span class="role-pill role-al">Al</span></td></tr>
+          <tr><td>Recruit sponsors (lender, title, inspector, insurance, CPA)</td><td><span class="role-pill role-al">Al</span> his relationships, his asks</td></tr>
+          <tr><td>Coordinate with MGA committee / pro shop for venue + date</td><td><span class="role-pill role-al">Al</span></td></tr>
+          <tr><td>Design event invite, sponsor decks, signage, day-of materials</td><td><span class="role-pill role-you">Marketing (Us)</span></td></tr>
+          <tr><td>Build launch campaign (email invites, social posts, RSVP tracking)</td><td><span class="role-pill role-you">Marketing (Us)</span></td></tr>
+          <tr><td>Day-of attendance + hosting</td><td><span class="role-pill role-al">Al</span></td></tr>
+          <tr><td>Photo/video capture during event</td><td><span class="role-pill role-al">Al</span> or hired teen ($75 one-off)</td></tr>
+          <tr><td>Post-event content production</td><td><span class="role-pill role-you">Marketing (Us)</span></td></tr>
+          <tr><td>Fund the event</td><td><span class="role-pill role-sponsor">Sponsors</span> 4-6 × $250-500 each</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Net cost to Al:</strong> ~$0 (sponsor-funded). <strong>Format:</strong> Saturday morning. ~60-90 MGA members. Breakfast + complimentary round. <strong>Invite says:</strong> <em>"Al Rincon, your fellow MGA member, would like to thank the membership for another great season."</em> No real estate pitch.</p>
+
+      <h3>The 30-Day Pilot Inside Option C</h3>
+      <p>Before committing the full $1,500, the first 30 days are a pilot at <strong>$650</strong>. At day 30, see the data and decide.</p>
+
+      <h4>What gets built and shipped in the pilot:</h4>
+      <ul>
+        <li>7 graphic templates</li>
+        <li>First past-client email written, designed, sent</li>
+        <li>First Sienna Market Update post produced + multi-channel posted</li>
+        <li>First New Inventory post produced + posted</li>
+        <li>Google Business Profile optimized + first post</li>
+        <li>KW Command Monthly Neighborhood Nurture configured for 6 communities</li>
+        <li>250-home farm list pulled + verified (split across 3 communities)</li>
+        <li>NARRPR email template built + first valuation report sent</li>
+        <li>MGA event planning kicked off (we design materials; Al starts sponsor outreach)</li>
+        <li><strong>Weekly Friday scorecard delivered to Al</strong></li>
+      </ul>
+
+      <h4>Day 30 Decision Framework</h4>
+      <table>
+        <thead><tr><th>If…</th><th>Then…</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Strong signal:</strong> 4+ email replies, 2+ valuation report sends, 2+ MGA sponsors confirmed</td><td>Commit remaining $850 + $465/mo. Mailers start month 2. MGA event lands month 4-5.</td></tr>
+          <tr><td><strong>Mixed signal:</strong> Some metrics hit, others don't</td><td>Extend pilot 30 days at $400. Adjust the weak lever, re-test.</td></tr>
+          <tr><td><strong>Weak signal:</strong> &lt;2 replies, 0 valuation interest, 0 sponsors</td><td>Walk away clean. Keep what's built. Owe nothing more.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Cost Breakdown</h3>
+      <table>
+        <thead><tr><th>Item</th><th>Cost</th></tr></thead>
+        <tbody>
+          <tr><td>30-day pilot (upfront)</td><td class="num">$650</td></tr>
+          <tr><td>Balance of one-time build (post-pilot if continuing)</td><td class="num">$850</td></tr>
+          <tr><td>Mailers (250 homes × 4 drops/yr blended)</td><td class="num">$63/mo</td></tr>
+          <tr><td>Monthly retainer (graphics + email + GBP + Nurture monitoring + NARRPR sends + MGA campaign)</td><td class="num">$400/mo</td></tr>
+          <tr><td>Social scheduler</td><td class="num">$2/mo</td></tr>
+          <tr><td>Episodic JL/JS surround mailers + closing gifts</td><td class="num">~$300-800/yr</td></tr>
+          <tr class="total"><td>Year 1 total (if pilot continues)</td><td class="num">~$6,600</td></tr>
+        </tbody>
+      </table>
+
+      <p><em>This is the right option if: simplicity matters, the spend has to prove itself, and you'd rather start small and scale based on data than commit to a full system upfront.</em></p>
+
+    </div>
+  </div>
+
+  <!-- HOW THIS PAYS FOR ITSELF -->
+  <div class="section pay-section open">
+    <div class="section-head" onclick="toggle(this)">
+      <div class="section-title">
+        <div class="section-num">How This Pays For Itself</div>
+        <div class="section-name">Revenue-Funded Growth Ladder — Per MREA</div>
+        <div class="section-meta">Break-even closes per option. The self-funding ladder. The 10% reinvestment principle.</div>
+      </div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="section-body">
+
+      <div class="proof-block">
+        <strong>Proven Principle — Gary Keller, MREA p.154</strong>
+        <span class="quote">"Lead with revenue. Spend only money the business has generated. Real estate has very low start-up cost; leading with revenue forces lead generation activity first. GCI funds business growth."</span>
+      </div>
+
+      <h3>Visual — Pays For Itself</h3>
+      <p>Every option is calibrated against one number: <strong>$10K average GCI per closed side.</strong> Here's how many closes it takes for each option to be net-positive.</p>
+
+      <div class="pay-visual">
+        <div class="pay-bar-row">
+          <div class="pay-bar-label">Option A</div>
+          <div class="pay-bar-track"><div class="pay-bar-fill" style="width: 8%;">~$3.8K Yr 1</div></div>
+          <div class="pay-bar-cost">1 close pays it back 2.6×</div>
+        </div>
+        <div class="pay-bar-row">
+          <div class="pay-bar-label">Option C</div>
+          <div class="pay-bar-track"><div class="pay-bar-fill" style="width: 14%;">~$6.6K Yr 1</div></div>
+          <div class="pay-bar-cost">1 close = 1.5× ROI</div>
+        </div>
+        <div class="pay-bar-row">
+          <div class="pay-bar-label">Option B</div>
+          <div class="pay-bar-track"><div class="pay-bar-fill" style="width: 33%;">~$15.5K Yr 1</div></div>
+          <div class="pay-bar-cost">2 closes break even</div>
+        </div>
+        <div class="pay-bar-row">
+          <div class="pay-bar-label" style="color: var(--money); font-weight: 800;">Year 1 GCI Pool (MREA 10%)</div>
+          <div class="pay-bar-track"><div class="pay-bar-fill" style="width: 39%;">$18K projected reinvestment</div></div>
+          <div class="pay-bar-cost">Funds any option</div>
+        </div>
+      </div>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 4px;">Bar width relative to projected Year 1 MREA marketing pool (~$18,000 at 18 closes × $10K × 10%).</p>
+
+      <h3>The Self-Funding Ladder — Option C Path</h3>
+      <p>As deals close, new tiers unlock. <strong>Each step is opt-in.</strong> Nothing fires automatically — Al sees the trigger, chooses the upgrade, funded by the closing that triggered it.</p>
+
+      <div class="ladder">
+        <div class="ladder-row">
+          <div class="ladder-trigger">Today</div>
+          <div class="ladder-unlocks"><strong>Pilot at $650</strong> — graphics, first email, GBP, Nurture, farm list, NARRPR template, MGA prep, weekly scorecards</div>
+          <div class="ladder-funded">Funded by existing pipeline</div>
+        </div>
+        <div class="ladder-row">
+          <div class="ladder-trigger">Day 30</div>
+          <div class="ladder-unlocks"><strong>Full Option C activates</strong> — $850 balance + $465/mo ongoing. Mailers begin month 2.</div>
+          <div class="ladder-funded">Funded by 1st new close</div>
+        </div>
+        <div class="ladder-row">
+          <div class="ladder-trigger">1st Sienna close</div>
+          <div class="ladder-unlocks"><strong>Farm expansion 250 → 500 homes</strong> — adds Riverstone + Fresno pockets. +$50/mo mailer cost.</div>
+          <div class="ladder-funded">Funded by the close itself</div>
+        </div>
+        <div class="ladder-row">
+          <div class="ladder-trigger">3rd Sienna close</div>
+          <div class="ladder-unlocks"><strong>New construction + YouTube layer activates</strong> — Option B's Initiative 4 unlocked as add-on. +$200/mo retainer + $400 setup.</div>
+          <div class="ladder-funded">Funded by closes 1-3 cumulative</div>
+        </div>
+        <div class="ladder-row">
+          <div class="ladder-trigger">5th Sienna close</div>
+          <div class="ladder-unlocks"><strong>Full farm expansion 500 → 750 homes + 6 drops/yr</strong> — full Option B mailer scale. +$170/mo.</div>
+          <div class="ladder-funded">Funded by closes 1-5 cumulative</div>
+        </div>
+        <div class="ladder-row">
+          <div class="ladder-trigger">Sustained</div>
+          <div class="ladder-unlocks"><strong>Full Option B running</strong> — ~$995/mo, paid for entirely by transaction flow at MREA 10% target.</div>
+          <div class="ladder-funded">~$2,083/mo marketing pool</div>
+        </div>
+      </div>
+
+      <h3>The Marketing Reinvestment Pool — How To Allocate It</h3>
+      <p>Per MREA: <strong>10% of every GCI dollar goes to lead generation.</strong> That's not arbitrary — it's the documented industry standard from the Big Two (Salaries + Lead Gen = 72% of operating expenses). Here's how Al's marketing pool fills as transactions close:</p>
+
+      <table>
+        <thead>
+          <tr><th>Per close ($10K GCI)</th><th>$1,000 to marketing pool — allocated to:</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>$250</td><td>Closing gift to referrer (Lydia Gable model)</td></tr>
+          <tr><td>$150</td><td>Just-Sold surround mailer (200 homes × ~$0.75)</td></tr>
+          <tr><td>$200</td><td>MGA event buffer + closing gifts for past clients</td></tr>
+          <tr><td>$400</td><td>Carries forward to fund retainer + ongoing program</td></tr>
+        </tbody>
+      </table>
+
+      <div class="proof-block">
+        <strong>Proven Result — Christi Reece (Grand Junction, CO)</strong>
+        <span class="quote">2% of topline revenue dedicated to community Circle Fund (giveback) — 15% of 2022 business directly attributed to the program. $600K growth tied to it over its lifetime.</span>
+      </div>
+      <p style="font-size: 13px; color: var(--ink-soft);">The Reece case shows that disciplined revenue-percentage reinvestment compounds. MREA's 10% to lead gen is the higher-leverage version of the same principle.</p>
+
+    </div>
+  </div>
+
+  <!-- DELIVERABLES → RESULTS -->
+  <div class="section results-section">
+    <div class="section-head" onclick="toggle(this)">
+      <div class="section-title">
+        <div class="section-num">Deliverables → Results We Measure</div>
+        <div class="section-name">What We Build, What We Track, How We Know It's Working</div>
+        <div class="section-meta">Every deliverable mapped to a result. Per MREA: "Red light, green light — hold every dollar accountable to incremental results."</div>
+      </div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="section-body">
+
+      <p>Per MREA p.155: <em>"Don't focus on how much you spend — focus on results. Hold every dollar accountable."</em> Here's the full mapping for Option C (the recommended path). Every deliverable has a paired result + a "winning at 30/60/90 days" benchmark.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Deliverable</th>
+            <th>Cadence</th>
+            <th>Result We Track</th>
+            <th>What "Winning" Looks Like</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Monthly past-client email</strong> with rotating referral ask</td>
+            <td>12/yr</td>
+            <td>Open rate, reply rate, referrals generated</td>
+            <td>Open: 30%+ (vs. 21% industry avg)<br>Replies: 3-8/email by month 3<br>Referrals: 2-4 conversations/yr</td>
+          </tr>
+          <tr>
+            <td><strong>Sienna Market Update graphic post</strong></td>
+            <td>12/yr</td>
+            <td>Reach, profile visits, shares</td>
+            <td>Reach growing MoM<br>1-2 shares/post by month 3<br>5+ profile visits/post by month 3</td>
+          </tr>
+          <tr>
+            <td><strong>Weekly New Inventory post</strong></td>
+            <td>~50/yr</td>
+            <td>Engagement, buyer DM inquiries</td>
+            <td>1+ buyer inquiry/month by month 3<br>10+ saves/post by month 4</td>
+          </tr>
+          <tr>
+            <td><strong>Just Listed / Just Sold / Under Contract posts</strong></td>
+            <td>Per transaction</td>
+            <td>Sphere awareness, referral conversations</td>
+            <td>1 referral conversation per 5 posts<br>Past clients responding to wins (likes, comments)</td>
+          </tr>
+          <tr>
+            <td><strong>Price Reduction + Open House + Testimonial posts</strong></td>
+            <td>Event-driven</td>
+            <td>Engagement, conversion to inquiries</td>
+            <td>Testimonials get highest engagement (model)<br>Open House posts → 2-3 attendees minimum</td>
+          </tr>
+          <tr>
+            <td><strong>250-home mini-farm mailer drops</strong></td>
+            <td>4/yr (~62 homes blended)</td>
+            <td>Valuation requests, inbound calls, name recognition</td>
+            <td>2-5 inbound valuation requests Yr 1<br>1-2 listing conversations<br>"I saw your mailer" mentions in MGA conversations</td>
+          </tr>
+          <tr>
+            <td><strong>NARRPR-based valuation send-outs</strong></td>
+            <td>As requested (target ~20/yr)</td>
+            <td>Reports sent, conversion to listing appointment</td>
+            <td>15-25 reports sent Yr 1<br>2-4 listing conversations<br>1-2 listing appointments</td>
+          </tr>
+          <tr>
+            <td><strong>KW Command Monthly Neighborhood Nurture</strong> (6 communities)</td>
+            <td>12/yr × 6 = 72 sends</td>
+            <td>Open rate per community, inbound questions</td>
+            <td>25%+ open rate (Command benchmark)<br>1+ inbound question/month across all communities<br>Subscriber list growing MoM</td>
+          </tr>
+          <tr>
+            <td><strong>Google Business Profile</strong> — optimization + weekly posts</td>
+            <td>52 posts/yr</td>
+            <td>Profile views, search queries, calls, direction requests</td>
+            <td>200+ profile views/month by month 4<br>Ranking for "Sienna real estate agent" by month 6<br>2+ direct calls from GBP/month by month 6</td>
+          </tr>
+          <tr>
+            <td><strong>MGA annual appreciation event</strong></td>
+            <td>1/yr</td>
+            <td>Sponsor commitments, attendance, post-event referral conversations</td>
+            <td>4+ sponsors confirmed<br>60+ MGA members attend<br>3+ post-event referral conversations within 30 days</td>
+          </tr>
+          <tr>
+            <td><strong>Weekly Friday scorecard</strong> (Al sees every Friday)</td>
+            <td>52/yr (pilot through forever)</td>
+            <td>All above metrics, week over week</td>
+            <td>Al verifies the data himself — no black box</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>30/60/90-Day Roll-Up Benchmarks</h4>
+      <table>
+        <thead><tr><th>By Day…</th><th>What's working looks like</th></tr></thead>
+        <tbody>
+          <tr><td><strong>30</strong></td><td>Pilot deliverables shipped. 1 email sent (open rate visible). 4-6 graphic posts published. GBP optimized. Nurture configured. NARRPR template built. First MGA sponsor conversation. <strong>Decision point: continue, extend, or walk.</strong></td></tr>
+          <tr><td><strong>60</strong></td><td>1st mailer dropped to 250 homes. 2 past-client emails sent. 8-10 graphic posts. 1-2 valuation requests inbound. GBP views climbing. 2-3 MGA sponsors confirmed.</td></tr>
+          <tr><td><strong>90</strong></td><td>2nd mailer dropped. 3 past-client emails sent. 12+ graphic posts. 2-5 valuation requests cumulative. <strong>1 Sienna listing conversation in progress</strong> (likely from MGA/SOI, not cold farm). MGA event planning at 80%. First close opportunity from this pipeline visible.</td></tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+  <!-- Side-by-side -->
+  <div class="section">
+    <div class="section-head" onclick="toggle(this)">
+      <div class="section-title">
+        <div class="section-num">Side-by-Side</div>
+        <div class="section-name">Full Comparison Across All Three</div>
+        <div class="section-meta">Every element, every cost, every projected outcome — in one table.</div>
+      </div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="section-body">
+
+      <table>
+        <thead>
+          <tr>
+            <th>Element</th>
+            <th style="text-align:center;color:var(--opta);">A · Literal</th>
+            <th style="text-align:center;color:var(--optb);">B · Full</th>
+            <th style="text-align:center;color:var(--optc);">C · Recommended</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="tick-row"><td>12 monthly past-client emails</td><td style="text-align:center"><span class="tick">✓</span></td><td style="text-align:center"><span class="tick">✓</span></td><td style="text-align:center"><span class="tick">✓</span></td></tr>
+          <tr class="tick-row"><td>Built-in referral ask</td><td style="text-align:center"><span class="partial">soft</span></td><td style="text-align:center"><span class="tick">rotating</span></td><td style="text-align:center"><span class="tick">rotating</span></td></tr>
+          <tr class="tick-row"><td>7-piece marketing graphic library</td><td style="text-align:center"><span class="tick">✓</span></td><td style="text-align:center"><span class="tick">✓</span></td><td style="text-align:center"><span class="tick">✓</span></td></tr>
+          <tr class="tick-row"><td>Monthly Sienna Market Update post</td><td style="text-align:center"><span class="tick">✓</span></td><td style="text-align:center"><span class="tick">✓</span></td><td style="text-align:center"><span class="tick">✓</span></td></tr>
+          <tr class="tick-row"><td>Weekly New Inventory post</td><td style="text-align:center"><span class="tick">✓</span></td><td style="text-align:center"><span class="tick">✓</span></td><td style="text-align:center"><span class="tick">✓</span></td></tr>
+          <tr class="tick-row"><td>Multi-channel posting (FB/IG/LI/GBP/Command)</td><td style="text-align:center"><span class="tick">✓</span></td><td style="text-align:center"><span class="tick">✓</span></td><td style="text-align:center"><span class="tick">✓</span></td></tr>
+          <tr class="tick-row"><td>KW Command Neighborhood Nurture (6 communities)</td><td style="text-align:center"><span class="cross">—</span></td><td style="text-align:center"><span class="tick">✓</span></td><td style="text-align:center"><span class="tick">✓</span></td></tr>
+          <tr class="tick-row"><td>NARRPR-based valuation workflow</td><td style="text-align:center"><span class="cross">—</span></td><td style="text-align:center"><span class="tick">✓</span></td><td style="text-align:center"><span class="tick">✓</span></td></tr>
+          <tr class="tick-row"><td>3 social posts/week + monthly market video</td><td style="text-align:center"><span class="cross">—</span></td><td style="text-align:center"><span class="tick">✓</span></td><td style="text-align:center"><span class="cross">—</span></td></tr>
+          <tr class="tick-row"><td>Google Business Profile optimization</td><td style="text-align:center"><span class="cross">—</span></td><td style="text-align:center"><span class="tick">✓</span></td><td style="text-align:center"><span class="tick">✓</span></td></tr>
+          <tr class="tick-row"><td>Sienna farm</td><td style="text-align:center"><span class="cross">outline only</span></td><td style="text-align:center"><span class="tick">750 homes, 6/yr</span></td><td style="text-align:center"><span class="partial">250 homes, 4/yr</span></td></tr>
+          <tr class="tick-row"><td>MGA annual appreciation event</td><td style="text-align:center"><span class="cross">—</span></td><td style="text-align:center"><span class="tick">✓</span></td><td style="text-align:center"><span class="tick">✓</span></td></tr>
+          <tr class="tick-row"><td>New construction + YouTube engine</td><td style="text-align:center"><span class="cross">—</span></td><td style="text-align:center"><span class="tick">full</span></td><td style="text-align:center"><span class="partial">phase 2</span></td></tr>
+          <tr class="tick-row"><td>Quarterly call scripts + auto-triggers</td><td style="text-align:center"><span class="cross">—</span></td><td style="text-align:center"><span class="tick">✓</span></td><td style="text-align:center"><span class="cross">—</span></td></tr>
+          <tr class="tick-row"><td>30-day pilot with weekly scorecards</td><td style="text-align:center"><span class="cross">—</span></td><td style="text-align:center"><span class="tick">$1,500</span></td><td style="text-align:center"><span class="tick">$650</span></td></tr>
+          <tr class="total"><td>One-time build cost</td><td style="text-align:center" class="num">$1,400</td><td style="text-align:center" class="num">$3,600 ($1,500 pilot)</td><td style="text-align:center" class="num">$1,500 ($650 pilot)</td></tr>
+          <tr class="total"><td>Ongoing monthly cost</td><td style="text-align:center" class="num">~$200</td><td style="text-align:center" class="num">~$995</td><td style="text-align:center" class="num">~$465</td></tr>
+          <tr class="total"><td>Year 1 total</td><td style="text-align:center" class="num">~$3,800</td><td style="text-align:center" class="num">~$15,500</td><td style="text-align:center" class="num">~$6,600</td></tr>
+          <tr class="total"><td>Projected Yr 1 incremental GCI</td><td style="text-align:center" class="num">$10-30K</td><td style="text-align:center" class="num">$40-90K</td><td style="text-align:center" class="num">$20-50K</td></tr>
+          <tr class="total"><td>Break-even (closes @ $10K GCI)</td><td style="text-align:center" class="num">1 close</td><td style="text-align:center" class="num">2 closes</td><td style="text-align:center" class="num">1-2 closes</td></tr>
+          <tr class="total"><td>Projected Yr 1 ROI</td><td style="text-align:center" class="num">2.5-8×</td><td style="text-align:center" class="num">2.5-6×</td><td style="text-align:center" class="num">3-7×</td></tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+  <!-- Decision -->
+  <div class="decision">
+    <h2>Your Move, Al</h2>
+    <div class="decision-options">
+      <div class="dec-opt">
+        <strong>Pick A</strong>
+        Just the pieces. $1,400 upfront, ~$200/mo. <strong>1 close pays it back 2.6×.</strong>
+      </div>
+      <div class="dec-opt">
+        <strong>Pick B</strong>
+        The full system + new construction. $1,500 pilot → balance + ~$995/mo. <strong>2 closes break even.</strong>
+      </div>
+      <div class="dec-opt">
+        <strong>Pick C (recommended)</strong>
+        Start with $650 pilot. See 30 days of data. <strong>1-2 closes pay the year.</strong>
+      </div>
+    </div>
+    <p style="margin-top:18px; margin-bottom:0; font-size:13px; color:#064e3b; font-style:italic;">Per MREA, you already have ~$1,500/mo earmarked for lead generation at your current volume. This plan just puts that money somewhere productive. <strong>Whichever you pick — it's revenue funding growth, not money out of pocket.</strong></p>
+  </div>
+
+</div>
+
+<script>
+  function toggle(headEl) {
+    const section = headEl.parentElement;
+    section.classList.toggle('open');
+  }
+  function expandAll() {
+    document.querySelectorAll('.section').forEach(s => s.classList.add('open'));
+  }
+  function collapseAll() {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('open'));
+  }
+</script>
+</body>
+</html>
