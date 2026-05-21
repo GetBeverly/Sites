@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rincon Realty Group — Marketing Plan</title>
+<style>
+  :root {
+    --kw-red: #c8102e;
+    --kw-red-dark: #9d0c24;
+    --ink: #1a1f2e;
+    --ink-soft: #3a4256;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --bg: #f7f7f5;
+    --card: #ffffff;
+    --good: #0f7c4e;
+    --good-fill: #e8f5ee;
+    --warn: #b45309;
+    --warn-fill: #fdf3e1;
+    --accent: #1f3a5f;
+    --accent-fill: #eaf0f7;
+    --money: #047857;
+    --money-fill: #d1fae5;
+    --role-al: #c8102e;
+    --role-al-fill: #fef2f2;
+    --role-you: #1f3a5f;
+    --role-you-fill: #eaf0f7;
+    --shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 28px 80px;
+  }
+
+  /* ===== Header ===== */
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--kw-red);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-bottom: 10px;
+  }
+  h1 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 38px;
+    line-height: 1.1;
+    color: var(--ink);
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+  .tagline {
+    font-style: italic;
+    color: var(--kw-red);
+    font-size: 17px;
+    margin: 0 0 6px;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 0 0 32px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  /* ===== Section headings ===== */
+  h2 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink);
+    margin: 48px 0 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--kw-red);
+    display: inline-block;
+  }
+  h3 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    color: var(--ink);
+    margin: 28px 0 12px;
+    letter-spacing: -0.01em;
+  }
+  h4 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    margin: 20px 0 10px;
+  }
+  p { margin: 0 0 14px; }
+  ul, ol { margin: 0 0 14px; padding-left: 22px; }
+  li { margin-bottom: 8px; }
+
+  /* ===== Philosophy banner ===== */
+  .philosophy {
+    background: linear-gradient(135deg, #fef2f2 0%, #fff 100%);
+    border-left: 4px solid var(--kw-red);
+    padding: 22px 26px;
+    border-radius: 6px;
+    margin: 0 0 36px;
+    box-shadow: var(--shadow);
+  }
+  .philosophy .label {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--kw-red);
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .philosophy p {
+    font-size: 18px;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* ===== Cards ===== */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+  }
+
+  /* ===== Initiative blocks ===== */
+  .initiative {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 0;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .initiative-header {
+    background: linear-gradient(180deg, #fafaf9 0%, #fff 100%);
+    border-bottom: 1px solid var(--line);
+    padding: 22px 28px 18px;
+  }
+  .initiative-header .num {
+    display: inline-block;
+    background: var(--kw-red);
+    color: #fff;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 800;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 3px;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+  .initiative-header h3 {
+    margin: 0 0 6px;
+    font-size: 22px;
+  }
+  .initiative-header .sub {
+    color: var(--muted);
+    font-size: 14px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  .initiative-body {
+    padding: 24px 28px 28px;
+  }
+
+  /* ===== Tables ===== */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 18px;
+    font-size: 14px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  th {
+    background: #fafaf9;
+    color: var(--ink);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 2px solid var(--line);
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #fafafa; }
+  td.num { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 600; text-align: right; }
+  td.bold { font-weight: 700; }
+  td.money { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 700; color: var(--money); text-align: right; }
+
+  /* ===== Tags / pills ===== */
+  .tag {
+    display: inline-block;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-right: 4px;
+  }
+  .tag.al { background: var(--role-al-fill); color: var(--role-al); }
+  .tag.you { background: var(--role-you-fill); color: var(--role-you); }
+  .tag.proof { background: #f5edfb; color: #6b21a8; }
+
+  /* ===== Sequence flow ===== */
+  .sequence {
+    display: grid;
+    grid-template-columns: 80px 1fr 110px 130px;
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 18px 0 22px;
+  }
+  .sequence .row {
+    display: contents;
+  }
+  .sequence .row > div {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--line);
+    background: #fff;
+    font-size: 13px;
+  }
+  .sequence .row.header > div {
+    background: #fafaf9;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    color: var(--ink-soft);
+  }
+  .sequence .row:last-child > div { border-bottom: none; }
+  .sequence .day {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 800;
+    color: var(--kw-red);
+    font-size: 14px;
+  }
+
+  /* ===== KB Proof callouts ===== */
+  .proof {
+    background: var(--accent-fill);
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin: 14px 0;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+  .proof .source {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+
+  /* ===== Pricing summary ===== */
+  .pricing {
+    background: linear-gradient(135deg, #f0fdf4 0%, #fff 100%);
+    border: 2px solid var(--money);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin: 24px 0;
+    box-shadow: var(--shadow);
+  }
+  .pricing .label {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--money);
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+  .pricing .lines {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .pricing .lines b { color: var(--money); font-weight: 800; }
+
+  /* ===== Scorecard link box ===== */
+  .scorecard-box {
+    background: linear-gradient(135deg, #fef2f2 0%, #fff 100%);
+    border: 2px solid var(--kw-red);
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin: 32px 0;
+    text-align: center;
+  }
+  .scorecard-box .label {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--kw-red);
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .scorecard-box h3 {
+    margin: 0 0 8px;
+    color: var(--ink);
+  }
+  .scorecard-box p { margin: 0 0 12px; color: var(--ink-soft); font-size: 14px; }
+  .scorecard-box a {
+    display: inline-block;
+    background: var(--kw-red);
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+  }
+  .scorecard-box a:hover { background: var(--kw-red-dark); }
+
+  /* ===== TL;DR header card ===== */
+  .tldr {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 26px 30px;
+    margin-bottom: 32px;
+    box-shadow: var(--shadow);
+  }
+  .tldr h3 {
+    margin: 0 0 16px;
+    font-size: 18px;
+  }
+  .tldr ul { margin: 0; }
+  .tldr li { margin-bottom: 10px; }
+
+  /* ===== Mobile ===== */
+  @media (max-width: 720px) {
+    .wrap { padding: 24px 14px 60px; }
+    h1 { font-size: 28px; }
+    .initiative-header { padding: 18px 20px 14px; }
+    .initiative-body { padding: 18px 20px; }
+    .sequence { grid-template-columns: 60px 1fr; }
+    .sequence .row > div:nth-child(3),
+    .sequence .row > div:nth-child(4) { display: none; }
+    table { font-size: 13px; }
+    th, td { padding: 8px 10px; }
+  }
+
+  @media print {
+    body { background: #fff; }
+    .scorecard-box, .pricing { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">Rincon Realty Group &nbsp;·&nbsp; Keller Williams Advantage</div>
+  <h1>Marketing Plan — Sienna & 6-Mile Radius</h1>
+  <p class="tagline">"It's a Great Market for Smart People."</p>
+  <p class="subtitle">Final plan as agreed. Foundation build + 30-day pilot + monthly execution.</p>
+
+  <!-- ===== TL;DR ===== -->
+  <div class="tldr">
+    <h3>What This Plan Does</h3>
+    <ul>
+      <li><b>Three initiatives, one objective:</b> drive Sienna-area listings + past-client referrals through a measurable, repeatable system.</li>
+      <li><b>Initiative 1 — Marketing collateral that generates leads.</b> 8-piece content library, 4–5 posts/week, cross-posted everywhere, all tied to Sienna activity.</li>
+      <li><b>Initiative 2 — Expired listings within 6 miles.</b> Full Jimmy Mackin 7-letter sequence + door-drop + Glover U email, no cold calls. Two tracks: fresh expireds (empathy) and old expireds (Blue Ocean).</li>
+      <li><b>Initiative 3 — Monthly past-client email with rotating referral asks.</b> Twelve emails/year, built from scratch, six-section format.</li>
+      <li><b>Tracked weekly:</b> Friday scorecard delivered to your phone. <a href="https://getbeverly.github.io/Sites/al-scorecard.html" style="color: var(--kw-red); font-weight: 600;">Live scorecard link</a>.</li>
+    </ul>
+  </div>
+
+  <div class="philosophy">
+    <div class="label">Operating philosophy</div>
+    <p>"Every dollar and every hour should be accountable to a specific result we can measure week over week — not 'marketing presence' for its own sake."</p>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- INITIATIVE 1 -->
+  <!-- ============================================================ -->
+  <div class="initiative">
+    <div class="initiative-header">
+      <span class="num">Initiative 1</span>
+      <h3>Marketing Collateral That Generates Leads</h3>
+      <div class="sub">Content library + 4–5 posts/week, posted everywhere, tied to Sienna activity</div>
+    </div>
+    <div class="initiative-body">
+
+      <h4>The 8-Piece Content Library</h4>
+      <p>Built once in Canva. Reused indefinitely. Each piece earns its place because it ties to either Sienna activity, Al's transactions, or the algorithm-protective lifestyle content that keeps the page healthy.</p>
+
+      <table>
+        <thead>
+          <tr><th>#</th><th>Template</th><th>Pillar</th><th>Cadence</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="num">1</td><td><b>Just Listed</b></td><td>Social Proof</td><td>Per transaction</td></tr>
+          <tr><td class="num">2</td><td><b>Just Sold</b></td><td>Social Proof</td><td>Per transaction</td></tr>
+          <tr><td class="num">3</td><td><b>Under Contract</b></td><td>Social Proof</td><td>Per transaction</td></tr>
+          <tr><td class="num">4</td><td><b>Sienna Market Update</b></td><td>Educational</td><td>Monthly</td></tr>
+          <tr><td class="num">5</td><td><b>New Inventory This Week</b></td><td>Educational</td><td>Weekly</td></tr>
+          <tr><td class="num">6</td><td><b>Testimonial / Client Story</b></td><td>Inspirational + Social Proof</td><td>When earned</td></tr>
+          <tr><td class="num">7</td><td><b>Local Spotlight</b> (Sienna restaurant/business/event)</td><td>Entertaining + Personal</td><td>Weekly</td></tr>
+          <tr><td class="num">8</td><td><b>Behind the Deal / Market Insight</b></td><td>Educational + Personal</td><td>Bi-weekly</td></tr>
+        </tbody>
+      </table>
+
+      <div class="proof">
+        <div class="source">Why Local Spotlight matters</div>
+        Posting strictly real-estate content suppresses reach. The algorithm needs non-buyer engagement signals to keep feeding the page to buyers. The Local Spotlight is the counterweight that keeps Initiative 1's posts visible.
+      </div>
+
+      <h4>Weekly Cadence</h4>
+      <table>
+        <thead>
+          <tr><th>Day</th><th>Post</th><th>Type</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>Monday</b></td><td>Sienna Market Update (monthly) OR New Inventory</td><td>Educational</td></tr>
+          <tr><td><b>Wednesday</b></td><td>Local Spotlight (Sienna restaurant/business/event)</td><td>Entertaining + Personal</td></tr>
+          <tr><td><b>Friday</b></td><td>Just Listed / Sold / Under Contract OR Testimonial</td><td>Social Proof</td></tr>
+          <tr><td><b>Saturday</b></td><td>Behind the Deal / Market Insight / Q&A</td><td>Educational + Personal</td></tr>
+          <tr><td><b>As triggered</b></td><td>JL/JS/UC per transaction</td><td>Social Proof</td></tr>
+        </tbody>
+      </table>
+
+      <p>Cross-posted to: <b>Facebook (Rincon Realty Group), Instagram, LinkedIn, Google Business Profile, and KW Command.</b> One primary CTA per post. All DMs and comments responded to within 24 hours — per the data, responding to Stories via DM results in the fastest business.</p>
+
+      <h4>How We Know It's Working</h4>
+      <table>
+        <thead><tr><th>Metric</th><th>Target by Month 3</th></tr></thead>
+        <tbody>
+          <tr><td>Saves per Educational post</td><td>5+</td></tr>
+          <tr><td>Shares per Local Spotlight</td><td>1–2</td></tr>
+          <tr><td>DMs received</td><td>2–5/month, growing</td></tr>
+          <tr><td>GBP profile views</td><td>200+/month by month 4</td></tr>
+          <tr><td>GBP calls clicked</td><td>2+/month by month 6</td></tr>
+          <tr><td>"I saw your post" mentions Al hears in person</td><td>1–2/month by month 3</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- INITIATIVE 2 -->
+  <!-- ============================================================ -->
+  <div class="initiative">
+    <div class="initiative-header">
+      <span class="num">Initiative 2</span>
+      <h3>Listings Within 6 Miles of Home — The Expired Engine</h3>
+      <div class="sub">Two-track Mackin 7-letter sequence, no cold calls, Al drives the door-drops</div>
+    </div>
+    <div class="initiative-body">
+
+      <p>The single highest-ROI source for Sienna-area listings is expired listings. Two pools, worked differently:</p>
+
+      <table>
+        <thead><tr><th>Pool</th><th>Volume in 6-Mile Radius</th><th>Approach</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>Fresh expireds</b><br><span style="color:var(--muted); font-size:12px;">(last 30 days)</span></td>
+            <td>~2–4/week from HAR pulls</td>
+            <td><b>Empathy-first.</b> Embarrassment, not anger. Acknowledge frustration before pitching.</td>
+          </tr>
+          <tr>
+            <td><b>Old expireds</b><br><span style="color:var(--muted); font-size:12px;">(6 months – 4+ years aged)</span></td>
+            <td>~400–500 total addressable</td>
+            <td><b>Blue Ocean.</b> Zero competition. Lead with "It's been 535 days since you listed... [X] homes like yours have sold since." Handle the risk objection upfront.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="proof">
+        <div class="source">Why no calls</div>
+        Per Glover U research: door-drop / in-person delivery converts 3–5× higher than email or phone. Al delivering personally to expired sellers is the highest-conversion touchpoint in this entire plan. Cold calls and bulk texts add risk without adding lift.
+      </div>
+
+      <h4>The 8-Week Sequence (Per Expired Lead)</h4>
+      <div class="sequence">
+        <div class="row header">
+          <div>Day</div>
+          <div>What</div>
+          <div>Channel</div>
+          <div>Who</div>
+        </div>
+        <div class="row">
+          <div class="day">Day 1</div>
+          <div>Glover U email: <i>"Are you still accepting offers on [street]?"</i></div>
+          <div>Email</div>
+          <div><span class="tag you">Beverly</span></div>
+        </div>
+        <div class="row">
+          <div class="day">Day 1</div>
+          <div>Mackin Letter 1: <i>"The Frustration of an Unsold Home"</i> (empathy / Blue Ocean opener)</div>
+          <div>Mail</div>
+          <div><span class="tag you">Beverly</span></div>
+        </div>
+        <div class="row">
+          <div class="day">Day 3</div>
+          <div>6-page Marketability Packet delivered to door + handwritten note + business card. QR on cover.</div>
+          <div>Door-drop</div>
+          <div><span class="tag al">Al</span></div>
+        </div>
+        <div class="row">
+          <div class="day">Day 4</div>
+          <div>Mackin Letter 2: <i>"The Biggest Mistake Expired Listings Make"</i> (same-agent relisting stats)</div>
+          <div>Mail</div>
+          <div><span class="tag you">Beverly</span></div>
+        </div>
+        <div class="row">
+          <div class="day">Day 8</div>
+          <div>Mackin Letter 3: <i>"Persistence and Proven Results"</i> (Al's track record)</div>
+          <div>Mail</div>
+          <div><span class="tag you">Beverly</span></div>
+        </div>
+        <div class="row">
+          <div class="day">Day 15</div>
+          <div>Mackin Letter 4: <i>"Why Your Home Didn't Sell — and How to Fix It"</i> + QR + MOFIR</div>
+          <div>Mail</div>
+          <div><span class="tag you">Beverly</span></div>
+        </div>
+        <div class="row">
+          <div class="day">Day 22</div>
+          <div>Mackin Letter 5: <i>"Before You Relist, Do This First"</i> + QR + MOFIR (free marketability audit)</div>
+          <div>Mail</div>
+          <div><span class="tag you">Beverly</span></div>
+        </div>
+        <div class="row">
+          <div class="day">Day 36</div>
+          <div>Mackin Letter 6: <i>"Let's Reimagine How Your Home Is Sold"</i> (Al's specific tactics)</div>
+          <div>Mail</div>
+          <div><span class="tag you">Beverly</span></div>
+        </div>
+        <div class="row">
+          <div class="day">Day 50</div>
+          <div>Mackin Letter 7: <i>"A Lot Has Changed"</i> + QR + MOFIR (market shift hook)</div>
+          <div>Mail</div>
+          <div><span class="tag you">Beverly</span></div>
+        </div>
+      </div>
+
+      <p><b>9 touches per expired over 50 days. Zero phone calls.</b> Every letter carries a QR code routing to a destination matched to the letter's theme (Property Value Range Report request, diagnostic checklist, marketability audit booking, etc.). Letters 4, 5, and 7 carry Make-Offer-For-Immediate-Response offers — "waive pre-listing photography fee" / "free marketability audit by [date]" / "include staging consultation."</p>
+
+      <div class="proof">
+        <div class="source">Why 7 letters, not 1 or 2</div>
+        50% of sales happen after the 5th attempt. 92% of agents quit before they get there. Most expired campaigns send one letter and stop. This one sends seven, with a clear next-step on every single touch.
+      </div>
+
+      <h4>Workload Split</h4>
+      <p>Al works both pools, 50/50 weekly. Fresh expireds for short-term velocity (faster decisions). Old expireds for long-tail listing pipeline (zero competition).</p>
+
+      <table>
+        <thead><tr><th>Weekly Target</th><th>Volume</th></tr></thead>
+        <tbody>
+          <tr><td>Fresh expireds pursued</td><td>4–8/week (whatever HAR shows)</td></tr>
+          <tr><td>Old expireds pursued</td><td>5–10/week (from the 400–500 addressable pool)</td></tr>
+          <tr><td>Active sequences at steady state</td><td>9–18 expireds at any given time</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Supporting Components</h4>
+
+      <p><b>250-home mini-farm</b> (150 Al's Sienna section near the golf course + 50 Glendale Lakes + 50 Stonebrook Estates) with 4 mailer drops/year. Every mailer has one CTA: scan QR → request free Property Value Range Report from NARRPR.</p>
+
+      <p><b>NARRPR valuation workflow.</b> Al-branded email template. Al or TC manually pulls Property Value Range Report from NARRPR when a QR scan or form submission comes in. 48-hour turnaround commitment.</p>
+
+      <p><b>MGA annual appreciation event.</b> Al hosts at the Sienna golf clubhouse. Al recruits 4–6 sponsors at $250–500 each (his network, his asks). Beverly designs collateral + launches campaigns. Sponsors fund the event. No pitching at the event itself — pure relationship-building.</p>
+
+      <p><b>New construction (referenced as underserved opportunity, not in base scope).</b> Glendale Lakes, Stonebrook, and Fresno have heavy DR Horton / KB Home / Perry Homes activity. YouTube model home tours are completely underserved in this market. If Al wants to layer this in as a complementary listing source later, the door is open.</p>
+
+      <h4>How We Know It's Working</h4>
+      <table>
+        <thead><tr><th>Metric</th><th>Target</th></tr></thead>
+        <tbody>
+          <tr><td>Glover U email open rate</td><td>35%+</td></tr>
+          <tr><td>Door-drops delivered/week</td><td>8+ at steady state</td></tr>
+          <tr><td>Letters mailed/week</td><td>8+ at steady state</td></tr>
+          <tr><td>QR scans/week</td><td>2–5 by month 2</td></tr>
+          <tr><td>NARRPR reports sent/week</td><td>2–5 by month 2</td></tr>
+          <tr><td>Expired appointments set/month</td><td>1–3</td></tr>
+          <tr><td><b>Expired listings signed/year</b></td><td><b>4–7 (Year 1 floor)</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- INITIATIVE 3 -->
+  <!-- ============================================================ -->
+  <div class="initiative">
+    <div class="initiative-header">
+      <span class="num">Initiative 3</span>
+      <h3>Monthly Past-Client Email Requesting Referrals</h3>
+      <div class="sub">12 emails/year, six-section format, rotating monthly ask</div>
+    </div>
+    <div class="initiative-body">
+
+      <p>Built from scratch — each email is a designed deliverable, not a Command template. The KW Command Neighborhood Nurture runs as a separate parallel touch (auto-sends Command's templated monthly market data to past clients in 6 neighborhoods) but is not the spine of this email. Two different channels doing two different jobs.</p>
+
+      <h4>The 6-Section Email Structure</h4>
+      <ol>
+        <li><b>Personal note from Al</b> — 2–3 sentences. Real. In Al's voice.</li>
+        <li><b>Sienna + Houston market update</b> — 3 bullets + chart. Sourced from HAR data (Al/TC pulls monthly).</li>
+        <li><b>Recent activity recap</b> — Just Listed / Sold / Under Contract since last email. Al's "quarterly review of our success" requested format.</li>
+        <li><b>Featured content</b> — alternates monthly between Sienna spotlight and Waterwood spotlight so both audiences feel seen.</li>
+        <li><b>The rotating monthly referral ask</b> — see below.</li>
+        <li><b>Footer</b> — Referral capture form link + social links.</li>
+      </ol>
+
+      <h4>Rotating Monthly Asks (12 distinct CTAs, one per month)</h4>
+      <table>
+        <thead><tr><th>Month</th><th>Ask</th></tr></thead>
+        <tbody>
+          <tr><td>Jan</td><td>Property tax protest comps</td></tr>
+          <tr><td>Feb</td><td>Spring buyer referrals</td></tr>
+          <tr><td>Mar</td><td>Free annual equity check-up</td></tr>
+          <tr><td>Apr</td><td>Spring seller referrals</td></tr>
+          <tr><td>May</td><td>Graduation / summer movers</td></tr>
+          <tr><td>Jun</td><td>Mid-year home value check</td></tr>
+          <tr><td>Jul</td><td>Investment property capability</td></tr>
+          <tr><td>Aug</td><td>Back-to-school move season</td></tr>
+          <tr><td>Sep</td><td>Fall personalized market update</td></tr>
+          <tr><td>Oct</td><td>Year-end tax / move planning</td></tr>
+          <tr><td>Nov</td><td>Holiday gratitude + referral ask</td></tr>
+          <tr><td>Dec</td><td>2027 planning + January coffee</td></tr>
+        </tbody>
+      </table>
+
+      <div class="proof">
+        <div class="source">Subject-line lift words (data-backed)</div>
+        "HOME" (+18% opens), "YOU/YOUR" (+25%), "YES" (+11%), "OPEN" (+19%). Subject lines kept to 6–10 words. Sender name = "Al Rincon" (real person, not "Rincon Realty Group" generic).
+      </div>
+
+      <h4>How We Know It's Working</h4>
+      <table>
+        <thead><tr><th>Metric</th><th>Target</th></tr></thead>
+        <tbody>
+          <tr><td>Open rate</td><td>30%+ (A-tier list standard)</td></tr>
+          <tr><td>Click-through rate</td><td>3–5%</td></tr>
+          <tr><td>Replies received per email</td><td>3–8 by month 3 (best signal)</td></tr>
+          <tr><td>Referral form submissions per email</td><td>1–3 by month 3</td></tr>
+          <tr><td>Unsubscribes per email</td><td>&lt;2</td></tr>
+          <tr><td><b>Actual closed referrals Year 1</b></td><td><b>3–5 sides</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===== Database Cleanup ===== -->
+  <h2>Foundation Work — Inside the Pilot</h2>
+  <div class="card">
+    <p><b>Command Database Cleanup (Week 1 of pilot).</b> Right now contacts are tagged "CLIENT" without distinguishing closed past clients from active deals from people who initially engaged but ghosted. Cleaning that up unlocks the monthly past-client email, the segmentation tagging, and segment-specific communication paths so each group gets the right cadence.</p>
+
+      <h4>The Cleanup Process</h4>
+      <ol>
+        <li><b>Audit & triage</b> — pull every contact tagged "CLIENT" and adjacent. Determine actual status (closed past client / active deal / cold lead / pure SOI).</li>
+        <li><b>Apply 2-D tagging</b> — Status (Closed Past Client / Active Lead / Cold Lead / Database / DNC) + Tier (A Allstars / B Business / C Coachable / D Database).</li>
+        <li><b>Build segment-specific sequences</b> — Closed Past Clients get the monthly email. Cold Leads get a re-engagement sequence. Active Leads stay on current cadence.</li>
+      </ol>
+  </div>
+
+  <!-- ===== Pricing & Pilot ===== -->
+  <h2>Pricing & 30-Day Pilot</h2>
+
+  <div class="pricing">
+    <div class="label">Compensation structure</div>
+    <div class="lines">
+      • <b>$1,500</b> — 30-day pilot fee, paid upfront. Covers foundation build + first 30 days of execution + Command cleanup.<br>
+      • <b>$500/month retainer</b> — beginning month 2. Covers ongoing execution.<br>
+      • <b>25% of GCI on closings the marketing system generates</b> — expireds, QR/NARRPR captures, mini-farm mailers, MGA-sourced leads.<br>
+      • <b>Excluded from the 25%:</b> repeat business + referrals from existing sphere.
+    </div>
+  </div>
+
+  <h4>Year 1 Economics at Projected Volume</h4>
+  <table>
+    <thead><tr><th>Incremental Closings</th><th>Year 1 Cost to Al</th><th>Incremental GCI</th><th>Net to Al</th></tr></thead>
+    <tbody>
+      <tr><td>Pilot only (0 closings)</td><td class="num">$7,000</td><td class="num">$0</td><td class="num">−$7,000</td></tr>
+      <tr><td>4 closings</td><td class="num">$17,000</td><td class="num">$40,000</td><td class="money">$23,000</td></tr>
+      <tr><td>8 closings</td><td class="num">$27,000</td><td class="num">$80,000</td><td class="money">$53,000</td></tr>
+      <tr><td>12 closings</td><td class="num">$37,000</td><td class="num">$120,000</td><td class="money">$83,000</td></tr>
+    </tbody>
+  </table>
+  <p><b>2–3× net return on investment</b>, well within MREA's 10% marketing budget rule and clearing the 4× ROI target by Year 2 as the system compounds.</p>
+
+  <h4>30-Day Pilot Deliverables (What $1,500 Buys)</h4>
+  <ul>
+    <li>8-piece Canva content library, fully designed and brand-locked</li>
+    <li>Glover U email template + first batch of expireds emailed</li>
+    <li>6-page Marketability Packet template (door-drop deliverable)</li>
+    <li>Full Mackin 7-letter sequence designed in 2 versions (fresh + old expireds)</li>
+    <li>QR landing page (Property Value Range Report request form)</li>
+    <li>NARRPR-branded valuation email template</li>
+    <li>Command database cleanup + 2-D tagging system applied</li>
+    <li>Google Business Profile optimization</li>
+    <li>First monthly past-client email designed, written, and sent</li>
+    <li>Mini-farm list pulled + Q1 mailer designed</li>
+    <li>MGA event campaign materials drafted</li>
+    <li>Live Friday scorecard delivered every week</li>
+    <li>30-day debrief with go/extend/walk decision</li>
+  </ul>
+
+  <!-- ===== Scorecard Link ===== -->
+  <div class="scorecard-box">
+    <div class="label">Track progress in real time</div>
+    <h3>Al's Live Marketing Scorecard</h3>
+    <p>Updated every Friday. YTD closings, pipeline value, expired engine activity, marketing cadence, inbound signals — all in one view.</p>
+    <a href="https://getbeverly.github.io/Sites/al-scorecard.html">Open the scorecard →</a>
+  </div>
+
+  <!-- ===== Decision ===== -->
+  <h2>To Start the Pilot</h2>
+  <div class="card">
+    <p style="font-size: 16px;">$1,500 paid, kickoff scheduled, first weekly Friday scorecard delivered 7 days later. Foundation work in Command happens week 1.</p>
+    <p style="font-size: 14px; color: var(--muted); margin-bottom: 0;">Sound right? Anything you want adjusted before we go?</p>
+  </div>
+
+</div>
+</body>
+</html>
