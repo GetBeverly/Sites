@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Al Rincon — Marketing Scorecard</title>
+<style>
+  :root {
+    --kw-red: #c8102e;
+    --kw-red-dark: #9d0c24;
+    --ink: #1a1f2e;
+    --ink-soft: #3a4256;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --bg: #f7f7f5;
+    --card: #ffffff;
+    --good: #0f7c4e;
+    --good-fill: #e8f5ee;
+    --warn: #b45309;
+    --warn-fill: #fdf3e1;
+    --bad: #b91c1c;
+    --bad-fill: #fee2e2;
+    --shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 32px 24px 60px;
+  }
+
+  /* ===== Header ===== */
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--kw-red);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-bottom: 8px;
+  }
+  h1 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 32px;
+    line-height: 1.15;
+    color: var(--ink);
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+  .tagline {
+    font-style: italic;
+    color: var(--kw-red);
+    font-size: 15px;
+    margin: 0 0 28px;
+  }
+
+  /* ===== Status banner ===== */
+  .status-banner {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 10px 16px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+  }
+  .status-banner.loading { color: var(--warn); }
+  .status-banner.error { color: var(--bad); background: var(--bad-fill); border-color: var(--bad); }
+  .status-banner.empty { color: var(--warn); background: var(--warn-fill); border-color: var(--warn); }
+
+  /* ===== Headline tiles ===== */
+  .headline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .headline-tile {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 22px 24px;
+    box-shadow: var(--shadow);
+    text-align: center;
+  }
+  .headline-tile .label {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .headline-tile .value {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--kw-red);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .headline-tile .sub {
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-top: 6px;
+  }
+
+  /* ===== Progress bar (pilot day) ===== */
+  .progress {
+    margin-top: 12px;
+    background: #f3f4f6;
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    background: var(--kw-red);
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.4s ease;
+  }
+
+  /* ===== Section ===== */
+  .section {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 20px 22px 24px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+  }
+  .section-title {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    margin: 0 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--kw-red);
+    display: inline-block;
+  }
+
+  /* ===== Stat grid ===== */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .stat {
+    background: #fafaf9;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .stat .label {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    font-weight: 700;
+    margin-bottom: 6px;
+    line-height: 1.3;
+    min-height: 26px;
+  }
+  .stat .value {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    line-height: 1;
+  }
+  .stat.good { background: var(--good-fill); border-color: #a7d8bb; }
+  .stat.good .value { color: var(--good); }
+  .stat.warn { background: var(--warn-fill); border-color: #f1c98a; }
+  .stat.warn .value { color: var(--warn); }
+  .stat.bad { background: var(--bad-fill); border-color: #fecaca; }
+  .stat.bad .value { color: var(--bad); }
+
+  /* ===== Status pills (sent/pending) ===== */
+  .pill-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .pill {
+    background: #fafaf9;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .pill .label {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .pill .badge {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .badge.sent { background: var(--good); color: #fff; }
+  .badge.pending { background: var(--warn); color: #fff; }
+  .badge.notstarted { background: var(--muted); color: #fff; }
+  .badge.progress { background: var(--warn); color: #fff; }
+  .badge.confirmed { background: var(--good); color: #fff; }
+  .badge.scheduled { background: var(--good); color: #fff; }
+
+  /* ===== Nurture dots ===== */
+  .nurture-row {
+    background: #fafaf9;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+  }
+  .nurture-row .label {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .nurture-dots {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .nurture-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid var(--line);
+    background: #fff;
+  }
+  .nurture-dot.filled {
+    background: var(--good);
+    border-color: var(--good);
+  }
+  .nurture-count {
+    margin-left: 8px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 800;
+    color: var(--ink);
+    font-size: 14px;
+  }
+
+  /* ===== MGA status ===== */
+  .mga-row {
+    background: #fafaf9;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .mga-row .label {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .mga-row .value {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  /* ===== Notes ===== */
+  .notes {
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    border: 1px solid #fde68a;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-top: 4px;
+    box-shadow: var(--shadow);
+  }
+  .notes .label {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #78350f;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+  .notes .content {
+    font-family: Georgia, serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #78350f;
+    font-style: italic;
+  }
+
+  /* ===== Empty state ===== */
+  .empty-state {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 60px 30px;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+  .empty-state h2 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 22px;
+    color: var(--ink);
+    margin: 0 0 10px;
+  }
+  .empty-state p {
+    color: var(--muted);
+    margin: 0;
+    font-size: 14px;
+  }
+
+  /* ===== Mobile ===== */
+  @media (max-width: 720px) {
+    .wrap { padding: 18px 12px 60px; }
+    h1 { font-size: 24px; }
+    .headline { grid-template-columns: 1fr; }
+    .headline-tile .value { font-size: 36px; }
+    .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    .pill-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">Rincon Realty Group &nbsp;·&nbsp; Keller Williams Advantage</div>
+  <h1>Al's Marketing Scorecard</h1>
+  <p class="tagline">"It's a Great Market for Smart People."</p>
+
+  <div id="status" class="status-banner loading">Loading latest scorecard data...</div>
+
+  <div id="content" style="display:none;">
+
+    <!-- ===== Headline ===== -->
+    <div class="headline">
+      <div class="headline-tile">
+        <div class="label">YTD System-Attributed Closings</div>
+        <div class="value" id="h-closings">—</div>
+      </div>
+      <div class="headline-tile">
+        <div class="label">Active Pipeline Value</div>
+        <div class="value" id="h-pipeline">—</div>
+      </div>
+      <div class="headline-tile">
+        <div class="label">Pilot Day</div>
+        <div class="value" id="h-pilot">—</div>
+        <div class="sub" id="h-pilot-sub">of 30</div>
+        <div class="progress"><div class="progress-fill" id="h-pilot-bar" style="width:0%"></div></div>
+      </div>
+    </div>
+
+    <!-- ===== Expired Engine ===== -->
+    <div class="section">
+      <h2 class="section-title">Expired Engine</h2>
+      <div class="stat-grid">
+        <div class="stat" id="s-active-expireds">
+          <div class="label">Active Expireds in Sequence</div>
+          <div class="value">—</div>
+        </div>
+        <div class="stat" id="s-doordrops">
+          <div class="label">Door-Drops Delivered This Week</div>
+          <div class="value">—</div>
+        </div>
+        <div class="stat" id="s-letters">
+          <div class="label">Letters Mailed This Week</div>
+          <div class="value">—</div>
+        </div>
+        <div class="stat" id="s-openrate">
+          <div class="label">Glover U Email Open Rate</div>
+          <div class="value">—</div>
+        </div>
+        <div class="stat" id="s-qrscans">
+          <div class="label">QR Scans This Week</div>
+          <div class="value">—</div>
+        </div>
+        <div class="stat" id="s-narrpr">
+          <div class="label">NARRPR Reports Sent This Week</div>
+          <div class="value">—</div>
+        </div>
+        <div class="stat" id="s-appointments">
+          <div class="label">Expired Appointments Set This Week</div>
+          <div class="value">—</div>
+        </div>
+        <div class="stat" id="s-signed">
+          <div class="label">Expired Listings Signed This Month</div>
+          <div class="value">—</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Marketing Cadence ===== -->
+    <div class="section">
+      <h2 class="section-title">Marketing Cadence</h2>
+      <div class="stat-grid" style="margin-bottom:14px;">
+        <div class="stat" id="s-posts" style="grid-column:span 4;">
+          <div class="label">Posts Published This Week (target 4–5)</div>
+          <div class="value">—</div>
+        </div>
+      </div>
+      <div class="pill-grid">
+        <div class="pill">
+          <div class="label">Sienna Market Update<br>This Month</div>
+          <div class="badge pending" id="p-sienna">—</div>
+        </div>
+        <div class="pill">
+          <div class="label">New Inventory Post<br>This Week</div>
+          <div class="badge pending" id="p-inventory">—</div>
+        </div>
+        <div class="pill">
+          <div class="label">Past-Client Email<br>This Month</div>
+          <div class="badge pending" id="p-email">—</div>
+        </div>
+      </div>
+      <div class="nurture-row">
+        <div class="label">KW Command Neighborhood Nurture — This Month (target 6 of 6 communities)</div>
+        <div class="nurture-dots" id="nurture-dots">
+          <span class="nurture-dot" data-i="1"></span>
+          <span class="nurture-dot" data-i="2"></span>
+          <span class="nurture-dot" data-i="3"></span>
+          <span class="nurture-dot" data-i="4"></span>
+          <span class="nurture-dot" data-i="5"></span>
+          <span class="nurture-dot" data-i="6"></span>
+          <span class="nurture-count" id="nurture-count">—</span>
+        </div>
+      </div>
+      <div class="mga-row" style="margin-top:12px;">
+        <div class="label">MGA Sponsor Outreach Status</div>
+        <div class="value" id="mga-status">—</div>
+      </div>
+    </div>
+
+    <!-- ===== Inbound Signals ===== -->
+    <div class="section">
+      <h2 class="section-title">Inbound Signals</h2>
+      <div class="stat-grid">
+        <div class="stat" id="s-gbp">
+          <div class="label">GBP Profile Views This Week</div>
+          <div class="value">—</div>
+        </div>
+        <div class="stat" id="s-dms">
+          <div class="label">DMs Received This Week</div>
+          <div class="value">—</div>
+        </div>
+        <div class="stat" id="s-replies">
+          <div class="label">Email Replies from Newsletter</div>
+          <div class="value">—</div>
+        </div>
+        <div class="stat" id="s-qrforms">
+          <div class="label">QR Landing Page Submissions</div>
+          <div class="value">—</div>
+        </div>
+        <div class="stat" id="s-mentions" style="grid-column:span 4;">
+          <div class="label">"I Saw Your Post" Mentions This Week (Al Self-Reported)</div>
+          <div class="value">—</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Notes ===== -->
+    <div class="notes" id="notes-block" style="display:none;">
+      <div class="label">Notes from This Week</div>
+      <div class="content" id="notes-content">—</div>
+    </div>
+
+  </div>
+
+  <!-- Empty state -->
+  <div id="empty" class="empty-state" style="display:none;">
+    <h2>No data yet</h2>
+    <p>The first weekly scorecard ships once Beverly submits the kickoff entry. Check back this Friday.</p>
+  </div>
+
+</div>
+
+<script>
+  const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQoKcU7kSTv8B4gJoayEncTYz__WVQnFSh5FN2x0uFbCnsF1smxiyH_LUqLjcMe2ZiUMydEr5kJf0Q3/pub?gid=592936127&single=true&output=csv';
+
+  // ---- CSV Parser (handles quoted fields with commas) ----
+  function parseCSV(text) {
+    const rows = [];
+    let row = [], field = '', inQuotes = false;
+    for (let i = 0; i < text.length; i++) {
+      const c = text[i];
+      if (inQuotes) {
+        if (c === '"' && text[i+1] === '"') { field += '"'; i++; }
+        else if (c === '"') { inQuotes = false; }
+        else { field += c; }
+      } else {
+        if (c === '"') { inQuotes = true; }
+        else if (c === ',') { row.push(field); field = ''; }
+        else if (c === '\n' || c === '\r') {
+          if (c === '\r' && text[i+1] === '\n') i++;
+          row.push(field); rows.push(row); row = []; field = '';
+        } else { field += c; }
+      }
+    }
+    if (field.length > 0 || row.length > 0) { row.push(field); rows.push(row); }
+    return rows.filter(r => r.length > 1 || (r.length === 1 && r[0].trim() !== ''));
+  }
+
+  // ---- Helpers ----
+  function n(v) {
+    if (v === undefined || v === null || v === '') return null;
+    const cleaned = String(v).replace(/[$,%\s]/g, '');
+    const num = parseFloat(cleaned);
+    return isNaN(num) ? null : num;
+  }
+  function fmt(v, opts = {}) {
+    if (v === null || v === undefined || v === '') return '—';
+    if (opts.dollar) return '$' + Number(v).toLocaleString();
+    if (opts.percent) return Number(v).toFixed(1) + '%';
+    return String(v);
+  }
+  function colorBy(elId, value, thresholds) {
+    const el = document.getElementById(elId);
+    if (!el || value === null) return;
+    el.classList.remove('good', 'warn', 'bad');
+    if (value >= thresholds.good) el.classList.add('good');
+    else if (value >= thresholds.warn) el.classList.add('warn');
+    else el.classList.add('bad');
+  }
+  function setValue(elId, text) {
+    const el = document.getElementById(elId);
+    if (!el) return;
+    const valueEl = el.querySelector('.value');
+    if (valueEl) valueEl.textContent = text;
+    else el.textContent = text;
+  }
+  function setBadge(elId, status) {
+    const el = document.getElementById(elId);
+    if (!el) return;
+    el.textContent = status || '—';
+    el.className = 'badge';
+    const s = (status || '').toLowerCase().trim();
+    if (s === 'sent') el.classList.add('sent');
+    else if (s === 'pending') el.classList.add('pending');
+    else if (s.includes('not started')) el.classList.add('notstarted');
+    else if (s.includes('progress')) el.classList.add('progress');
+    else if (s.includes('confirmed')) el.classList.add('confirmed');
+    else if (s.includes('scheduled')) el.classList.add('scheduled');
+    else el.classList.add('pending');
+  }
+
+  // ---- Render the latest row ----
+  function render(row, headers) {
+    // Build a column-name -> value map (case insensitive, trimmed)
+    const data = {};
+    headers.forEach((h, i) => {
+      data[h.toLowerCase().trim()] = (row[i] || '').trim();
+    });
+
+    // Helper to fetch a value by partial label match
+    function get(...keywords) {
+      for (const key of Object.keys(data)) {
+        if (keywords.every(kw => key.includes(kw.toLowerCase()))) return data[key];
+      }
+      return '';
+    }
+
+    // Headline
+    const closings = n(get('year-to-date', 'closings')) ?? n(get('ytd', 'closings'));
+    const pipeline = n(get('pipeline', 'value'));
+    const pilotDay = n(get('pilot', 'day'));
+
+    document.getElementById('h-closings').textContent = closings !== null ? closings : '—';
+    document.getElementById('h-pipeline').textContent = pipeline !== null ? '$' + pipeline.toLocaleString() : '—';
+    document.getElementById('h-pilot').textContent = pilotDay !== null ? pilotDay : '—';
+    if (pilotDay !== null) {
+      const pct = Math.min(100, Math.max(0, (pilotDay / 30) * 100));
+      document.getElementById('h-pilot-bar').style.width = pct + '%';
+    }
+
+    // Expired Engine
+    const activeExpireds = n(get('active expireds'));
+    const doorDrops = n(get('door-drops')) ?? n(get('door drops'));
+    const letters = n(get('letters mailed'));
+    const openRate = n(get('glover', 'open rate')) ?? n(get('open rate'));
+    const qrScans = n(get('qr scans'));
+    const narrpr = n(get('narrpr'));
+    const appts = n(get('appointments set'));
+    const signed = n(get('listings signed'));
+
+    setValue('s-active-expireds', activeExpireds ?? '—');
+    setValue('s-doordrops', doorDrops ?? '—');
+    setValue('s-letters', letters ?? '—');
+    setValue('s-openrate', openRate !== null ? openRate.toFixed(1) + '%' : '—');
+    setValue('s-qrscans', qrScans ?? '—');
+    setValue('s-narrpr', narrpr ?? '—');
+    setValue('s-appointments', appts ?? '—');
+    setValue('s-signed', signed ?? '—');
+
+    // KB-anchored color coding for key expired metrics
+    colorBy('s-openrate', openRate, { good: 35, warn: 20 });
+    colorBy('s-doordrops', doorDrops, { good: 8, warn: 4 });
+    colorBy('s-letters', letters, { good: 8, warn: 4 });
+    colorBy('s-appointments', appts, { good: 1, warn: 0.5 });
+
+    // Marketing Cadence
+    const posts = n(get('posts published'));
+    setValue('s-posts', posts ?? '—');
+    colorBy('s-posts', posts, { good: 4, warn: 2 });
+
+    setBadge('p-sienna', get('sienna market update'));
+    setBadge('p-inventory', get('new inventory post'));
+    setBadge('p-email', get('past-client email')) ?? setBadge('p-email', get('past client email'));
+
+    const nurture = n(get('nurture sends')) ?? n(get('neighborhood nurture'));
+    document.getElementById('nurture-count').textContent = nurture !== null ? `${nurture} / 6` : '—';
+    if (nurture !== null) {
+      document.querySelectorAll('.nurture-dot').forEach((dot, i) => {
+        if (i < nurture) dot.classList.add('filled');
+        else dot.classList.remove('filled');
+      });
+    }
+
+    document.getElementById('mga-status').textContent = get('mga sponsor') || '—';
+
+    // Inbound Signals
+    const gbp = n(get('gbp profile'));
+    const dms = n(get('dms received'));
+    const replies = n(get('email replies'));
+    const qrForms = n(get('qr landing'));
+    const mentions = n(get('saw your post'));
+
+    setValue('s-gbp', gbp ?? '—');
+    setValue('s-dms', dms ?? '—');
+    setValue('s-replies', replies ?? '—');
+    setValue('s-qrforms', qrForms ?? '—');
+    setValue('s-mentions', mentions ?? '—');
+
+    colorBy('s-gbp', gbp, { good: 50, warn: 25 });
+    colorBy('s-dms', dms, { good: 2, warn: 1 });
+    colorBy('s-replies', replies, { good: 3, warn: 1 });
+
+    // Notes
+    const notes = get('notes from this week') || get('notes');
+    if (notes && notes.trim()) {
+      document.getElementById('notes-block').style.display = 'block';
+      document.getElementById('notes-content').textContent = notes;
+    }
+  }
+
+  // ---- Fetch and display ----
+  async function load() {
+    const statusEl = document.getElementById('status');
+    try {
+      const res = await fetch(SHEET_URL + '&t=' + Date.now());
+      if (!res.ok) throw new Error('Network response not ok');
+      const text = await res.text();
+      const rows = parseCSV(text);
+
+      if (rows.length < 2) {
+        // No submissions yet
+        statusEl.style.display = 'none';
+        document.getElementById('empty').style.display = 'block';
+        return;
+      }
+
+      const headers = rows[0];
+      const latest = rows[rows.length - 1];
+
+      render(latest, headers);
+      statusEl.style.display = 'none';
+      document.getElementById('content').style.display = 'block';
+
+    } catch (err) {
+      statusEl.className = 'status-banner error';
+      statusEl.textContent = 'Could not load scorecard data. Refresh to retry.';
+      console.error(err);
+    }
+  }
+
+  load();
+</script>
+</body>
+</html>
