@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beverly's Pilot Roadmap — Rincon Realty Group</title>
+<style>
+  :root {
+    --kw-red: #c8102e;
+    --kw-red-dark: #9d0c24;
+    --ink: #1a1f2e;
+    --ink-soft: #3a4256;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --bg: #f7f7f5;
+    --card: #ffffff;
+    --good: #0f7c4e;
+    --good-fill: #e8f5ee;
+    --accent: #1f3a5f;
+    --accent-fill: #eaf0f7;
+    --shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  .wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 24px 80px;
+  }
+
+  /* ===== Header ===== */
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--kw-red);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-bottom: 8px;
+  }
+  h1 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 34px;
+    line-height: 1.1;
+    color: var(--ink);
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 0 0 24px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  /* ===== Progress bar ===== */
+  .progress-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+  }
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+  }
+  .progress-label .label {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    font-weight: 700;
+  }
+  .progress-label .count {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 800;
+    color: var(--kw-red);
+    font-size: 18px;
+  }
+  .progress-bar {
+    background: #f3f4f6;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    background: linear-gradient(90deg, var(--kw-red) 0%, var(--good) 100%);
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+
+  /* ===== Tabs ===== */
+  .tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 24px;
+    border-bottom: 2px solid var(--line);
+  }
+  .tab {
+    background: transparent;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.2s;
+  }
+  .tab:hover { color: var(--ink); }
+  .tab.active {
+    color: var(--kw-red);
+    border-bottom-color: var(--kw-red);
+  }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ===== Section headings ===== */
+  h2 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink);
+    margin: 36px 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--kw-red);
+    display: inline-block;
+  }
+  h2:first-of-type { margin-top: 8px; }
+  h3 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin: 24px 0 12px;
+  }
+
+  /* ===== Week cards ===== */
+  .week {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+  }
+  .week-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .week-title {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+  .week-title .small {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--kw-red);
+    margin-right: 8px;
+    font-weight: 700;
+  }
+  .week-count {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  /* ===== Checkbox tasks ===== */
+  .task {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f3f4f6;
+  }
+  .task:last-child { border-bottom: none; }
+  .task input[type="checkbox"] {
+    margin-top: 5px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--kw-red);
+    flex-shrink: 0;
+  }
+  .task label {
+    flex: 1;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .task label .day-tag {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 800;
+    color: var(--kw-red);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-right: 8px;
+  }
+  .task input[type="checkbox"]:checked + label {
+    color: var(--muted);
+    text-decoration: line-through;
+    text-decoration-color: var(--muted);
+  }
+  .task input[type="checkbox"]:checked + label .day-tag {
+    color: var(--muted);
+  }
+
+  /* ===== Tool stack table ===== */
+  .tool-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 0;
+    font-size: 14px;
+  }
+  th {
+    text-align: left;
+    padding: 10px 14px;
+    background: #fafaf9;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    border-bottom: 2px solid var(--line);
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  td.bold { font-weight: 700; }
+  td.cost { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 700; color: var(--good); }
+
+  /* ===== Daily Schedule blocks ===== */
+  .day-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow);
+  }
+  .day-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  .day-card-day {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+  .day-card-day .tag {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--kw-red);
+    margin-left: 8px;
+    font-weight: 700;
+  }
+  .time-block {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 16px;
+    padding: 8px 0;
+    align-items: start;
+  }
+  .time-block .time {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 800;
+    color: var(--kw-red);
+    font-size: 13px;
+    padding-top: 1px;
+  }
+  .time-block .block {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .time-block .block b {
+    color: var(--ink);
+  }
+
+  /* ===== Reality check / risk callouts ===== */
+  .callout {
+    background: var(--accent-fill);
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin: 14px 0;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+  .callout .source {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+
+  /* ===== Reset button ===== */
+  .reset-btn {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-left: 12px;
+  }
+  .reset-btn:hover { color: var(--kw-red); border-color: var(--kw-red); }
+
+  /* ===== Mobile ===== */
+  @media (max-width: 720px) {
+    .wrap { padding: 18px 12px 60px; }
+    h1 { font-size: 24px; }
+    .tabs { gap: 0; overflow-x: auto; }
+    .tab { padding: 10px 14px; font-size: 11px; white-space: nowrap; }
+    .time-block { grid-template-columns: 70px 1fr; gap: 10px; }
+    .time-block .time { font-size: 11px; }
+    table { font-size: 12px; }
+    th, td { padding: 8px 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">Beverly — Operations Roadmap &nbsp;·&nbsp; Rincon Realty Group Pilot</div>
+  <h1>My Pilot Playbook</h1>
+  <p class="subtitle">30-day build + ongoing execution. Checkmarks save automatically. <button class="reset-btn" onclick="resetProgress()">Reset all</button></p>
+
+  <!-- Progress bar -->
+  <div class="progress-card">
+    <div class="progress-label">
+      <span class="label">Overall Progress</span>
+      <span class="count"><span id="completed-count">0</span> / <span id="total-count">0</span></span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('tools')">Tool Stack</button>
+    <button class="tab" onclick="switchTab('roadmap')">30-Day Roadmap</button>
+    <button class="tab" onclick="switchTab('schedule')">Daily Schedule</button>
+    <button class="tab" onclick="switchTab('risks')">Risks &amp; Reality</button>
+  </div>
+
+  <!-- ===== TAB 1: TOOL STACK ===== -->
+  <div class="tab-panel active" id="tab-tools">
+
+    <h2>Day 1 Tool Stack</h2>
+    <p>Before execution can start, infrastructure must exist. Check each off as accounts are created and tested.</p>
+
+    <div class="tool-card">
+      <table>
+        <thead>
+          <tr><th style="width:30px;"></th><th>Tool</th><th>What It Does</th><th>Cost</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="checkbox" data-key="tool-canva"></td>
+            <td class="bold">Canva Pro</td>
+            <td>Graphic design — 8-piece content library, all Mackin letters, MGA collateral, mini-farm mailers</td>
+            <td class="cost">FREE via KW</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" data-key="tool-metricool"></td>
+            <td class="bold">Metricool</td>
+            <td>Social post scheduler — FB, IG, LinkedIn, GBP from one dashboard. Tom Ferry's recommendation.</td>
+            <td class="cost">$22/mo</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" data-key="tool-handwrytten"></td>
+            <td class="bold">Handwrytten</td>
+            <td>AI-generated handwritten notes printed and mailed — for door-drop notes + birthday/housiversary touches</td>
+            <td class="cost">$2–5/note</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" data-key="tool-ylc"></td>
+            <td class="bold">YellowLettersComplete</td>
+            <td>KB-named printer for direct mail letters. Prints + mails the entire Mackin 7-letter sequence per expired.</td>
+            <td class="cost">~$0.85–1.25/letter</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" data-key="tool-chatgpt"></td>
+            <td class="bold">ChatGPT Plus</td>
+            <td>Writing the 7 Mackin letters in 2 voices + monthly emails + captions + sponsor solicitation copy</td>
+            <td class="cost">$20/mo</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" data-key="tool-workspace"></td>
+            <td class="bold">Google Workspace</td>
+            <td>Drive, Sheets, Forms — already used for the scorecard. Confirm you have it.</td>
+            <td class="cost">$6/mo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <div class="source">Bottom line</div>
+      Total monthly tool cost to Beverly: <b>~$48/mo</b> (Metricool + ChatGPT + Workspace). Plus first-month Handwrytten + YellowLettersComplete usage: <b>~$100–150</b> depending on volume. All recovered inside the $1,500 pilot fee.
+    </div>
+
+    <h3>Phase 2 Tools (Add Later If Needed)</h3>
+    <div class="tool-card">
+      <table>
+        <tbody>
+          <tr><td><input type="checkbox" data-key="tool-capcut"></td><td class="bold">CapCut</td><td>Video editing for Reels (when Al does video) — free tier works</td><td class="cost">$0–16/mo</td></tr>
+          <tr><td><input type="checkbox" data-key="tool-elevenlabs"></td><td class="bold">ElevenLabs</td><td>AI voice cloning Al's voice for voiceover content (Phase 2)</td><td class="cost">$5/mo</td></tr>
+          <tr><td><input type="checkbox" data-key="tool-submagic"></td><td class="bold">Submagic</td><td>Auto-captions on Reels — 85% of Reels are watched on mute</td><td class="cost">$16/mo</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- ===== TAB 2: 30-DAY ROADMAP ===== -->
+  <div class="tab-panel" id="tab-roadmap">
+
+    <h2>The 30-Day Pilot Build Sequence</h2>
+    <p>Each task depends on the one before it. Don't skip ahead — the build order matters.</p>
+
+    <div class="week">
+      <div class="week-header">
+        <div class="week-title"><span class="small">Week 1</span>Foundation (Days 1–7)</div>
+        <div class="week-count" data-week="1"></div>
+      </div>
+      <div class="task"><input type="checkbox" data-key="r-d1-tools" data-week="1"><label><span class="day-tag">Day 1</span>Sign up Metricool, ChatGPT Plus, Handwrytten, YellowLettersComplete. Verify Canva via KW login.</label></div>
+      <div class="task"><input type="checkbox" data-key="r-d1-export" data-week="1"><label><span class="day-tag">Day 1</span>Pull all "CLIENT"-tagged contacts from Command into a spreadsheet for cleanup.</label></div>
+      <div class="task"><input type="checkbox" data-key="r-d2-triage" data-week="1"><label><span class="day-tag">Day 2</span>1-hour call with Al to triage every contact: Closed Past Client / Active Lead / Cold Lead / Database / DNC.</label></div>
+      <div class="task"><input type="checkbox" data-key="r-d3-tags" data-week="1"><label><span class="day-tag">Day 3</span>Apply 2-D tags in Command (Status + A/B/C/D tier — Chase Craig framework).</label></div>
+      <div class="task"><input type="checkbox" data-key="r-d4-canva" data-week="1"><label><span class="day-tag">Day 4</span>Build the 8 Canva content templates. Lock brand colors, fonts, Al's headshot, RRG logo, tagline.</label></div>
+      <div class="task"><input type="checkbox" data-key="r-d5-landing" data-week="1"><label><span class="day-tag">Day 5</span>Build the QR landing page on AWS/Neon: "Tell me about your home → Property Value Range Report in 48 hours."</label></div>
+      <div class="task"><input type="checkbox" data-key="r-d6-narrpr" data-week="1"><label><span class="day-tag">Day 6</span>Build the NARRPR-branded email template Al/TC sends after pulling the report.</label></div>
+      <div class="task"><input type="checkbox" data-key="r-d7-glover" data-week="1"><label><span class="day-tag">Day 7</span>Write Glover U email template. Draft 6-page Marketability Packet master content.</label></div>
+    </div>
+
+    <div class="week">
+      <div class="week-header">
+        <div class="week-title"><span class="small">Week 2</span>Expired Engine Goes Live (Days 8–14)</div>
+        <div class="week-count" data-week="2"></div>
+      </div>
+      <div class="task"><input type="checkbox" data-key="r-d8-har" data-week="2"><label><span class="day-tag">Day 8</span>Al/TC pulls first batch of expireds from HAR. Split into 10 fresh + 10 old.</label></div>
+      <div class="task"><input type="checkbox" data-key="r-d9-l1" data-week="2"><label><span class="day-tag">Day 9</span>Write Mackin Letter 1 — both fresh (empathy) and old (Blue Ocean) versions.</label></div>
+      <div class="task"><input type="checkbox" data-key="r-d10-l2" data-week="2"><label><span class="day-tag">Day 10</span>Write Mackin Letter 2 — both versions ("Biggest Mistake Expired Listings Make").</label></div>
+      <div class="task"><input type="checkbox" data-key="r-d11-ylc" data-week="2"><label><span class="day-tag">Day 11</span>Upload Letters 1 &amp; 2 to YellowLettersComplete with merge tags. Schedule first mail dates.</label></div>
+      <div class="task"><input type="checkbox" data-key="r-d12-handwrytten" data-week="2"><label><span class="day-tag">Day 12</span>Order Handwrytten notes for Day-3 door-drops (first batch).</label></div>
+      <div class="task"><input type="checkbox" data-key="r-d13-live" data-week="2"><label><span class="day-tag">Day 13</span><b>EXPIRED ENGINE LIVE.</b> Send first Glover U emails to 20 expireds. Al delivers Day-3 packets to fresh expireds.</label></div>
+      <div class="task"><input type="checkbox" data-key="r-d14-scorecard" data-week="2"><label><span class="day-tag">Day 14</span>Submit Week 1 scorecard via Google Form. Al sees data Friday morning.</label></div>
+    </div>
+
+    <div class="week">
+      <div class="week-header">
+        <div class="week-title"><span class="small">Week 3</span>Content + Email Build (Days 15–21)</div>
+        <div class="week-count" data-week="3"></div>
+      </div>
+      <div class="task"><input type="checkbox" data-key="r-d15-l34" data-week="3"><label><span class="day-tag">Day 15</span>Write Mackin Letters 3 &amp; 4 — both versions. Letter 4 includes QR + MOFIR.</label></div>
+      <div class="task"><input type="checkbox" data-key="r-d16-email" data-week="3"><label><span class="day-tag">Day 16</span>Write first monthly past-client email (6-section format, current month's rotating ask).</label></div>
+      <div class="task"><input type="checkbox" data-key="r-d17-sienna" data-week="3"><label><span class="day-tag">Day 17</span>Design + write Sienna Market Update post for the month. Schedule via Metricool.</label></div>
+      <div class="task"><input type="checkbox" data-key="r-d18-schedule" data-week="3"><label><span class="day-tag">Day 18</span>Schedule next week of 4–5 posts via Metricool. Pull HAR data for the month's update.</label></div>
+      <div class="task"><input type="checkbox" data-key="r-d19-gbp" data-week="3"><label><span class="day-tag">Day 19</span>Optimize Al's Google Business Profile. Add weekly GBP post.</label></div>
+      <div class="task"><input type="checkbox" data-key="r-d20-farm" data-week="3"><label><span class="day-tag">Day 20</span>Pull mini-farm list (150 Sienna + 50 Glendale Lakes + 50 Stonebrook). Design Q1 mailer.</label></div>
+      <div class="task"><input type="checkbox" data-key="r-d21-scorecard" data-week="3"><label><span class="day-tag">Day 21</span>Submit Week 2 scorecard.</label></div>
+    </div>
+
+    <div class="week">
+      <div class="week-header">
+        <div class="week-title"><span class="small">Week 4</span>Letters 5–7 + MGA + Wrap (Days 22–30)</div>
+        <div class="week-count" data-week="4"></div>
+      </div>
+      <div class="task"><input type="checkbox" data-key="r-d22-l567" data-week="4"><label><span class="day-tag">Day 22</span>Write Mackin Letters 5, 6, 7 — both versions.</label></div>
+      <div class="task"><input type="checkbox" data-key="r-d23-upload" data-week="4"><label><span class="day-tag">Day 23</span>Upload Letters 3–7 to YellowLettersComplete, scheduled per sequence dates.</label></div>
+      <div class="task"><input type="checkbox" data-key="r-d24-mga" data-week="4"><label><span class="day-tag">Day 24</span>Draft MGA event campaign materials — sponsor solicitation deck for Al to use with his network.</label></div>
+      <div class="task"><input type="checkbox" data-key="r-d25-firstemail" data-week="4"><label><span class="day-tag">Day 25</span>Send first monthly past-client email.</label></div>
+      <div class="task"><input type="checkbox" data-key="r-d26-reengage" data-week="4"><label><span class="day-tag">Day 26</span>Build re-engagement sequence for "Cold Lead" tagged contacts (the ghosters).</label></div>
+      <div class="task"><input type="checkbox" data-key="r-d27-mailer" data-week="4"><label><span class="day-tag">Day 27</span>Mail Q1 mini-farm mailer (~250 homes via YellowLettersComplete).</label></div>
+      <div class="task"><input type="checkbox" data-key="r-d28-scorecard" data-week="4"><label><span class="day-tag">Day 28</span>Submit Week 3 scorecard.</label></div>
+      <div class="task"><input type="checkbox" data-key="r-d29-prep" data-week="4"><label><span class="day-tag">Day 29</span>Compile Day-30 debrief data + presentation.</label></div>
+      <div class="task"><input type="checkbox" data-key="r-d30-debrief" data-week="4"><label><span class="day-tag">Day 30</span><b>DAY-30 DEBRIEF</b> call with Al. Submit final pilot scorecard. Decision: continue / extend / walk.</label></div>
+    </div>
+
+    <h2>Steady State (Month 2+)</h2>
+    <div class="tool-card">
+      <p style="margin-bottom:0;">Once the pilot proves out, the rhythm becomes:</p>
+      <ul>
+        <li><b>Weekly:</b> 4–5 posts published, 8+ expireds pursued through sequence, Friday scorecard submitted.</li>
+        <li><b>Monthly:</b> Past-client email designed + sent, Sienna Market Update post, KW Command Nurture verified (6 communities), 30-day pipeline review with Al.</li>
+        <li><b>Quarterly:</b> Mini-farm mailer drop, MGA event check-in, content library audit (add/retire templates).</li>
+        <li><b>Annually:</b> MGA appreciation event in summer, full plan review with Al.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- ===== TAB 3: DAILY SCHEDULE ===== -->
+  <div class="tab-panel" id="tab-schedule">
+
+    <h2>The Weekly Rhythm — 4 Hours/Day × 5 Days</h2>
+    <p>20 hours/week sustainable execution. Mondays heaviest (build day), Fridays lightest (reporting day). Saturdays + Sundays = no work, recharge.</p>
+
+    <div class="day-card">
+      <div class="day-card-header"><div class="day-card-day">Monday <span class="tag">Build Day · Heaviest</span></div></div>
+      <div class="time-block"><div class="time">9:00–10:00</div><div class="block"><b>Expired sequence prep.</b> Al/TC sent HAR expireds Friday. Triage them (fresh vs. old). Order printing for the week via YellowLettersComplete. Order Handwrytten notes for Day-3 deliveries.</div></div>
+      <div class="time-block"><div class="time">10:00–11:30</div><div class="block"><b>Content production.</b> Write captions for the week's 4–5 posts. Design any new graphics in Canva using the 8 templates as base.</div></div>
+      <div class="time-block"><div class="time">11:30–12:30</div><div class="block"><b>Schedule in Metricool.</b> Mon/Wed/Fri/Sat posts queued. GBP weekly post queued. Verify KW Command auto-posts.</div></div>
+      <div class="time-block"><div class="time">12:30–1:00</div><div class="block"><b>Email triage.</b> Reply to DMs, comments, QR landing page submissions from over the weekend.</div></div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-card-header"><div class="day-card-day">Tuesday <span class="tag">Letters &amp; Mail Day</span></div></div>
+      <div class="time-block"><div class="time">9:00–10:30</div><div class="block"><b>Mackin sequence execution.</b> Write/finalize this week's letters. Upload to YellowLettersComplete with merge tags. Schedule mail dates.</div></div>
+      <div class="time-block"><div class="time">10:30–11:30</div><div class="block"><b>Door-drop packet prep.</b> Personalize Al's packets for the week — listing photos, market data, handwritten note labels. Hand off to Al.</div></div>
+      <div class="time-block"><div class="time">11:30–12:30</div><div class="block"><b>Glover U email batch.</b> Send Day-1 emails to this week's new expireds.</div></div>
+      <div class="time-block"><div class="time">12:30–1:00</div><div class="block"><b>Buffer / overflow.</b> Whatever ran long Monday.</div></div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-card-header"><div class="day-card-day">Wednesday <span class="tag">Email &amp; Sphere Day</span></div></div>
+      <div class="time-block"><div class="time">9:00–10:00</div><div class="block"><b>Monthly past-client email work.</b> Drafting next month's email or analyzing replies from this month's send.</div></div>
+      <div class="time-block"><div class="time">10:00–11:00</div><div class="block"><b>Past-client database touch.</b> Send Handwrytten notes to A-tier clients on housiversaries / birthdays. Reply to email replies.</div></div>
+      <div class="time-block"><div class="time">11:00–12:00</div><div class="block"><b>NARRPR follow-ups.</b> Any valuation requests this week? Make sure Al/TC pulled them and sent within 48 hours. Follow up if not.</div></div>
+      <div class="time-block"><div class="time">12:00–1:00</div><div class="block"><b>Wednesday post check.</b> Make sure the Local Spotlight published correctly. Engage with comments.</div></div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-card-header"><div class="day-card-day">Thursday <span class="tag">Strategy &amp; Production Day</span></div></div>
+      <div class="time-block"><div class="time">9:00–10:30</div><div class="block"><b>Strategy / pipeline review.</b> Pull metrics from Metricool, GBP, the QR landing page. Note anomalies. What's working? What isn't?</div></div>
+      <div class="time-block"><div class="time">10:30–11:30</div><div class="block"><b>Content for next week.</b> Get ahead. Draft Behind-the-Deal post, market insight content.</div></div>
+      <div class="time-block"><div class="time">11:30–12:30</div><div class="block"><b>MGA / mini-farm work.</b> Sponsor outreach materials, mailer drop coordination, event prep.</div></div>
+      <div class="time-block"><div class="time">12:30–1:00</div><div class="block"><b>Al check-in (15–30 min call).</b> Anything he's heard? Any listings inbound? Any expireds responding? Note anything for the scorecard.</div></div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-card-header"><div class="day-card-day">Friday <span class="tag">Scorecard Day · Lightest</span></div></div>
+      <div class="time-block"><div class="time">9:00–10:30</div><div class="block"><b>Data gathering.</b> Pull metrics from every channel. Door-drops delivered, letters mailed, open rates, QR scans, NARRPR requests, post engagement, DMs, replies.</div></div>
+      <div class="time-block"><div class="time">10:30–11:30</div><div class="block"><b>Submit the Google Form scorecard.</b> Numbers + notes section. Verify scorecard page renders correctly.</div></div>
+      <div class="time-block"><div class="time">11:30–12:30</div><div class="block"><b>Week wrap.</b> Loose ends. Any letters that didn't get sent? Any DMs you ignored? Anything to flag to Al for the weekend?</div></div>
+      <div class="time-block"><div class="time">12:30–1:00</div><div class="block"><b>Weekend prep.</b> What does Saturday's post need to be? Schedule any final pieces.</div></div>
+    </div>
+
+    <div class="callout">
+      <div class="source">Hard truth on bandwidth</div>
+      <b>Year 1 first 90 days:</b> 4 hrs/day is tight but workable — build phase is heavy.<br>
+      <b>Year 1 months 3–12:</b> 4 hrs/day is comfortable — most of the system is templated and running.<br>
+      <b>Year 2+:</b> 4 hrs/day is way more than needed. This is where you scale to other clients or build automations to revisit the 50/50 split.
+    </div>
+
+  </div>
+
+  <!-- ===== TAB 4: RISKS ===== -->
+  <div class="tab-panel" id="tab-risks">
+
+    <h2>What Could Go Wrong (And How To Plan For It)</h2>
+    <p>Five realistic failure modes. Mitigations baked in before they happen.</p>
+
+    <div class="tool-card">
+      <h3>1. Al doesn't drive the door-drops consistently</h3>
+      <p>The plan depends on him doing this. If he flakes on it, the highest-converting touch disappears (door-drop converts 3–5× higher than email per Glover U).</p>
+      <p><b>Mitigation:</b> Make Tuesday "delivery day." Hand him a stack of 8–10 personalized packets every Tuesday with streets pre-mapped. Ask Friday if he got them all delivered. Track it in the scorecard.</p>
+      <div class="task" style="border:none; padding-top:8px;"><input type="checkbox" data-key="risk-tues"><label>Tuesday delivery handoff system established with Al</label></div>
+    </div>
+
+    <div class="tool-card">
+      <h3>2. HAR expired data doesn't flow weekly</h3>
+      <p>If Al/TC misses the Monday HAR pull, your whole week of expired sequence work stalls.</p>
+      <p><b>Mitigation:</b> Set a Sunday-night recurring calendar invite for Al/TC. Make this his habit, not yours to remember.</p>
+      <div class="task" style="border:none; padding-top:8px;"><input type="checkbox" data-key="risk-har"><label>Sunday-night HAR pull recurring calendar invite set</label></div>
+    </div>
+
+    <div class="tool-card">
+      <h3>3. YellowLettersComplete or printer has a delay</h3>
+      <p>Letters arrive 2–3 days late, throwing off the Mackin sequence timing.</p>
+      <p><b>Mitigation:</b> Build a 5-business-day buffer into every send. Schedule Letter 1 for Day 1 <i>mail-date</i> not <i>receive-date</i>. Test cycle time with first batch.</p>
+      <div class="task" style="border:none; padding-top:8px;"><input type="checkbox" data-key="risk-buffer"><label>5-business-day mail buffer locked into scheduling</label></div>
+    </div>
+
+    <div class="tool-card">
+      <h3>4. You burn out doing too much</h3>
+      <p>4 hours sustained 5 days a week is real labor. Especially in the first 90 days.</p>
+      <p><b>Mitigation:</b> One full "no work" day per week (probably Sunday). Don't open Metricool, don't check the QR form. Recharge.</p>
+      <div class="task" style="border:none; padding-top:8px;"><input type="checkbox" data-key="risk-rest"><label>Sunday no-work boundary set</label></div>
+    </div>
+
+    <div class="tool-card">
+      <h3>5. Al wants to add things mid-pilot</h3>
+      <p>Once early results show up, expect Al to want more — new listings posts, more emails, helping with other agents at KW Advantage.</p>
+      <p><b>Mitigation:</b> Anything beyond the scoped plan = new pilot fee or new retainer line. Hold the line nicely. "Happy to scope that as an add-on" is the answer.</p>
+      <div class="task" style="border:none; padding-top:8px;"><input type="checkbox" data-key="risk-scope"><label>Scope-creep response language drafted and ready</label></div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  const STORAGE_KEY = 'beverly-roadmap-v1';
+
+  // ===== Load saved progress =====
+  function loadProgress() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      document.querySelectorAll('input[type="checkbox"][data-key]').forEach(box => {
+        const key = box.getAttribute('data-key');
+        if (saved[key]) box.checked = true;
+      });
+    } catch (e) { console.error(e); }
+    updateProgress();
+  }
+
+  // ===== Save on change =====
+  function saveProgress() {
+    const saved = {};
+    document.querySelectorAll('input[type="checkbox"][data-key]').forEach(box => {
+      const key = box.getAttribute('data-key');
+      if (box.checked) saved[key] = true;
+    });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+  }
+
+  // ===== Update progress bar =====
+  function updateProgress() {
+    const all = document.querySelectorAll('input[type="checkbox"][data-key]');
+    const checked = document.querySelectorAll('input[type="checkbox"][data-key]:checked');
+    const total = all.length;
+    const done = checked.length;
+    const pct = total > 0 ? (done / total) * 100 : 0;
+    document.getElementById('completed-count').textContent = done;
+    document.getElementById('total-count').textContent = total;
+    document.getElementById('progress-fill').style.width = pct + '%';
+
+    // Per-week counts
+    [1,2,3,4].forEach(w => {
+      const wAll = document.querySelectorAll(`input[type="checkbox"][data-week="${w}"]`);
+      const wDone = document.querySelectorAll(`input[type="checkbox"][data-week="${w}"]:checked`);
+      const counter = document.querySelector(`.week-count[data-week="${w}"]`);
+      if (counter) counter.textContent = `${wDone.length} / ${wAll.length} complete`;
+    });
+  }
+
+  // ===== Tabs =====
+  function switchTab(name) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    event.target.classList.add('active');
+    document.getElementById('tab-' + name).classList.add('active');
+  }
+
+  // ===== Reset =====
+  function resetProgress() {
+    if (!confirm('Reset all checkboxes? This cannot be undone.')) return;
+    localStorage.removeItem(STORAGE_KEY);
+    document.querySelectorAll('input[type="checkbox"][data-key]').forEach(box => box.checked = false);
+    updateProgress();
+  }
+
+  // ===== Wire up =====
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('input[type="checkbox"][data-key]').forEach(box => {
+      box.addEventListener('change', () => {
+        saveProgress();
+        updateProgress();
+      });
+    });
+    loadProgress();
+  });
+</script>
+</body>
+</html>
