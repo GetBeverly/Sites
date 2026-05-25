@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="RRG">
+<title>RRG Marketing Plan</title>
+<link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='38' fill='%23c8102e'/><text x='50%25' y='54%25' font-family='Helvetica,Arial,sans-serif' font-size='80' font-weight='800' fill='%23fff' text-anchor='middle' dominant-baseline='middle'>R</text></svg>">
+<style>
+  :root {
+    --kw-red: #c8102e;
+    --kw-red-dark: #9d0c24;
+    --ink: #1a1f2e;
+    --ink-soft: #3a4256;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --bg: #f7f7f5;
+    --card: #ffffff;
+    --good: #0f7c4e;
+    --good-fill: #e8f5ee;
+    --warn: #b45309;
+    --warn-fill: #fdf3e1;
+    --bad: #b91c1c;
+    --bad-fill: #fee2e2;
+    --accent: #1f3a5f;
+    --accent-fill: #eaf0f7;
+    --money: #047857;
+    --money-fill: #d1fae5;
+    --shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06);
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    line-height: 1.55;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* ===== Sticky Top Nav ===== */
+  .topnav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+    padding: 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .topnav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: stretch;
+    padding: 0 16px;
+  }
+  .brand {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 800;
+    color: var(--kw-red);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 14px 16px 14px 0;
+    border-right: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+  .nav-tabs {
+    display: flex;
+    flex: 1;
+  }
+  .nav-tab {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 14px 16px;
+    cursor: pointer;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    border-bottom: 3px solid transparent;
+    margin-bottom: -1px;
+    transition: all 0.15s;
+  }
+  .nav-tab:hover { color: var(--ink); }
+  .nav-tab.active {
+    color: var(--kw-red);
+    border-bottom-color: var(--kw-red);
+  }
+
+  /* ===== Container ===== */
+  .wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 24px 80px;
+  }
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* ===== Hero / Section Headers ===== */
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--kw-red);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-bottom: 10px;
+  }
+  h1 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 36px;
+    line-height: 1.1;
+    color: var(--ink);
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+  .tagline {
+    font-style: italic;
+    color: var(--kw-red);
+    font-size: 17px;
+    margin: 0 0 6px;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 0 0 32px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  /* ===== Section heading style ===== */
+  h2 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink);
+    margin: 40px 0 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--kw-red);
+    display: inline-block;
+  }
+  h3 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    color: var(--ink);
+    margin: 24px 0 12px;
+    letter-spacing: -0.01em;
+  }
+  h4 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    margin: 20px 0 10px;
+  }
+  p { margin: 0 0 14px; }
+  ul, ol { margin: 0 0 14px; padding-left: 22px; }
+  li { margin-bottom: 8px; }
+
+  /* ===== Philosophy banner ===== */
+  .philosophy {
+    background: linear-gradient(135deg, #fef2f2 0%, #fff 100%);
+    border-left: 4px solid var(--kw-red);
+    padding: 22px 26px;
+    border-radius: 6px;
+    margin: 0 0 28px;
+    box-shadow: var(--shadow);
+  }
+  .philosophy .label {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--kw-red);
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .philosophy p {
+    font-size: 17px;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* ===== TL;DR Card ===== */
+  .tldr {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+  }
+  .tldr h3 { margin: 0 0 14px; font-size: 18px; }
+
+  /* ===== Cards ===== */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+  }
+
+  /* ===== Initiative blocks ===== */
+  .initiative {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    margin-bottom: 22px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .initiative-header {
+    background: linear-gradient(180deg, #fafaf9 0%, #fff 100%);
+    border-bottom: 1px solid var(--line);
+    padding: 20px 26px 16px;
+  }
+  .initiative-header .num {
+    display: inline-block;
+    background: var(--kw-red);
+    color: #fff;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 800;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 3px;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+  .initiative-header h3 { margin: 0 0 4px; font-size: 21px; }
+  .initiative-header .sub {
+    color: var(--muted);
+    font-size: 13px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  .initiative-body { padding: 22px 26px 24px; }
+
+  /* ===== Tables ===== */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0 16px;
+    font-size: 14px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  th {
+    background: #fafaf9;
+    color: var(--ink);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 2px solid var(--line);
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #fafafa; }
+  td.bold { font-weight: 700; }
+  td.num { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 600; text-align: right; }
+
+  /* ===== Sequence flow ===== */
+  .sequence {
+    display: grid;
+    grid-template-columns: 80px 1fr 160px;
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 16px 0 20px;
+  }
+  .sequence .row { display: contents; }
+  .sequence .row > div {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--line);
+    background: #fff;
+    font-size: 13px;
+  }
+  .sequence .row.header > div {
+    background: #fafaf9;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    color: var(--ink-soft);
+  }
+  .sequence .row:last-child > div { border-bottom: none; }
+  .sequence .day {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 800;
+    color: var(--kw-red);
+    font-size: 14px;
+  }
+  .channel-tag {
+    display: inline-block;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 2px 8px;
+    border-radius: 3px;
+  }
+  .channel-deliver { background: #fef2f2; color: var(--kw-red); }
+  .channel-mail { background: #eaf0f7; color: var(--accent); }
+
+  /* ===== Callouts ===== */
+  .callout {
+    background: var(--accent-fill);
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin: 14px 0;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+  .callout .source {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+
+  /* ====================================================== */
+  /* ===== THIS WEEK section ===== */
+  /* ====================================================== */
+  .week-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+  }
+  .week-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .week-title {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+  .week-title .small {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--kw-red);
+    margin-right: 8px;
+    font-weight: 700;
+  }
+  .week-count {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  /* Tasks */
+  .task {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f3f4f6;
+  }
+  .task:last-child { border-bottom: none; }
+  .task input[type="checkbox"] {
+    margin-top: 5px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--kw-red);
+    flex-shrink: 0;
+  }
+  .task label {
+    flex: 1;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .task label .day-tag {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 800;
+    color: var(--kw-red);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-right: 8px;
+  }
+  .task input[type="checkbox"]:checked + label {
+    color: var(--muted);
+    text-decoration: line-through;
+    text-decoration-color: var(--muted);
+  }
+  .task input[type="checkbox"]:checked + label .day-tag { color: var(--muted); }
+
+  /* ===== Progress bar (This Week section) ===== */
+  .progress-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+  }
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+  }
+  .progress-label .label {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    font-weight: 700;
+  }
+  .progress-label .count {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 800;
+    color: var(--kw-red);
+    font-size: 18px;
+  }
+  .progress-bar {
+    background: #f3f4f6;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    background: linear-gradient(90deg, var(--kw-red) 0%, var(--good) 100%);
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+  .reset-btn {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-left: 10px;
+  }
+  .reset-btn:hover { color: var(--kw-red); border-color: var(--kw-red); }
+
+  /* ====================================================== */
+  /* ===== SCORECARD section ===== */
+  /* ====================================================== */
+  .scorecard-meta {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 28px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  /* Wins / What's Next callout cards */
+  .briefing-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+  }
+  .briefing-card.wins {
+    background: linear-gradient(135deg, #f0fdf4 0%, #fff 100%);
+    border-left: 4px solid var(--good);
+  }
+  .briefing-card.next {
+    background: linear-gradient(135deg, var(--accent-fill) 0%, #fff 100%);
+    border-left: 4px solid var(--accent);
+  }
+  .briefing-card h3 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0 0 12px;
+    color: var(--ink);
+  }
+  .briefing-card.wins h3 { color: var(--good); }
+  .briefing-card.next h3 { color: var(--accent); }
+  .briefing-card .content {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    white-space: pre-line;
+  }
+
+  /* Stat grid */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .stat {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 16px 18px;
+    box-shadow: var(--shadow);
+    transition: all 0.15s;
+  }
+  .stat .label {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .stat .value {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  .stat.good { border-color: var(--good); background: var(--good-fill); }
+  .stat.good .value { color: var(--good); }
+  .stat.warn { border-color: var(--warn); background: var(--warn-fill); }
+  .stat.warn .value { color: var(--warn); }
+  .stat.bad { border-color: var(--bad); background: var(--bad-fill); }
+  .stat.bad .value { color: var(--bad); }
+
+  .grid-section-title {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    font-weight: 700;
+    margin: 26px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ytd-banner {
+    background: linear-gradient(135deg, #fef2f2 0%, #fff 100%);
+    border: 2px solid var(--kw-red);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+  .ytd-stat .label {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--kw-red);
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+  .ytd-stat .value {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+
+  .error-msg {
+    background: var(--bad-fill);
+    border: 1px solid var(--bad);
+    color: var(--bad);
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin: 12px 0;
+    text-align: center;
+    font-size: 14px;
+  }
+  .empty-state {
+    background: var(--accent-fill);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 18px 22px;
+    border-radius: 8px;
+    margin: 16px 0;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  /* ===== Mobile ===== */
+  @media (max-width: 720px) {
+    .wrap { padding: 22px 14px 60px; }
+    .brand { font-size: 11px; padding: 12px 12px 12px 0; }
+    .nav-tab { padding: 12px 10px; font-size: 11px; }
+    h1 { font-size: 26px; }
+    h2 { font-size: 12px; }
+    .initiative-header { padding: 16px 18px 12px; }
+    .initiative-body { padding: 16px 18px; }
+    .sequence { grid-template-columns: 60px 1fr; }
+    .sequence .row > div:nth-child(3) { display: none; }
+    .stat .value { font-size: 24px; }
+    .ytd-stat .value { font-size: 20px; }
+    table { font-size: 13px; }
+    th, td { padding: 8px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== STICKY TOP NAV ===== -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <div class="brand">Rincon Realty Group</div>
+    <div class="nav-tabs">
+      <button class="nav-tab active" onclick="switchTab(event, 'plan')">Plan</button>
+      <button class="nav-tab" onclick="switchTab(event, 'thisweek')">This Week</button>
+      <button class="nav-tab" onclick="switchTab(event, 'scorecard')">Scorecard</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ====================================================== -->
+<!-- ===== SECTION: PLAN ===== -->
+<!-- ====================================================== -->
+<div class="section active" id="section-plan">
+<div class="wrap">
+
+  <div class="eyebrow">Sienna &amp; 6-Mile Radius</div>
+  <h1>The Rincon Marketing System</h1>
+  <p class="tagline">"It's a Great Market for Smart People."</p>
+  <p class="subtitle">Three coordinated initiatives. One measurable outcome: Sienna-area listings and past-client referrals.</p>
+
+  <!-- TL;DR -->
+  <div class="tldr">
+    <h3>How It All Fits Together</h3>
+    <ul>
+      <li><b>Three initiatives, one objective:</b> drive Sienna-area listings + past-client referrals through a measurable, repeatable system.</li>
+      <li><b>Initiative 1 — Marketing collateral that generates leads.</b> 8-piece content library, 4–5 posts/week, cross-posted everywhere, all tied to Sienna activity.</li>
+      <li><b>Initiative 2 — Expired listings within 6 miles.</b> Full Jimmy Mackin 7-letter sequence + door-drop, no cold calls, no emails. Two tracks: fresh expireds (empathy) and old expireds (Blue Ocean).</li>
+      <li><b>Initiative 3 — Monthly past-client email with rotating referral asks.</b> Twelve emails/year, six-section format.</li>
+      <li><b>Live progress visible anytime</b> — the <b>This Week</b> tab shows what's happening right now. The <b>Scorecard</b> tab shows how we're winning week-over-week.</li>
+    </ul>
+  </div>
+
+  <div class="philosophy">
+    <div class="label">Operating philosophy</div>
+    <p>"Every dollar and every hour should be accountable to a specific result we can measure week over week — not 'marketing presence' for its own sake."</p>
+  </div>
+
+  <!-- ===== Initiative 1 ===== -->
+  <div class="initiative">
+    <div class="initiative-header">
+      <span class="num">Initiative 1</span>
+      <h3>Marketing Collateral That Generates Leads</h3>
+      <div class="sub">Content library + 4–5 posts/week, posted everywhere, tied to Sienna activity</div>
+    </div>
+    <div class="initiative-body">
+
+      <h4>The 8-Piece Content Library</h4>
+      <p>Built once in Canva using the KW template library. Reused indefinitely. Each piece earns its place because it ties to either Sienna activity, transactions, or algorithm-protective lifestyle content that keeps the page healthy.</p>
+
+      <table>
+        <thead>
+          <tr><th>#</th><th>Template</th><th>Pillar</th><th>Cadence</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="num">1</td><td><b>Just Listed</b></td><td>Social Proof</td><td>Per transaction</td></tr>
+          <tr><td class="num">2</td><td><b>Just Sold</b></td><td>Social Proof</td><td>Per transaction</td></tr>
+          <tr><td class="num">3</td><td><b>Under Contract</b></td><td>Social Proof</td><td>Per transaction</td></tr>
+          <tr><td class="num">4</td><td><b>Sienna Market Update</b></td><td>Educational</td><td>Monthly</td></tr>
+          <tr><td class="num">5</td><td><b>New Inventory This Week</b></td><td>Educational</td><td>Weekly</td></tr>
+          <tr><td class="num">6</td><td><b>Testimonial / Client Story</b></td><td>Inspirational + Social Proof</td><td>When earned</td></tr>
+          <tr><td class="num">7</td><td><b>Local Spotlight</b> (Sienna restaurant/business/event)</td><td>Entertaining + Personal</td><td>Weekly</td></tr>
+          <tr><td class="num">8</td><td><b>Behind the Deal / Market Insight</b></td><td>Educational + Personal</td><td>Bi-weekly</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="source">Why Local Spotlight matters</div>
+        Posting strictly real-estate content suppresses reach. The algorithm needs non-buyer engagement signals to keep feeding the page to buyers. The Local Spotlight is the counterweight that keeps everything else visible.
+      </div>
+
+      <h4>Weekly Cadence</h4>
+      <table>
+        <thead>
+          <tr><th>Day</th><th>Post</th><th>Type</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>Monday</b></td><td>Sienna Market Update (monthly) OR New Inventory</td><td>Educational</td></tr>
+          <tr><td><b>Wednesday</b></td><td>Local Spotlight (Sienna restaurant/business/event)</td><td>Entertaining + Personal</td></tr>
+          <tr><td><b>Friday</b></td><td>Just Listed / Sold / Under Contract OR Testimonial</td><td>Social Proof</td></tr>
+          <tr><td><b>Saturday</b></td><td>Behind the Deal / Market Insight / Q&amp;A</td><td>Educational + Personal</td></tr>
+          <tr><td><b>As triggered</b></td><td>Just Listed / Sold / UC per transaction</td><td>Social Proof</td></tr>
+        </tbody>
+      </table>
+
+      <p>Cross-posted to: <b>Facebook (Rincon Realty Group), Instagram, LinkedIn, Google Business Profile, and KW Command.</b> One primary CTA per post. DMs and comments responded to within 24 hours.</p>
+    </div>
+  </div>
+
+  <!-- ===== Initiative 2 ===== -->
+  <div class="initiative">
+    <div class="initiative-header">
+      <span class="num">Initiative 2</span>
+      <h3>Expired Listings Within 6 Miles — The Engine</h3>
+      <div class="sub">Two-track Mackin 7-letter sequence, no cold calls, hand-delivered first impression</div>
+    </div>
+    <div class="initiative-body">
+
+      <p>The single highest-ROI source for Sienna-area listings is expired and terminated listings. Two pools, worked differently:</p>
+
+      <table>
+        <thead><tr><th>Pool</th><th>Approach</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>Fresh expireds / terminated</b><br><span style="color:var(--muted); font-size:12px;">(last 30 days)</span></td>
+            <td><b>Empathy-first.</b> Embarrassment, not anger. Acknowledge frustration before pitching.</td>
+          </tr>
+          <tr>
+            <td><b>Aged expireds</b><br><span style="color:var(--muted); font-size:12px;">(1–5 years aged, never resold)</span></td>
+            <td><b>Blue Ocean.</b> Zero competition. Lead with "It's been X days since you listed... [Y] homes like yours have sold since." Handle the risk objection upfront.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="source">The real addressable universe</div>
+        Real MLS data shows ~475 expired + terminated + aged-never-resold properties in Sienna + Riverstone alone. Adding Glendale Lakes, Stonebrook, Steep Bank, and Fresno (the rest of the 6-mile radius) brings the addressable pool to 600+. <b>Median list price $575K, average $706K — exactly the Mackin framework price-point match.</b>
+      </div>
+
+      <h4>The 8-Touch Sequence (Per Prospect, 50 Days)</h4>
+      <div class="sequence">
+        <div class="row header">
+          <div>Day</div>
+          <div>What</div>
+          <div>How</div>
+        </div>
+        <div class="row">
+          <div class="day">Day 1</div>
+          <div>Mackin Letter 1: <i>"The Frustration of an Unsold Home"</i> (empathy / Blue Ocean opener)</div>
+          <div><span class="channel-tag channel-deliver">Hand-deliver to mailbox</span></div>
+        </div>
+        <div class="row">
+          <div class="day">Day 3</div>
+          <div>6-page Marketability Packet delivered to door + handwritten note + business card. QR on cover.</div>
+          <div><span class="channel-tag channel-deliver">Hand-deliver to door</span></div>
+        </div>
+        <div class="row">
+          <div class="day">Day 4</div>
+          <div>Mackin Letter 2: <i>"The Biggest Mistake Expired Listings Make"</i> (same-agent relisting stats)</div>
+          <div><span class="channel-tag channel-mail">Mail</span></div>
+        </div>
+        <div class="row">
+          <div class="day">Day 8</div>
+          <div>Mackin Letter 3: <i>"Persistence and Proven Results"</i> (track record)</div>
+          <div><span class="channel-tag channel-mail">Mail</span></div>
+        </div>
+        <div class="row">
+          <div class="day">Day 15</div>
+          <div>Mackin Letter 4: <i>"Why Your Home Didn't Sell — and How to Fix It"</i> + QR + MOFIR</div>
+          <div><span class="channel-tag channel-mail">Mail</span></div>
+        </div>
+        <div class="row">
+          <div class="day">Day 22</div>
+          <div>Mackin Letter 5: <i>"Before You Relist, Do This First"</i> + QR + MOFIR (free marketability audit)</div>
+          <div><span class="channel-tag channel-mail">Mail</span></div>
+        </div>
+        <div class="row">
+          <div class="day">Day 36</div>
+          <div>Mackin Letter 6: <i>"Let's Reimagine How Your Home Is Sold"</i> (specific tactics)</div>
+          <div><span class="channel-tag channel-mail">Mail</span></div>
+        </div>
+        <div class="row">
+          <div class="day">Day 50</div>
+          <div>Mackin Letter 7: <i>"A Lot Has Changed"</i> + QR + MOFIR (market shift hook)</div>
+          <div><span class="channel-tag channel-mail">Mail</span></div>
+        </div>
+      </div>
+
+      <p><b>8 touches per prospect over 50 days. Zero phone calls. Zero cold emails.</b> The first two touches (Letter 1 + Day-3 Packet) are <b>hand-delivered</b> for maximum perceived effort. Letters 2–7 are mailed. Every letter carries a QR code routing to a destination matched to the letter's theme. Letters 4, 5, and 7 carry Make-Offer-For-Immediate-Response offers — "waive pre-listing photography fee" / "free marketability audit by [date]" / "include staging consultation."</p>
+
+      <div class="callout">
+        <div class="source">Why 7 letters, not 1 or 2</div>
+        50% of sales happen after the 5th attempt. 92% of agents quit before they get there. Most expired campaigns send one letter and stop. This one sends seven, with a clear next-step on every single touch.
+      </div>
+
+      <h4>Cohort Sizing</h4>
+      <table>
+        <thead><tr><th>Weekly Target</th><th>Volume</th></tr></thead>
+        <tbody>
+          <tr><td>New prospects entering sequence per week</td><td>10 (all owner-occupied)</td></tr>
+          <tr><td>Mix per cohort</td><td>~5 fresh + ~5 aged Blue Ocean</td></tr>
+          <tr><td>Active prospects at steady state (week 8+)</td><td>~80 in sequence at any time</td></tr>
+          <tr><td>Year 1 listing target from expireds</td><td>4–7 signed</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Supporting Components</h4>
+      <p><b>250-home mini-farm</b> (150 Sienna section near the golf course + 50 Glendale Lakes + 50 Stonebrook Estates) with 4 mailer drops/year. Every mailer has one CTA: scan QR → request free Property Value Range Report from NARRPR.</p>
+
+      <p><b>NARRPR valuation workflow.</b> Property Value Range Report sent within 48 hours of every QR scan or form submission.</p>
+
+      <p><b>MGA annual appreciation event.</b> Hosted at the Sienna golf clubhouse. 4–6 sponsors at $250–500 each fund the event. Pure relationship-building, no pitching.</p>
+    </div>
+  </div>
+
+  <!-- ===== Initiative 3 ===== -->
+  <div class="initiative">
+    <div class="initiative-header">
+      <span class="num">Initiative 3</span>
+      <h3>Monthly Past-Client Email Requesting Referrals</h3>
+      <div class="sub">12 emails/year, six-section format, rotating monthly ask</div>
+    </div>
+    <div class="initiative-body">
+
+      <p>Built from scratch — each email is a designed deliverable. The KW Command Neighborhood Nurture runs as a separate parallel touch (auto-sends Command's templated monthly market data to past clients in 6 neighborhoods) but is not the spine of this email. Two different channels doing two different jobs.</p>
+
+      <h4>The 6-Section Email Structure</h4>
+      <ol>
+        <li><b>Personal note</b> — 2–3 sentences. Real. In voice.</li>
+        <li><b>Sienna + Houston market update</b> — 3 bullets + chart. Sourced from monthly HAR data.</li>
+        <li><b>Recent activity recap</b> — Just Listed / Sold / Under Contract since last email.</li>
+        <li><b>Featured content</b> — alternates monthly between Sienna spotlight and Waterwood spotlight.</li>
+        <li><b>The rotating monthly referral ask</b> — see below.</li>
+        <li><b>Footer</b> — Referral capture form link + social links.</li>
+      </ol>
+
+      <h4>Rotating Monthly Asks (12 distinct CTAs, one per month)</h4>
+      <table>
+        <thead><tr><th>Month</th><th>Ask</th></tr></thead>
+        <tbody>
+          <tr><td>Jan</td><td>Property tax protest comps</td></tr>
+          <tr><td>Feb</td><td>Spring buyer referrals</td></tr>
+          <tr><td>Mar</td><td>Free annual equity check-up</td></tr>
+          <tr><td>Apr</td><td>Spring seller referrals</td></tr>
+          <tr><td>May</td><td>Graduation / summer movers</td></tr>
+          <tr><td>Jun</td><td>Mid-year home value check</td></tr>
+          <tr><td>Jul</td><td>Investment property capability</td></tr>
+          <tr><td>Aug</td><td>Back-to-school move season</td></tr>
+          <tr><td>Sep</td><td>Fall personalized market update</td></tr>
+          <tr><td>Oct</td><td>Year-end tax / move planning</td></tr>
+          <tr><td>Nov</td><td>Holiday gratitude + referral ask</td></tr>
+          <tr><td>Dec</td><td>2027 planning + January coffee</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Foundation Work</h4>
+      <p><b>Command Database Cleanup.</b> Triage every "CLIENT"-tagged contact into MREA Lead Gen Model categories: Allied Resources / Met (33 Touch) / Haven't Met-Target (12 Direct) / General Public. Plus transaction flags: Future Buyer / Future Seller / Immediate Buyer / Immediate Seller. Clean tags unlock segment-specific communication paths.</p>
+    </div>
+  </div>
+
+  <h2>How To Save This To Your Phone</h2>
+  <div class="card">
+    <p style="margin-bottom:8px;"><b>iPhone:</b> Open this page in Safari. Tap the Share button at the bottom. Scroll down and tap "Add to Home Screen." Name it "Rincon" or "Marketing." Tap Add. Now it lives on your home screen as a one-tap shortcut — it'll feel just like a native app.</p>
+    <p style="margin-bottom:0;"><b>Android:</b> Open in Chrome. Tap the three dots (top right). Tap "Add to Home screen." Name and confirm. Done.</p>
+  </div>
+
+</div>
+</div>
+
+<!-- ====================================================== -->
+<!-- ===== SECTION: THIS WEEK ===== -->
+<!-- ====================================================== -->
+<div class="section" id="section-thisweek">
+<div class="wrap">
+
+  <div class="eyebrow">Operational view</div>
+  <h1>This Week</h1>
+  <p class="subtitle">What's happening right now. Progress saves automatically. <button class="reset-btn" onclick="resetProgress()">Reset all</button></p>
+
+  <div class="progress-card">
+    <div class="progress-label">
+      <span class="label">Overall Progress</span>
+      <span class="count"><span id="completed-count">0</span> / <span id="total-count">0</span></span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  </div>
+
+  <h2>This Week's Focus</h2>
+
+  <!-- Weekly recurring tasks at steady state -->
+  <div class="week-card">
+    <div class="week-header">
+      <div class="week-title"><span class="small">Monday</span>New Cohort Setup</div>
+      <div class="week-count" data-week="mon"></div>
+    </div>
+    <div class="task"><input type="checkbox" data-key="mon-har" data-week="mon"><label>Pull new HAR batch for the week — expired + terminated listings in Sienna + Riverstone + surrounding 6-mile radius.</label></div>
+    <div class="task"><input type="checkbox" data-key="mon-scrub" data-week="mon"><label>Scrub every address against current MLS status. Remove Active, OP, Pending, Recently-Closed.</label></div>
+    <div class="task"><input type="checkbox" data-key="mon-absentee" data-week="mon"><label>Absentee screen: compare property address vs. owner mailing address (county tax records). Remove any where they differ.</label></div>
+    <div class="task"><input type="checkbox" data-key="mon-cohort" data-week="mon"><label>Build new cohort of 10 owner-occupied prospects: ~5 fresh + ~5 aged Blue Ocean.</label></div>
+    <div class="task"><input type="checkbox" data-key="mon-content" data-week="mon"><label>Schedule the week's 4–5 content posts (Monday market update, Wednesday spotlight, Friday social proof, Saturday behind-the-deal).</label></div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header">
+      <div class="week-title"><span class="small">Tuesday</span>Letter Production + Cohort Launch</div>
+      <div class="week-count" data-week="tue"></div>
+    </div>
+    <div class="task"><input type="checkbox" data-key="tue-l1-personalize" data-week="tue"><label>Draft + personalize Letter 1 (fresh + aged versions) for each new cohort prospect.</label></div>
+    <div class="task"><input type="checkbox" data-key="tue-print-l1" data-week="tue"><label>Print Letter 1 batch on quality stationery. Print 10 door-drop notes (template copies with name handwritten).</label></div>
+    <div class="task"><input type="checkbox" data-key="tue-print-packets" data-week="tue"><label>Print 10 personalized 6-page Marketability Packets. Sleeve in clear plastic door-hangers.</label></div>
+    <div class="task"><input type="checkbox" data-key="tue-sign" data-week="tue"><label>Hand-sign each Letter 1 in real ink. Hand-address each envelope. Stuff and seal.</label></div>
+    <div class="task"><input type="checkbox" data-key="tue-deliver-l1" data-week="tue"><label>Hand-deliver Letter 1 envelopes to each prospect's mailbox (between 3:30–5:00 PM optimal window).</label></div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header">
+      <div class="week-title"><span class="small">Thursday</span>Day-3 Packet Hand-Delivery</div>
+      <div class="week-count" data-week="thu"></div>
+    </div>
+    <div class="task"><input type="checkbox" data-key="thu-route" data-week="thu"><label>Confirm delivery route map for today's 10 packets (grouped by geography for efficient driving).</label></div>
+    <div class="task"><input type="checkbox" data-key="thu-deliver-packets" data-week="thu"><label>Hand-deliver 10 Marketability Packets to each prospect's front door (tuck against door frame or use door-hanger sleeve).</label></div>
+    <div class="task"><input type="checkbox" data-key="thu-track" data-week="thu"><label>Mark deliveries complete in tracking sheet.</label></div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header">
+      <div class="week-title"><span class="small">Ongoing Mid-Week</span>Mail Active Sequence Letters</div>
+      <div class="week-count" data-week="mail"></div>
+    </div>
+    <div class="task"><input type="checkbox" data-key="mail-l2-7-personalize" data-week="mail"><label>Personalize + print Letters 2–7 for prior cohorts as their sequence days hit (Day 4, 8, 15, 22, 36, 50).</label></div>
+    <div class="task"><input type="checkbox" data-key="mail-l2-7-sign" data-week="mail"><label>Hand-sign each letter in real ink. Hand-address envelopes.</label></div>
+    <div class="task"><input type="checkbox" data-key="mail-l2-7-send" data-week="mail"><label>Drop mailed letters at post office (or in personal mailbox with stamp). ~60–70 letters/week at steady state.</label></div>
+    <div class="task"><input type="checkbox" data-key="mail-track" data-week="mail"><label>Update sequence tracker — which prospect is on which letter, which day.</label></div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header">
+      <div class="week-title"><span class="small">Wednesday</span>Past-Client + Sphere Touch</div>
+      <div class="week-count" data-week="wed"></div>
+    </div>
+    <div class="task"><input type="checkbox" data-key="wed-pc-replies" data-week="wed"><label>Reply to past-client email replies from this month's send.</label></div>
+    <div class="task"><input type="checkbox" data-key="wed-narrpr" data-week="wed"><label>NARRPR follow-ups — confirm 48-hour delivery on any new QR submissions.</label></div>
+    <div class="task"><input type="checkbox" data-key="wed-birthdays" data-week="wed"><label>Send birthday / housiversary cards to A-tier past clients identified this week.</label></div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header">
+      <div class="week-title"><span class="small">Friday</span>Pipeline Review + Scorecard</div>
+      <div class="week-count" data-week="fri"></div>
+    </div>
+    <div class="task"><input type="checkbox" data-key="fri-pipeline" data-week="fri"><label>Review the week's metrics: QR submissions, deliveries completed, post engagement, conversations started.</label></div>
+    <div class="task"><input type="checkbox" data-key="fri-followups" data-week="fri"><label>Identify any active conversations and plan next-step follow-ups for next week.</label></div>
+    <div class="task"><input type="checkbox" data-key="fri-scorecard" data-week="fri"><label>Update the weekly scorecard. Numbers + wins note + what's next note.</label></div>
+    <div class="task"><input type="checkbox" data-key="fri-content-next" data-week="fri"><label>Schedule next week's content posts.</label></div>
+  </div>
+
+  <h2>Build Phase Status</h2>
+  <div class="card">
+    <p>Once the foundational build is complete, this section shifts to weekly recurring rhythm above. Build-phase one-time tasks (Canva templates, QR landing page, NARRPR email template, content library, MGA event materials, mini-farm list, monthly past-client email design) are tracked separately in the internal build doc.</p>
+  </div>
+
+</div>
+</div>
+
+<!-- ====================================================== -->
+<!-- ===== SECTION: SCORECARD ===== -->
+<!-- ====================================================== -->
+<div class="section" id="section-scorecard">
+<div class="wrap">
+
+  <div class="eyebrow">How we're winning</div>
+  <h1>Weekly Scorecard</h1>
+  <p class="scorecard-meta" id="meta">Loading latest update…</p>
+
+  <div id="error-container"></div>
+
+  <!-- YTD Banner -->
+  <div class="ytd-banner" id="ytd-banner" style="display: none;">
+    <div class="ytd-stat">
+      <div class="label">YTD Listings Signed</div>
+      <div class="value" id="ytd-signed">—</div>
+    </div>
+    <div class="ytd-stat">
+      <div class="label">YTD Closings</div>
+      <div class="value" id="ytd-closings">—</div>
+    </div>
+    <div class="ytd-stat">
+      <div class="label">YTD GCI</div>
+      <div class="value" id="ytd-gci">—</div>
+    </div>
+    <div class="ytd-stat">
+      <div class="label">YTD Prospects Worked</div>
+      <div class="value" id="ytd-prospects">—</div>
+    </div>
+  </div>
+
+  <!-- Wins This Week -->
+  <div class="briefing-card wins" id="wins-card" style="display: none;">
+    <h3>Wins This Week</h3>
+    <div class="content" id="wins-content"></div>
+  </div>
+
+  <!-- Active Sequence Stats -->
+  <div class="grid-section-title">The Expired Engine</div>
+  <div class="grid">
+    <div class="stat" id="s-active-expireds">
+      <div class="label">Prospects in Active Sequence</div>
+      <div class="value">—</div>
+    </div>
+    <div class="stat" id="s-doordrops">
+      <div class="label">Hand-Deliveries This Week</div>
+      <div class="value">—</div>
+    </div>
+    <div class="stat" id="s-letters">
+      <div class="label">Letters Mailed This Week</div>
+      <div class="value">—</div>
+    </div>
+    <div class="stat" id="s-qrscans">
+      <div class="label">QR Scans This Week</div>
+      <div class="value">—</div>
+    </div>
+    <div class="stat" id="s-narrpr">
+      <div class="label">NARRPR Reports Sent</div>
+      <div class="value">—</div>
+    </div>
+    <div class="stat" id="s-appointments">
+      <div class="label">Expired Appointments Set</div>
+      <div class="value">—</div>
+    </div>
+    <div class="stat" id="s-signed">
+      <div class="label">Expired Listings Signed</div>
+      <div class="value">—</div>
+    </div>
+  </div>
+
+  <div class="grid-section-title">Marketing Cadence</div>
+  <div class="grid">
+    <div class="stat" id="s-posts">
+      <div class="label">Posts Published This Week</div>
+      <div class="value">—</div>
+    </div>
+    <div class="stat" id="s-engagement">
+      <div class="label">Best-Performing Post</div>
+      <div class="value">—</div>
+    </div>
+    <div class="stat" id="s-gbp">
+      <div class="label">GBP Profile Views</div>
+      <div class="value">—</div>
+    </div>
+    <div class="stat" id="s-dms">
+      <div class="label">Inbound DMs This Week</div>
+      <div class="value">—</div>
+    </div>
+  </div>
+
+  <div class="grid-section-title">Past-Client Channel</div>
+  <div class="grid">
+    <div class="stat" id="s-pc-open">
+      <div class="label">Past-Client Email Open Rate</div>
+      <div class="value">—</div>
+    </div>
+    <div class="stat" id="s-pc-replies">
+      <div class="label">Replies This Month</div>
+      <div class="value">—</div>
+    </div>
+    <div class="stat" id="s-pc-referrals">
+      <div class="label">Referrals This Month</div>
+      <div class="value">—</div>
+    </div>
+  </div>
+
+  <!-- What's Next -->
+  <div class="briefing-card next" id="next-card" style="display: none;">
+    <h3>What's Next Week</h3>
+    <div class="content" id="next-content"></div>
+  </div>
+
+</div>
+</div>
+
+<script>
+  // ====================================================
+  // TAB NAVIGATION
+  // ====================================================
+  function switchTab(event, name) {
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(p => p.classList.remove('active'));
+    event.target.classList.add('active');
+    document.getElementById('section-' + name).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  // ====================================================
+  // THIS WEEK - CHECKBOX PROGRESS
+  // ====================================================
+  const STORAGE_KEY = 'rrg-thisweek-v1';
+
+  function loadProgress() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      document.querySelectorAll('input[type="checkbox"][data-key]').forEach(box => {
+        const key = box.getAttribute('data-key');
+        if (saved[key]) box.checked = true;
+      });
+    } catch (e) { console.error(e); }
+    updateProgress();
+  }
+
+  function saveProgress() {
+    const saved = {};
+    document.querySelectorAll('input[type="checkbox"][data-key]').forEach(box => {
+      const key = box.getAttribute('data-key');
+      if (box.checked) saved[key] = true;
+    });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+  }
+
+  function updateProgress() {
+    const all = document.querySelectorAll('input[type="checkbox"][data-key]');
+    const checked = document.querySelectorAll('input[type="checkbox"][data-key]:checked');
+    document.getElementById('completed-count').textContent = checked.length;
+    document.getElementById('total-count').textContent = all.length;
+    const pct = all.length > 0 ? (checked.length / all.length) * 100 : 0;
+    document.getElementById('progress-fill').style.width = pct + '%';
+
+    // Per-day counts
+    ['mon', 'tue', 'wed', 'thu', 'fri', 'mail'].forEach(d => {
+      const dAll = document.querySelectorAll(`input[type="checkbox"][data-week="${d}"]`);
+      const dDone = document.querySelectorAll(`input[type="checkbox"][data-week="${d}"]:checked`);
+      const counter = document.querySelector(`.week-count[data-week="${d}"]`);
+      if (counter) counter.textContent = `${dDone.length} / ${dAll.length}`;
+    });
+  }
+
+  function resetProgress() {
+    if (!confirm('Reset all checkboxes? This cannot be undone.')) return;
+    localStorage.removeItem(STORAGE_KEY);
+    document.querySelectorAll('input[type="checkbox"][data-key]').forEach(box => box.checked = false);
+    updateProgress();
+  }
+
+  // ====================================================
+  // SCORECARD - GOOGLE SHEET FETCH
+  // ====================================================
+  const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQoKcU7kSTv8B4gJoayEncTYz__WVQnFSh5FN2x0uFbCnsF1smxiyH_LUqLjcMe2ZiUMydEr5kJf0Q3/pub?gid=592936127&single=true&output=csv';
+
+  function parseCSV(csv) {
+    const rows = [];
+    let row = [];
+    let cell = '';
+    let inQuote = false;
+    for (let i = 0; i < csv.length; i++) {
+      const c = csv[i];
+      const nxt = csv[i + 1];
+      if (inQuote) {
+        if (c === '"' && nxt === '"') { cell += '"'; i++; }
+        else if (c === '"') { inQuote = false; }
+        else cell += c;
+      } else {
+        if (c === '"') inQuote = true;
+        else if (c === ',') { row.push(cell); cell = ''; }
+        else if (c === '\n' || c === '\r') {
+          if (cell !== '' || row.length > 0) { row.push(cell); rows.push(row); row = []; cell = ''; }
+          if (c === '\r' && nxt === '\n') i++;
+        } else cell += c;
+      }
+    }
+    if (cell !== '' || row.length > 0) { row.push(cell); rows.push(row); }
+    return rows;
+  }
+
+  function setStat(id, value, threshold) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const valueEl = el.querySelector('.value');
+    valueEl.textContent = value === null || value === undefined || value === '' ? '—' : value;
+    if (threshold && typeof value === 'number') {
+      el.classList.remove('good', 'warn', 'bad');
+      if (value >= threshold.good) el.classList.add('good');
+      else if (value >= threshold.warn) el.classList.add('warn');
+      else el.classList.add('bad');
+    }
+  }
+
+  function n(v) {
+    if (v === null || v === undefined || v === '') return null;
+    const cleaned = String(v).replace(/[$,%\s]/g, '');
+    const num = parseFloat(cleaned);
+    return isNaN(num) ? null : num;
+  }
+
+  async function loadScorecard() {
+    try {
+      const res = await fetch(SHEET_CSV_URL + '&t=' + Date.now());
+      if (!res.ok) throw new Error('Failed to fetch');
+      const csv = await res.text();
+      const rows = parseCSV(csv);
+      if (rows.length < 2) {
+        document.getElementById('meta').textContent = 'No data yet — first scorecard ships once weekly submissions begin.';
+        return;
+      }
+
+      const headers = rows[0].map(h => h.toLowerCase().trim());
+      const latest = rows[rows.length - 1];
+
+      const getCol = (...terms) => {
+        for (const term of terms) {
+          const idx = headers.findIndex(h => h.includes(term.toLowerCase()));
+          if (idx !== -1 && latest[idx] !== undefined) return latest[idx];
+        }
+        return null;
+      };
+
+      const timestamp = latest[0];
+      if (timestamp) {
+        document.getElementById('meta').textContent = 'Latest update: ' + timestamp;
+      }
+
+      // Wins
+      const wins = getCol('wins', 'what worked');
+      if (wins && String(wins).trim()) {
+        document.getElementById('wins-content').textContent = wins;
+        document.getElementById('wins-card').style.display = '';
+      }
+
+      // What's Next
+      const next = getCol("what's next", 'whats next', 'next week', 'coming up');
+      if (next && String(next).trim()) {
+        document.getElementById('next-content').textContent = next;
+        document.getElementById('next-card').style.display = '';
+      }
+
+      // YTD
+      const ytdSigned = n(getCol('ytd listings', 'ytd signed'));
+      const ytdClosings = n(getCol('ytd closings'));
+      const ytdGCI = n(getCol('ytd gci'));
+      const ytdProspects = n(getCol('ytd prospects'));
+      if (ytdSigned !== null || ytdClosings !== null || ytdGCI !== null || ytdProspects !== null) {
+        document.getElementById('ytd-banner').style.display = '';
+        if (ytdSigned !== null) document.getElementById('ytd-signed').textContent = ytdSigned;
+        if (ytdClosings !== null) document.getElementById('ytd-closings').textContent = ytdClosings;
+        if (ytdGCI !== null) document.getElementById('ytd-gci').textContent = '$' + ytdGCI.toLocaleString();
+        if (ytdProspects !== null) document.getElementById('ytd-prospects').textContent = ytdProspects;
+      }
+
+      // Expired engine
+      setStat('s-active-expireds', n(getCol('prospects in active sequence', 'active sequence', 'prospects active')), { good: 50, warn: 20 });
+      setStat('s-doordrops', n(getCol('hand-deliveries', 'hand deliveries', 'door-drops', 'door drops')), { good: 18, warn: 10 });
+      setStat('s-letters', n(getCol('letters mailed')), { good: 40, warn: 20 });
+      setStat('s-qrscans', n(getCol('qr scans')));
+      setStat('s-narrpr', n(getCol('narrpr')));
+      setStat('s-appointments', n(getCol('appointments set')), { good: 1, warn: 0.5 });
+      setStat('s-signed', n(getCol('listings signed')));
+
+      // Marketing
+      setStat('s-posts', n(getCol('posts published')), { good: 4, warn: 2 });
+      const bestPost = getCol('best post', 'top post', 'best-performing');
+      if (bestPost) document.querySelector('#s-engagement .value').textContent = bestPost;
+      setStat('s-gbp', n(getCol('gbp', 'google business')));
+      setStat('s-dms', n(getCol('dms', 'inbound dm')));
+
+      // Past Client
+      const pcOpen = n(getCol('past-client email open', 'past client email open'));
+      if (pcOpen !== null) {
+        const el = document.querySelector('#s-pc-open .value');
+        el.textContent = pcOpen.toFixed(1) + '%';
+        const card = document.getElementById('s-pc-open');
+        card.classList.remove('good', 'warn', 'bad');
+        if (pcOpen >= 30) card.classList.add('good');
+        else if (pcOpen >= 20) card.classList.add('warn');
+        else card.classList.add('bad');
+      }
+      setStat('s-pc-replies', n(getCol('past-client replies', 'pc replies')));
+      setStat('s-pc-referrals', n(getCol('referrals')));
+
+    } catch (e) {
+      console.error(e);
+      document.getElementById('error-container').innerHTML = '<div class="error-msg">Could not load scorecard data. Refresh to retry.</div>';
+    }
+  }
+
+  // ====================================================
+  // INIT
+  // ====================================================
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('input[type="checkbox"][data-key]').forEach(box => {
+      box.addEventListener('change', () => {
+        saveProgress();
+        updateProgress();
+      });
+    });
+    loadProgress();
+    loadScorecard();
+  });
+</script>
+</body>
+</html>
