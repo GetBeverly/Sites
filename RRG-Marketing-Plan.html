@@ -427,6 +427,47 @@
   }
   .task input[type="checkbox"]:checked + label .day-tag { color: var(--muted); }
 
+  /* ===== Sub-tab pills (used inside This Week section) ===== */
+  .subtabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    padding: 6px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+  }
+  .subtab {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 12px 16px;
+    cursor: pointer;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--muted);
+    border-radius: 7px;
+    transition: all 0.15s;
+    text-align: center;
+  }
+  .subtab:hover { color: var(--ink); background: #fafaf9; }
+  .subtab.active {
+    background: var(--kw-red);
+    color: #fff;
+  }
+  .subtab .pct {
+    display: inline-block;
+    margin-left: 6px;
+    font-weight: 600;
+    opacity: 0.75;
+    font-size: 11px;
+  }
+  .subtab.active .pct { opacity: 0.9; }
+  .subview { display: none; }
+  .subview.active { display: block; }
+
   /* ===== Progress bar (This Week section) ===== */
   .progress-card {
     background: var(--card);
@@ -909,15 +950,121 @@
 
   <div class="progress-card">
     <div class="progress-label">
-      <span class="label">Overall Progress</span>
+      <span class="label" id="progress-label-text">Build Phase Progress</span>
       <span class="count"><span id="completed-count">0</span> / <span id="total-count">0</span></span>
     </div>
     <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
   </div>
 
-  <h2>This Week's Focus</h2>
+  <div class="subtabs">
+    <button class="subtab active" onclick="switchSubview(event, 'build')">Build Phase <span class="pct" id="pct-build"></span></button>
+    <button class="subtab" onclick="switchSubview(event, 'rhythm')">Ongoing Rhythm <span class="pct" id="pct-rhythm"></span></button>
+  </div>
 
-  <!-- Weekly recurring tasks at steady state -->
+  <!-- ===== BUILD PHASE VIEW ===== -->
+  <div class="subview active" id="subview-build">
+
+  <h2>Build Phase (First 30 Days)</h2>
+  <p style="margin-bottom: 20px; color: var(--muted); font-size: 14px;">Each card below = one week of foundation work. <b>Order within the week doesn't matter</b> as long as it's done before the next week starts. The expired engine officially goes live in Week 2 once the first cohort hits the field.</p>
+
+  <!-- DAY 0 -->
+  <div class="week-card">
+    <div class="week-header">
+      <div class="week-title"><span class="small">Day 0</span>Pre-Launch Setup</div>
+      <div class="week-count" data-week="d0"></div>
+    </div>
+    <div class="task"><input type="checkbox" data-key="b-d0-canva" data-week="d0"><label>Log into canva.kw.com. Confirm access to KW Brand Templates library (hundreds of pre-built templates for Just Listed, Just Sold, Listing Presentations, social posts).</label></div>
+    <div class="task"><input type="checkbox" data-key="b-d0-tools" data-week="d0"><label>Confirm GBP manager access. Verify Google Form scorecard URL works.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-d0-brand" data-week="d0"><label>Capture brand from rinconrealtygroup.com: hex codes for primary/secondary/accent colors, fonts, tagline, logo files, headshot. Build single-page brand reference doc.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-d0-supplies" data-week="d0"><label>Order supplies: quality letterhead paper (500-sheet box, ~$30), 250 #10 envelopes with Rincon return address pre-printed via Vistaprint (~$50), clear plastic door-hanger sleeves (50-count via Amazon, ~$20).</label></div>
+    <div class="task"><input type="checkbox" data-key="b-d0-printer" data-week="d0"><label>Decide print path: home printer or local print shop. Test print one sample letter to confirm quality.</label></div>
+  </div>
+
+  <!-- WEEK 1 -->
+  <div class="week-card">
+    <div class="week-header">
+      <div class="week-title"><span class="small">Week 1</span>Foundation Build</div>
+      <div class="week-count" data-week="w1"></div>
+    </div>
+    <div class="task"><input type="checkbox" data-key="b-w1-command-export" data-week="w1"><label>Export every "CLIENT"-tagged contact from Command into a triage spreadsheet.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w1-har-cadence" data-week="w1"><label>Confirm recurring Sunday-night HAR pull cadence — Al/TC pulls expireds + terminated every Sunday so the cohort is ready Monday.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w1-command-triage" data-week="w1"><label>Triage call with Al: each contact categorized as Closed Past Client / Active Lead / Cold Lead / Database / DNC + A/B/C/D tier.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w1-command-tag" data-week="w1"><label>Apply MREA 2-D tags in Command. Set transaction flags (Future/Immediate Buyer/Seller).</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w1-canva-brand" data-week="w1"><label>In canva.kw.com, set up Rincon Realty Group brand kit: logo, color palette, fonts.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w1-canva-customize" data-week="w1"><label>Customize 8 KW Canva templates with Rincon branding: Just Listed, Just Sold, Under Contract, Sienna Market Update, New Inventory, Testimonial, Local Spotlight, Behind the Deal. Save all to Al's Canva.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w1-qr-page" data-week="w1"><label>Build the QR landing page: form for name/email/phone/address + "Property Value Range Report in 48 hours" headline. Branded with Rincon colors and headshot.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w1-qr-test" data-week="w1"><label>Test QR landing page on mobile. Generate QR code (qr-code-generator.com), save PNG.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w1-narrpr" data-week="w1"><label>Design NARRPR-branded email template (the one Al/TC sends after pulling Property Value Range Report from NARRPR).</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w1-mackin-l1" data-week="w1"><label>Draft Mackin Letter 1 — both fresh (empathy opener) and aged Blue Ocean ("It has been X days since you listed...") versions.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w1-mackin-l2" data-week="w1"><label>Draft Mackin Letter 2 — both versions ("The Biggest Mistake Expired Listings Make").</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w1-mackin-l3-4" data-week="w1"><label>Draft Mackin Letters 3 &amp; 4 — both versions. Letter 4 adds QR + MOFIR ("waive pre-listing photography fee").</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w1-packet-1" data-week="w1"><label><b>Marketability Packet — Page 1 (Cover):</b> Personalized "[Owner Name] — A Diagnostic of Your Listing at [Property Address]" with Al's headshot, RRG branding, QR code on cover.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w1-packet-2" data-week="w1"><label><b>Marketability Packet — Page 2 (Why Homes Don't Sell):</b> The 3 Mackin reasons (price, exposure, presentation) + Tom Ferry's expansion to 7 reasons. Reframes the conversation from "your home failed" to "the marketing failed."</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w1-packet-3" data-week="w1"><label><b>Marketability Packet — Page 3 (10 Essential Marketing Tactics):</b> The list Mackin's letter references ("you're missing 6 of them"). Professional photography, drone aerial, twilight photos, 3D virtual tour, video walk-through, dedicated property website, social media reels, 350+ site syndication, agent database email, just-listed campaigns, broker open house.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w1-packet-4" data-week="w1"><label><b>Marketability Packet — Page 4 (Al's Track Record):</b> Past sales data, years in market, MGA tenure, "Operating Partner at 3 KW market centers." Social proof anchoring credibility.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w1-packet-5" data-week="w1"><label><b>Marketability Packet — Page 5 (What I'd Do Differently for THIS Home):</b> Per-prospect personalized — review their HAR listing, note specific issues (poor photos, no video, weak description, missing virtual tour, etc.), map each to a fix Al would implement.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w1-packet-6" data-week="w1"><label><b>Marketability Packet — Page 6 (Direct CTA + Pre-Relist Checklist):</b> Mackin's "Before You Relist, Do This First" checklist (3 steps: comparable analysis, gap identification, plan creation) + Al's contact info + QR + business card slot.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w1-doordrop-note" data-week="w1"><label>Al hand-writes ONE clean template door-drop note. Scan at high resolution. This becomes the master photocopy template (Beverly hand-writes names on copies before bundling).</label></div>
+  </div>
+
+  <!-- WEEK 2 -->
+  <div class="week-card">
+    <div class="week-header">
+      <div class="week-title"><span class="small">Week 2</span>Engine Goes Live — First Cohort</div>
+      <div class="week-count" data-week="w2"></div>
+    </div>
+    <div class="task"><input type="checkbox" data-key="b-w2-mackin-l5" data-week="w2"><label>Draft Mackin Letter 5 — both versions ("Before You Relist, Do This First"). MOFIR: complimentary marketability audit.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w2-mackin-l6" data-week="w2"><label>Draft Mackin Letter 6 — both versions ("Let's Reimagine How Your Home Is Sold"). Sample marketing plan.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w2-mackin-l7" data-week="w2"><label>Draft Mackin Letter 7 — both versions ("A Lot Has Changed"). MOFIR: include staging consultation.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w2-har1" data-week="w2"><label>Receive first HAR batch. Triage into fresh + aged. Scrub against current MLS status (remove Active/OP/Pending/Recently-Closed). Absentee screen (compare property address vs. owner mailing address). Build first cohort of 10 owner-occupied prospects.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w2-cohort1-personalize" data-week="w2"><label>Personalize Letter 1, door-drop note copies (with handwritten names), and 6-page Marketability Packets for all 10 prospects in Cohort 1.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w2-cohort1-bundle" data-week="w2"><label>Print everything. Bundle for Al: 10 Letter 1's (unsigned) + 10 personalized packets in plastic sleeves + 10 envelopes + Sharpie + delivery tracker.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w2-cohort1-deliver" data-week="w2"><label>Al hand-signs each Letter 1, hand-addresses envelopes, hand-delivers to mailboxes Day 1. Day 3: hand-delivers packets to front doors. ENGINE OFFICIALLY LIVE.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w2-scorecard1" data-week="w2"><label>First weekly scorecard submission.</label></div>
+  </div>
+
+  <!-- WEEK 3 -->
+  <div class="week-card">
+    <div class="week-header">
+      <div class="week-title"><span class="small">Week 3</span>Rhythm Building + Content + Past-Client Email</div>
+      <div class="week-count" data-week="w3"></div>
+    </div>
+    <div class="task"><input type="checkbox" data-key="b-w3-cohort2-har" data-week="w3"><label>Second HAR batch. Triage + scrub + absentee screen. Build Cohort 2 of 10 owner-occupied prospects.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w3-cohort1-l2" data-week="w3"><label>Print + send Letter 2 for Cohort 1 (Day 4 of their sequence). Al signs and mails.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w3-cohort2-launch" data-week="w3"><label>Cohort 2 launches: personalize/print/bundle/Al delivers Letter 1 + packets.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w3-pc-email" data-week="w3"><label>Design first monthly past-client email in Canva. 6-section format with this month's rotating ask. Send to under-100 past-client list.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w3-nurture" data-week="w3"><label>In Command, enroll past clients into Neighborhood Nurture for 6 communities (Sienna, Riverstone, Glendale Lakes, Stonebrook, Steep Bank, Fresno).</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w3-sienna-update" data-week="w3"><label>Design monthly Sienna Market Update post in Canva. Pull HAR data, create the graphic, schedule.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w3-content-schedule" data-week="w3"><label>Schedule the week's 4-5 content posts across FB, IG, LinkedIn, GBP, Command. Use the customized templates from Week 1.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w3-gbp" data-week="w3"><label>Optimize Al's Google Business Profile: 10-15 photos, services list, primary/secondary categories, weekly post added.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w3-farm-list" data-week="w3"><label>Pull mini-farm list: 150 Sienna section + 50 Glendale Lakes + 50 Stonebrook = 250 homes total.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w3-farm-mailer" data-week="w3"><label>Design Q1 mini-farm mailer. One CTA: scan QR for Property Value Range Report.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w3-scorecard2" data-week="w3"><label>Week 2 scorecard submission.</label></div>
+  </div>
+
+  <!-- WEEK 4 -->
+  <div class="week-card">
+    <div class="week-header">
+      <div class="week-title"><span class="small">Week 4</span>Cohort 3 + MGA + 30-Day Debrief Prep</div>
+      <div class="week-count" data-week="w4"></div>
+    </div>
+    <div class="task"><input type="checkbox" data-key="b-w4-cohort3" data-week="w4"><label>Third HAR batch + cohort assembly. Personalize/print/bundle/Al delivers Cohort 3.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w4-cohort1-l3" data-week="w4"><label>Letter 3 for Cohort 1 (Day 8 of their sequence). Letter 2 for Cohort 2 (Day 4 of theirs). Al signs and mails.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w4-mga-deck" data-week="w4"><label>Draft MGA event sponsor solicitation one-pager. Build target sponsor list of 15-20 local Sienna businesses Al could approach for $250-500 sponsorships.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w4-farm-mail" data-week="w4"><label>Mail Q1 mini-farm mailer to 250 homes.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w4-reengage" data-week="w4"><label>Build re-engagement sequence for "Cold Lead" tagged contacts from the Command cleanup.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w4-debrief-prep" data-week="w4"><label>Compile Day-30 debrief data: cohorts in sequence, packets delivered, letters sent, QR submissions, NARRPR reports, appointments set, listings signed, post engagement, email performance. Build presentation.</label></div>
+    <div class="task"><input type="checkbox" data-key="b-w4-debrief-call" data-week="w4"><label>Day-30 debrief call with Al. Decision: continue / refine / extend.</label></div>
+  </div>
+
+  </div><!-- /subview-build -->
+
+  <!-- ===== ONGOING RHYTHM VIEW ===== -->
+  <div class="subview" id="subview-rhythm">
+
+  <h2>Ongoing Weekly Rhythm</h2>
+  <p style="margin-bottom: 20px; color: var(--muted); font-size: 14px;">Each card below = a <b>specific day of the week</b>. The cadence matters more than the order — Monday's HAR pull feeds Tuesday's letter production, Thursday's deliveries kick off the next sequence. ~80 prospects in active sequence at any time, ~2.5 hours/week of Al's time.</p>
+
   <div class="week-card">
     <div class="week-header">
       <div class="week-title"><span class="small">Monday</span>New Cohort Setup</div>
@@ -944,6 +1091,16 @@
 
   <div class="week-card">
     <div class="week-header">
+      <div class="week-title"><span class="small">Wednesday</span>Past-Client + Sphere Touch</div>
+      <div class="week-count" data-week="wed"></div>
+    </div>
+    <div class="task"><input type="checkbox" data-key="wed-pc-replies" data-week="wed"><label>Reply to past-client email replies from this month's send.</label></div>
+    <div class="task"><input type="checkbox" data-key="wed-narrpr" data-week="wed"><label>NARRPR follow-ups — confirm 48-hour delivery on any new QR submissions.</label></div>
+    <div class="task"><input type="checkbox" data-key="wed-birthdays" data-week="wed"><label>Send birthday / housiversary cards to A-tier past clients identified this week.</label></div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header">
       <div class="week-title"><span class="small">Thursday</span>Day-3 Packet Hand-Delivery</div>
       <div class="week-count" data-week="thu"></div>
     </div>
@@ -965,16 +1122,6 @@
 
   <div class="week-card">
     <div class="week-header">
-      <div class="week-title"><span class="small">Wednesday</span>Past-Client + Sphere Touch</div>
-      <div class="week-count" data-week="wed"></div>
-    </div>
-    <div class="task"><input type="checkbox" data-key="wed-pc-replies" data-week="wed"><label>Reply to past-client email replies from this month's send.</label></div>
-    <div class="task"><input type="checkbox" data-key="wed-narrpr" data-week="wed"><label>NARRPR follow-ups — confirm 48-hour delivery on any new QR submissions.</label></div>
-    <div class="task"><input type="checkbox" data-key="wed-birthdays" data-week="wed"><label>Send birthday / housiversary cards to A-tier past clients identified this week.</label></div>
-  </div>
-
-  <div class="week-card">
-    <div class="week-header">
       <div class="week-title"><span class="small">Friday</span>Pipeline Review + Scorecard</div>
       <div class="week-count" data-week="fri"></div>
     </div>
@@ -984,10 +1131,7 @@
     <div class="task"><input type="checkbox" data-key="fri-content-next" data-week="fri"><label>Schedule next week's content posts.</label></div>
   </div>
 
-  <h2>Build Phase Status</h2>
-  <div class="card">
-    <p>Once the foundational build is complete, this section shifts to weekly recurring rhythm above. Build-phase one-time tasks (Canva templates, QR landing page, NARRPR email template, content library, MGA event materials, mini-farm list, monthly past-client email design) are tracked separately in the internal build doc.</p>
-  </div>
+  </div><!-- /subview-rhythm -->
 
 </div>
 </div>
@@ -1123,7 +1267,7 @@
   // ====================================================
   // THIS WEEK - CHECKBOX PROGRESS
   // ====================================================
-  const STORAGE_KEY = 'rrg-thisweek-v1';
+  const STORAGE_KEY = 'rrg-thisweek-v3';
 
   function loadProgress() {
     try {
@@ -1145,16 +1289,61 @@
     localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
   }
 
-  function updateProgress() {
-    const all = document.querySelectorAll('input[type="checkbox"][data-key]');
-    const checked = document.querySelectorAll('input[type="checkbox"][data-key]:checked');
-    document.getElementById('completed-count').textContent = checked.length;
-    document.getElementById('total-count').textContent = all.length;
-    const pct = all.length > 0 ? (checked.length / all.length) * 100 : 0;
-    document.getElementById('progress-fill').style.width = pct + '%';
+  // Which subview is currently active in This Week tab — defaults to 'build'
+  let activeSubview = localStorage.getItem('rrg-active-subview') || 'build';
 
-    // Per-day counts
-    ['mon', 'tue', 'wed', 'thu', 'fri', 'mail'].forEach(d => {
+  function switchSubview(event, name) {
+    document.querySelectorAll('.subtab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.subview').forEach(p => p.classList.remove('active'));
+    if (event && event.target) {
+      event.target.closest('.subtab').classList.add('active');
+    } else {
+      const btn = document.querySelector(`.subtab[onclick*="'${name}'"]`);
+      if (btn) btn.classList.add('active');
+    }
+    document.getElementById('subview-' + name).classList.add('active');
+    activeSubview = name;
+    localStorage.setItem('rrg-active-subview', name);
+    updateProgress();
+  }
+
+  function updateProgress() {
+    // Build-phase tasks have keys starting with 'b-' (b-d0-*, b-w1-*, etc)
+    // Rhythm tasks have keys for mon/tue/wed/thu/fri/mail
+    const buildAll = document.querySelectorAll('#subview-build input[type="checkbox"][data-key]');
+    const buildDone = document.querySelectorAll('#subview-build input[type="checkbox"][data-key]:checked');
+    const rhythmAll = document.querySelectorAll('#subview-rhythm input[type="checkbox"][data-key]');
+    const rhythmDone = document.querySelectorAll('#subview-rhythm input[type="checkbox"][data-key]:checked');
+
+    // Show counts for whichever subview is active
+    const showBuild = activeSubview === 'build';
+    const label = document.getElementById('progress-label-text');
+    const completed = document.getElementById('completed-count');
+    const total = document.getElementById('total-count');
+    const fill = document.getElementById('progress-fill');
+
+    if (showBuild) {
+      label.textContent = 'Build Phase Progress';
+      completed.textContent = buildDone.length;
+      total.textContent = buildAll.length;
+      fill.style.width = (buildAll.length > 0 ? (buildDone.length / buildAll.length) * 100 : 0) + '%';
+    } else {
+      label.textContent = 'Ongoing Rhythm Progress';
+      completed.textContent = rhythmDone.length;
+      total.textContent = rhythmAll.length;
+      fill.style.width = (rhythmAll.length > 0 ? (rhythmDone.length / rhythmAll.length) * 100 : 0) + '%';
+    }
+
+    // Update small percentages on the sub-tab pills
+    const buildPct = buildAll.length > 0 ? Math.round((buildDone.length / buildAll.length) * 100) : 0;
+    const rhythmPct = rhythmAll.length > 0 ? Math.round((rhythmDone.length / rhythmAll.length) * 100) : 0;
+    const buildPctEl = document.getElementById('pct-build');
+    const rhythmPctEl = document.getElementById('pct-rhythm');
+    if (buildPctEl) buildPctEl.textContent = buildPct + '%';
+    if (rhythmPctEl) rhythmPctEl.textContent = rhythmPct + '%';
+
+    // Per-section counts (kept for the card-level counters)
+    ['d0', 'w1', 'w2', 'w3', 'w4', 'mon', 'tue', 'wed', 'thu', 'fri', 'mail'].forEach(d => {
       const dAll = document.querySelectorAll(`input[type="checkbox"][data-week="${d}"]`);
       const dDone = document.querySelectorAll(`input[type="checkbox"][data-week="${d}"]:checked`);
       const counter = document.querySelector(`.week-count[data-week="${d}"]`);
@@ -1319,6 +1508,8 @@
         updateProgress();
       });
     });
+    // Restore last-selected subview
+    switchSubview(null, activeSubview);
     loadProgress();
     loadScorecard();
   });
